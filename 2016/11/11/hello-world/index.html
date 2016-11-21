@@ -1,0 +1,666 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="个人," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="前言一直以来，都梦想着建立自己的博客，但人天性就是懒惰的，直到某一天，发现不知不觉中，从第一次接触谭浩强版《c语言程序设计》到现在，弹指之间整整十年，不得不感慨，人生天地之间，若白驹之过欲，忽然而已… …">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hello World">
+<meta property="og:url" content="http://yoursite.com/2016/11/11/hello-world/index.html">
+<meta property="og:site_name" content="没什么大不了">
+<meta property="og:description" content="前言一直以来，都梦想着建立自己的博客，但人天性就是懒惰的，直到某一天，发现不知不觉中，从第一次接触谭浩强版《c语言程序设计》到现在，弹指之间整整十年，不得不感慨，人生天地之间，若白驹之过欲，忽然而已… …">
+<meta property="og:updated_time" content="2016-11-21T09:43:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hello World">
+<meta name="twitter:description" content="前言一直以来，都梦想着建立自己的博客，但人天性就是懒惰的，直到某一天，发现不知不觉中，从第一次接触谭浩强版《c语言程序设计》到现在，弹指之间整整十年，不得不感慨，人生天地之间，若白驹之过欲，忽然而已… …">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/11/hello-world/"/>
+
+
+
+
+
+  <title> Hello World | 没什么大不了 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-87409931-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">没什么大不了</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">水银泻地 无懈可击</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/11/hello-world/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xuejun">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/icon.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="没什么大不了">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="没什么大不了" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Hello World
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-11T15:16:58+08:00">
+                2016-11-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>一直以来，都梦想着建立自己的博客，但人天性就是懒惰的，直到某一天，发现不知不觉中，从第一次接触谭浩强版《c语言程序设计》到现在，弹指之间整整十年，不得不感慨，人生天地之间，若白驹之过欲，忽然而已… …<br><a id="more"></a></p>
+<h3 id="对个人"><a href="#对个人" class="headerlink" title="对个人"></a>对个人</h3><p>曾经的我，不可一世的认为干好老板交代的事情，用技术做出牛叉的产品，充分证明自己的价值便可，也许这都是很多职业编码人的通病，或者是很多人对程序员很傲娇的切实体会，确实很多的时候，程序员可以在自己的编码中解决所有生活中不能解决的问题，他们可以将各种优越感在编码中彰显地淋漓尽致，对于他们来说这是一片净土，抛离所有烦恼，在编码中任意驰骋… …<br>然，在现在多元化的社会，很多时候，很多情况，人不可能逃离其他人而独自生活，当你没钱生活时，需要向身边信任的人需求生计问题，当你遇到技术问题时，需要寻找比你更专业的人寻求帮助，当你遇到烦恼时，需要他人帮你剖析、倾听… …<br>过去的一年，对个人应该来说，截止今天为止，应该说是工作以来体会最深的一年，也许成长总是要付出种种代价，未来的我也会少些愤怒、少些抱怨、少些高冷、多些从容、多些谦虚、多些微笑… …</p>
+<h3 id="对他人"><a href="#对他人" class="headerlink" title="对他人"></a>对他人</h3><p>已经过去的曾经，很多人找过我帮助，修下电脑，装个系统，分手了一起扯扯淡等等，很多时候，大家会很客气，很礼节性的请吃饭、喝coffee等等，大多时候都被我直接回绝，当然一定时间也为了表现我没那么傲娇或者其他情况，我也接受。对于他人，我只想表明一个观点，其实很多时候我只是举手之劳而已，何足挂齿，也没有傲娇到吃个饭喝个水都不愿意。对于我来讲，一定程度，一方面我很开心能得到你的信任共同面对问题，另一方面其实我也可以学到很多东西，或者有了更好的交际圈，我认为这是无形的资产，如同我毕业了仍然在深大住了三年，如果按照现在我一个月房租1600元／月计算，三年下来我应该给予别人好几万，而事实上好像我并未花什么钱；今年找工作，腾讯，yy，大疆之类的内推也是多年的同学朋友在知悉我准备换工作情况下自愿内推，等等这些并非用钱、用固定的利益可以衡量，或许真诚更重要… …</p>
+<h3 id="对工作"><a href="#对工作" class="headerlink" title="对工作"></a>对工作</h3><p>好好工作… …</p>
+<h3 id="对对象"><a href="#对对象" class="headerlink" title="对对象"></a>对对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Persion *girl = new Person();</div><div class="line">girl.age &gt;= 18 &amp;&amp; &lt; 60;</div><div class="line">girl.body = &quot;一般漂亮&quot; </div><div class="line">girl.character = &quot;知书达理&quot; || “谦虚礼貌”</div><div class="line">girl.hair.color = &quot;黑色”</div><div class="line">......</div></pre></td></tr></table></figure>
+<p>虽然在编码过程中，作为developer的我可以new各种的object，可以根据需求进行各种的属性设置，然而生活中的对象并不是可以随便new一个。<br>当今社会，人们的生活水平已经到了小康水平，年轻人之间讲究的更多的是思想的融合。一个美女遇到一个帅哥，固然大家都开心，随着时间的推移，新鲜感逐渐退去后，可能更多的是思想的交汇，彼此之间能不能一起happy，一起share自己的不快，一起促进彼此进步，能否相互理解，彼此信任可能才是关键，其实有没有相同的价值观，共同的人生观的或许最重要… …</p>
+<h3 id="对创业"><a href="#对创业" class="headerlink" title="对创业"></a>对创业</h3><p>2010年的初夏，凭着满腔热血，写了人生第一次商业计划书，筹建着自己的梦想之路，其实没有核心竞争力，缺乏市场判断，思维混乱等等，可想而知，结果是非常的凄惨。当然那个阶段也是我人生最宝贵的经历，记得临开业的一个月日子里，基本上都是早上5点睡觉，7点便起床，仅仅二三个小时的睡眠时间。这也让我懂得了创业的痛苦，当然也正是这种经历，让我在每份工作更是竭尽全力。所以未来的二三年的时间内，或者未来的很长时间内，如果没有想好的idea，没有核心的technology，不会轻易startup。当然大家可以一起畅谈人生，讲讲故事了，如果不是童话里的，说不定也可以碰出那么一撮火花… …</p>
+<h3 id="对吃喝"><a href="#对吃喝" class="headerlink" title="对吃喝"></a>对吃喝</h3><p>很多人反应我吃饭很傲娇，一般场合都不愿意去吃，或者去了不怎么吃，非也。曾经在某公司时，老板发现他的某同事有个特点，带某同事去吃饭，由于同事从大老远过来，所以特意好酒好肉招待，但是期间发现该同事很少喝酒，本以为不喝，也没有太在意，一天，又在一起喝酒，发现此同事喝酒都是一口干，观察得出结论，此同事不是不喝酒，好酒干一口，劣酒抿一口，所以认为我也是如此，其实不然，我喝酒特看气氛，要么很happy，要么很忧伤才能喝得下，否则肠胃极其不舒服，另外由于肠胃不是很好，或者个人习惯问题，在外面比较喜欢看着别人吃，而自己并不好吃特吃，也并非是傲娇不吃什么云云，如果换成家常菜自然不会客气……</p>
+<h3 id="对技术"><a href="#对技术" class="headerlink" title="对技术"></a>对技术</h3><p>十几年初次接触命令行，感觉计算机技术很厉害，现在依旧是，人生最不后悔的事情，就是大学学的专业与自己毕业后的工作一直是计算机技术，即使下班后，研究下前沿技术依旧是充满斗志，幸福满满，当然大学对经济学、金融学也有极大兴趣… …</p>
+<h3 id="对扯淡"><a href="#对扯淡" class="headerlink" title="对扯淡"></a>对扯淡</h3><p>很多时候，很多人，都一致认同一个观念，就是你们搞技术的人是不是很呆，很难沟通云云。一定程度上，对一些人确实是这样，高中以前，即使没搞技术好像我也是如此，由于自己的不够优秀，所以不敢太多交流。但是大学班长及学生社团经历彻底改变了我，当我不得不去面对很多问题，不得不去解决我所面对的问题时，我学会了沟通，尤其是在深大这种高度开放、自由的氛围下，在专业课之外的各种公选课，让我学会了从不同的角度，用不同的思维思考问题的能力，既能客观的阐述自己的观点，又能让人心悦诚服。记得今年年前跟某VC讲故事时，我竟然从早上10点多到20点半共计10个多小时时间里阐述自己的价值观、人生观，中间只吃了一个晚饭，上了几次厕所，中饭都木有吃，如果不是赶时间回深圳，时间持续更久，虽然梦想着百万级的投资，但遗憾是，并未融资成功。故，对个人来讲，具备一定扯淡能力，但讲故事本身还是欠佳。当然这些都是过去，未来的道路上，这些只是基石而已，今后还有很长的路，也有很多的东西需要学习……</p>
+<h3 id="对社交"><a href="#对社交" class="headerlink" title="对社交"></a>对社交</h3><p>不是很喜欢利用SNS来促进感情，尤其比较反感平时聚餐或者难得聚聚时，每个人时刻看着手机，好像很多人找、很忙一样，个人较喜欢面对面的交流，探讨。过去经常被骂有些孤傲，不回或者没及时回复他人信息，其实之前很多时候我很少时刻拿着手机或者正在编码之中，思考代码结构之时，虽然看了信息，但很容易忽视掉，so如果真有事可直接电话或者多次信息，当然现在会尽量避免这些问题。当然如果未来我能开发出一款大家每天都乐意打开的app，我还是希望多拿着手机，哈哈哈… …</p>
+<h3 id="对过去"><a href="#对过去" class="headerlink" title="对过去"></a>对过去</h3><p>过去的过去，开心不开心，努力不努力，都已成为过去式，既然无法改变，为何要去怀念没有意义的过去… …</p>
+<h3 id="对现在"><a href="#对现在" class="headerlink" title="对现在"></a>对现在</h3><p>努力工作，提高自己技术能力、业务能力的同时，将生活好好进行下去。没事坐在飘窗前，手持一本文学著作，时而端起coffee，时而眺望远方，憧憬未来美好生活</p>
+<h3 id="对未来"><a href="#对未来" class="headerlink" title="对未来"></a>对未来</h3><p>不懈努力后，有了自己的家庭，经济自由，和自己的家人，行走世界各地；如果某一天走不动了，可以回到田园，过着采菊东篱下的桃园生活</p>
+<h3 id="对生活"><a href="#对生活" class="headerlink" title="对生活"></a>对生活</h3><p>努力生活… …</p>
+<h3 id="对有些话"><a href="#对有些话" class="headerlink" title="对有些话"></a>对有些话</h3><p>人只要脾气好，凡事就会好</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/个人/" rel="tag"># 个人</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/20/此时此刻/" rel="prev" title="此时此刻">
+                此时此刻 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/icon.jpg"
+               alt="xuejun" />
+          <p class="site-author-name" itemprop="name">xuejun</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对个人"><span class="nav-number">2.</span> <span class="nav-text">对个人</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对他人"><span class="nav-number">3.</span> <span class="nav-text">对他人</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对工作"><span class="nav-number">4.</span> <span class="nav-text">对工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对对象"><span class="nav-number">5.</span> <span class="nav-text">对对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对创业"><span class="nav-number">6.</span> <span class="nav-text">对创业</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对吃喝"><span class="nav-number">7.</span> <span class="nav-text">对吃喝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对技术"><span class="nav-number">8.</span> <span class="nav-text">对技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对扯淡"><span class="nav-number">9.</span> <span class="nav-text">对扯淡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对社交"><span class="nav-number">10.</span> <span class="nav-text">对社交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对过去"><span class="nav-number">11.</span> <span class="nav-text">对过去</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对现在"><span class="nav-number">12.</span> <span class="nav-text">对现在</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对未来"><span class="nav-number">13.</span> <span class="nav-text">对未来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对生活"><span class="nav-number">14.</span> <span class="nav-text">对生活</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对有些话"><span class="nav-number">15.</span> <span class="nav-text">对有些话</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  Copyright &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="author" itemprop="copyrightHolder">xuejun</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
