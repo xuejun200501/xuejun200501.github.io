@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://nnull.xyz/2016/11/24/让Google收录你的博客/index.html">
 <meta property="og:site_name" content="没什么大不了">
 <meta property="og:description" content="前言博客搭起来自然希望让人能够在百度或者Google中搜索到自己的文章，方便交流，以下便是讲述如何在Google搜索中到自己的文章，由于GitHub屏蔽了百度的爬虫，所以暂时操作无法成功，等那天有空将blog迁移到vps时，再进行配置">
-<meta property="og:updated_time" content="2016-11-25T03:22:30.000Z">
+<meta property="og:updated_time" content="2016-11-25T03:26:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="让Google收录你的博客">
 <meta name="twitter:description" content="前言博客搭起来自然希望让人能够在百度或者Google中搜索到自己的文章，方便交流，以下便是讲述如何在Google搜索中到自己的文章，由于GitHub屏蔽了百度的爬虫，所以暂时操作无法成功，等那天有空将blog迁移到vps时，再进行配置">
@@ -380,8 +380,8 @@
 <p>抓取 —> 站点地图 —> 添加／测试站点地图<br>输入sitemap.xml，点击提交</p>
 </blockquote>
 <h3 id="7、-打开www-google-com输入nnull-xyz（当然这里属于自己的网址）测试，看到自己的网站，便成功了"><a href="#7、-打开www-google-com输入nnull-xyz（当然这里属于自己的网址）测试，看到自己的网站，便成功了" class="headerlink" title="7、 打开www.google.com输入nnull.xyz（当然这里属于自己的网址）测试，看到自己的网站，便成功了"></a>7、 打开www.google.com输入nnull.xyz（当然这里属于自己的网址）测试，看到自己的网站，便成功了</h3><h3 id="8、几天后，我发现Google里还是不能搜索blog，查资料发现还差最后一步，在-Search-Console-中添加自己的网址"><a href="#8、几天后，我发现Google里还是不能搜索blog，查资料发现还差最后一步，在-Search-Console-中添加自己的网址" class="headerlink" title="8、几天后，我发现Google里还是不能搜索blog，查资料发现还差最后一步，在 Search Console 中添加自己的网址"></a>8、几天后，我发现Google里还是不能搜索blog，查资料发现还差最后一步，在<a href="https://www.google.com/webmasters/tools/submit-url?pli=1" target="_blank" rel="external"> Search Console </a>中添加自己的网址</h3><blockquote>
-<p>ps：看了下Google搜索时出现的列表，简单优化了下<br>进入index.swig（路径themes\next\layout），当然我用的是next的主题，其他主题暂时还没有测试过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; &#123;% block title %&#125; &#123;&#123; config.title &#125;&#125; &#123;% endblock %&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
-<p>改成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; &#123;% block title %&#125; &#123;&#123; config.title &#125;&#125; - &#123;&#123; theme.description &#125;&#125; &#123;% endblock %&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+<p>ps：看了下Google搜索时出现的列表，简单优化了下<br>进入index.swig（路径themes\next\layout），当然我用的是next的主题，其他主题暂时还没有测试过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% block title %&#125; &#123;&#123; config.title &#125;&#125; &#123;% endblock %&#125;</div></pre></td></tr></table></figure></p>
+<p>改成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% block title %&#125; &#123;&#123; config.title &#125;&#125; - &#123;&#123; theme.description &#125;&#125; &#123;% endblock %&#125;</div></pre></td></tr></table></figure></p>
 </blockquote>
 
       
