@@ -1,0 +1,683 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="网络,centos,多网卡," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="需求今天公司给到一个服务器，需要将负责的项目部署到服务器上
+相关环境CentOS 6.5服务器，双网卡（eth1, eth2）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS 下多网卡配置">
+<meta property="og:url" content="http://nnull.xyz/2016/12/26/CentOS-下多网卡配置/index.html">
+<meta property="og:site_name" content="没什么大不了">
+<meta property="og:description" content="需求今天公司给到一个服务器，需要将负责的项目部署到服务器上
+相关环境CentOS 6.5服务器，双网卡（eth1, eth2）">
+<meta property="og:updated_time" content="2016-12-28T09:17:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CentOS 下多网卡配置">
+<meta name="twitter:description" content="需求今天公司给到一个服务器，需要将负责的项目部署到服务器上
+相关环境CentOS 6.5服务器，双网卡（eth1, eth2）">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://nnull.xyz/2016/12/26/CentOS-下多网卡配置/"/>
+
+
+
+
+
+  <title> CentOS 下多网卡配置 | 没什么大不了 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-87409931-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?5a64b333ce6ab71a6b3b3141166726ad";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">没什么大不了</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">水银泻地 无懈可击</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2016/12/26/CentOS-下多网卡配置/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xuejun">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/icon.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="没什么大不了">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="没什么大不了" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CentOS 下多网卡配置
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-26T16:24:36+08:00">
+                2016-12-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/technology/" itemprop="url" rel="index">
+                    <span itemprop="name">technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>今天公司给到一个服务器，需要将负责的项目部署到服务器上</p>
+<h2 id="相关环境"><a href="#相关环境" class="headerlink" title="相关环境"></a>相关环境</h2><p>CentOS 6.5服务器，双网卡（eth1, eth2）<br><a id="more"></a></p>
+<h3 id="查看网卡"><a href="#查看网卡" class="headerlink" title="查看网卡"></a>查看网卡</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[root@Meetings ~]# ifconfig</div><div class="line">lo        Link encap:Local Loopback</div><div class="line">          inet addr:127.0.0.1  Mask:255.0.0.0</div><div class="line">          inet6 addr: ::1/128 Scope:Host</div><div class="line">          UP LOOPBACK RUNNING  MTU:16436  Metric:1</div><div class="line">          RX packets:3657 errors:0 dropped:0 overruns:0 frame:0</div><div class="line">          TX packets:3657 errors:0 dropped:0 overruns:0 carrier:0</div><div class="line">          collisions:0 txqueuelen:0</div><div class="line">          RX bytes:1993800 (1.9 MiB)  TX bytes:1993800 (1.9 MiB)</div></pre></td></tr></table></figure>
+<h3 id="添加网卡"><a href="#添加网卡" class="headerlink" title="添加网卡"></a>添加网卡</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@Meetings ~]# ifconfig eth1 up</div><div class="line">[root@Meetings ~]# ifconfig eth2 up</div></pre></td></tr></table></figure>
+<h3 id="配置永久ip地址等"><a href="#配置永久ip地址等" class="headerlink" title="配置永久ip地址等"></a>配置永久ip地址等</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"># 进入到/etc/sysconfig/network-scripts/下进行配置</div><div class="line">[root@Meetings ~]# cd /etc/sysconfig/network-scripts/</div><div class="line"># 查看是否有ifcfg-eth1，ifcfg-eth2文件，如果没有直接新建，添加如下内容</div><div class="line">[root@Meetings network-scripts]# cat ifcfg-eth1</div><div class="line"># 配置eth1网卡</div><div class="line">[root@Meetings network-scripts]# cat ifcfg-eth1</div><div class="line">DEVICE=eth1</div><div class="line">HWADDR=00:22:6D:42:09:01</div><div class="line">TYPE=Ethernet</div><div class="line">ONBOOT=yes</div><div class="line">NM_CONTROLLED=yes</div><div class="line">BOOTPROTO=static</div><div class="line">IPADDR=172.10.50.100</div><div class="line">NETMASK=255.255.255.0</div><div class="line"></div><div class="line"># 配置eth2网卡</div><div class="line">[root@GreenMeetings network-scripts]# cat ifcfg-eth2</div><div class="line">DEVICE=eth2</div><div class="line">HWADDR=00:22:6D:42:09:02</div><div class="line">TYPE=Ethernet</div><div class="line">ONBOOT=yes</div><div class="line">NM_CONTROLLED=yes</div><div class="line">BOOTPROTO=static</div><div class="line">IPADDR=172.11.110.250</div><div class="line">NETMASK=255.255.255.0</div><div class="line">GATEWAY=172.11.110.20</div><div class="line">DNS1=202.96.134.133</div><div class="line">DNS2=180.76.76.76</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注：这里应根据自己的实际情况配置ip，DNS和Gateway等其他信息；同时由于我的网卡是从eth1, eth2开始的，所以应根据实际情况，有些可能是eth0</p>
+</blockquote>
+<h3 id="重启网卡"><a href="#重启网卡" class="headerlink" title="重启网卡"></a>重启网卡</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@Meetings ~]# /etc/init.d/network restart</div><div class="line"># 或者</div><div class="line">[root@Meetings ~]# service network restart</div></pre></td></tr></table></figure>
+<h3 id="查看路由"><a href="#查看路由" class="headerlink" title="查看路由"></a>查看路由</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[root@Meetings ~]# route</div><div class="line">Kernel IP routing table</div><div class="line">Destination     Gateway         Genmask         Flags Metric Ref    Use Iface</div><div class="line">172.11.100.0    *               255.255.255.0   U     0      0        0 eth2</div><div class="line">172.10.50.0     *               255.255.255.0   U     0      0        0 eth1</div><div class="line">link-local      *               255.255.0.0     U     1002   0        0 eth1</div><div class="line">link-local      *               255.255.0.0     U     1003   0        0 eth2</div><div class="line">default         172.11.100.29   0.0.0.0         UG    0      0        0 eth2</div></pre></td></tr></table></figure>
+<h3 id="添加静态路由"><a href="#添加静态路由" class="headerlink" title="添加静态路由"></a>添加静态路由</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@Meetings ~]# route add –net 192.168.2.0/24 gw 172.10.50.200</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注：这里是指定这条路由的出口在哪里，–net 192.168.2.0/24 为制定目标网络的参数，需要ip地址或者地址范围、子网掩码用于确定网络范围。添加一条到达192.168.2.0，指定网络掩码为255.255.255.0，数据包通过网关地址172.10.50.200</p>
+</blockquote>
+<h3 id="添加永久静态路由"><a href="#添加永久静态路由" class="headerlink" title="添加永久静态路由"></a>添加永久静态路由</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 没有static-routes就添加一个文件</div><div class="line"># 添加以下文件，根据实际情况，我们的服务器是通过下面网关管理</div><div class="line"># 就是192.168.2.0网段的机器都可以通过网关172.10.50.200对服务器进行管理</div><div class="line"># 也可以any net 192.168.2.0 netmask 255.255.255.0 dev eth，主要自己的网卡名称</div><div class="line">[root@Meetings ~]# cat /etc/sysconfig/static-routes</div><div class="line">any net 192.168.2.0 netmask 255.255.255.0 gw 172.10.50.200</div></pre></td></tr></table></figure>
+<h3 id="查看设置的静态路由是否成功"><a href="#查看设置的静态路由是否成功" class="headerlink" title="查看设置的静态路由是否成功"></a>查看设置的静态路由是否成功</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#查看刚刚设置的静态路由是否设置成功</div><div class="line">[root@Meetings ~]# route</div><div class="line">Kernel IP routing table</div><div class="line">Destination     Gateway         Genmask         Flags Metric Ref    Use Iface</div><div class="line">192.168.2.0     172.10.50.200   255.255.255.0   UG    0      0        0 eth1</div><div class="line">172.11.100.0    *               255.255.255.0   U     0      0        0 eth2</div><div class="line">172.10.50.0     *               255.255.255.0   U     0      0        0 eth1</div><div class="line">link-local      *               255.255.0.0     U     1002   0        0 eth1</div><div class="line">link-local      *               255.255.0.0     U     1003   0        0 eth2</div><div class="line">default         172.11.100.29   0.0.0.0         UG    0      0        0 eth2</div></pre></td></tr></table></figure>
+<h4 id="注：由于服务器没有安装任何界面，所以所有配置都是通过命令进行配置，而ifconfig，route等都是临时才能进行配置，重启电脑后，ip地址，静态路由等都将清掉，所以如何是持续使用，建议还是操作配置文件"><a href="#注：由于服务器没有安装任何界面，所以所有配置都是通过命令进行配置，而ifconfig，route等都是临时才能进行配置，重启电脑后，ip地址，静态路由等都将清掉，所以如何是持续使用，建议还是操作配置文件" class="headerlink" title="注：由于服务器没有安装任何界面，所以所有配置都是通过命令进行配置，而ifconfig，route等都是临时才能进行配置，重启电脑后，ip地址，静态路由等都将清掉，所以如何是持续使用，建议还是操作配置文件"></a>注：由于服务器没有安装任何界面，所以所有配置都是通过命令进行配置，而ifconfig，route等都是临时才能进行配置，重启电脑后，ip地址，静态路由等都将清掉，所以如何是持续使用，建议还是操作配置文件</h4>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网络/" rel="tag"># 网络</a>
+          
+            <a href="/tags/centos/" rel="tag"># centos</a>
+          
+            <a href="/tags/多网卡/" rel="tag"># 多网卡</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/16/Centos-下搭建FTP服务器/" rel="next" title="Centos 下搭建FTP服务器">
+                <i class="fa fa-chevron-left"></i> Centos 下搭建FTP服务器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/icon.jpg"
+               alt="xuejun" />
+          <p class="site-author-name" itemprop="name">xuejun</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#需求"><span class="nav-number">1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关环境"><span class="nav-number">2.</span> <span class="nav-text">相关环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看网卡"><span class="nav-number">2.1.</span> <span class="nav-text">查看网卡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加网卡"><span class="nav-number">2.2.</span> <span class="nav-text">添加网卡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置永久ip地址等"><span class="nav-number">2.3.</span> <span class="nav-text">配置永久ip地址等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重启网卡"><span class="nav-number">2.4.</span> <span class="nav-text">重启网卡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看路由"><span class="nav-number">2.5.</span> <span class="nav-text">查看路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加静态路由"><span class="nav-number">2.6.</span> <span class="nav-text">添加静态路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加永久静态路由"><span class="nav-number">2.7.</span> <span class="nav-text">添加永久静态路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看设置的静态路由是否成功"><span class="nav-number">2.8.</span> <span class="nav-text">查看设置的静态路由是否成功</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注：由于服务器没有安装任何界面，所以所有配置都是通过命令进行配置，而ifconfig，route等都是临时才能进行配置，重启电脑后，ip地址，静态路由等都将清掉，所以如何是持续使用，建议还是操作配置文件"><span class="nav-number">2.8.1.</span> <span class="nav-text">注：由于服务器没有安装任何界面，所以所有配置都是通过命令进行配置，而ifconfig，route等都是临时才能进行配置，重启电脑后，ip地址，静态路由等都将清掉，所以如何是持续使用，建议还是操作配置文件</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  Copyright &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="author" itemprop="copyrightHolder">xuejun</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

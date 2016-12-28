@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="个人," />
+  <meta name="keywords" content="centos,ftp,技术,Linux," />
 
 
 
@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="此时此刻，喜悦之情溢于言表。过去的烦恼沉浸在编码中，未来的烦恼沉浸在博客中……
-翻阅曾经的过去，第一次书写blog在2007年，转眼间10年一晃而过，按照我用户名的后缀推测，应该是在2005年1月开始注册的email，可谓光阴似箭催人老，光阴如梭赶少年……">
+<meta name="description" content="前言 由于业务需要，在centos 6.5下搭建FTP，用于文件上传
+一、安装vsftpd123456# 查看是否已经安装vsftpdrpm  -qa | grep vsftpd  # 如果执行上面命令后什么都没有，则执行下面命令yum -y install vsftpd开启vsftpdchkconfig vsftpd on">
 <meta property="og:type" content="article">
-<meta property="og:title" content="此时此刻">
-<meta property="og:url" content="http://nnull.xyz/2016/11/21/此时此刻/index.html">
+<meta property="og:title" content="Centos 下搭建FTP服务器">
+<meta property="og:url" content="http://nnull.xyz/2016/12/16/Centos-下搭建FTP服务器/index.html">
 <meta property="og:site_name" content="没什么大不了">
-<meta property="og:description" content="此时此刻，喜悦之情溢于言表。过去的烦恼沉浸在编码中，未来的烦恼沉浸在博客中……
-翻阅曾经的过去，第一次书写blog在2007年，转眼间10年一晃而过，按照我用户名的后缀推测，应该是在2005年1月开始注册的email，可谓光阴似箭催人老，光阴如梭赶少年……">
-<meta property="og:updated_time" content="2016-11-21T09:45:30.000Z">
+<meta property="og:description" content="前言 由于业务需要，在centos 6.5下搭建FTP，用于文件上传
+一、安装vsftpd123456# 查看是否已经安装vsftpdrpm  -qa | grep vsftpd  # 如果执行上面命令后什么都没有，则执行下面命令yum -y install vsftpd开启vsftpdchkconfig vsftpd on">
+<meta property="og:updated_time" content="2016-12-28T09:29:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="此时此刻">
-<meta name="twitter:description" content="此时此刻，喜悦之情溢于言表。过去的烦恼沉浸在编码中，未来的烦恼沉浸在博客中……
-翻阅曾经的过去，第一次书写blog在2007年，转眼间10年一晃而过，按照我用户名的后缀推测，应该是在2005年1月开始注册的email，可谓光阴似箭催人老，光阴如梭赶少年……">
+<meta name="twitter:title" content="Centos 下搭建FTP服务器">
+<meta name="twitter:description" content="前言 由于业务需要，在centos 6.5下搭建FTP，用于文件上传
+一、安装vsftpd123456# 查看是否已经安装vsftpdrpm  -qa | grep vsftpd  # 如果执行上面命令后什么都没有，则执行下面命令yum -y install vsftpd开启vsftpdchkconfig vsftpd on">
 
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://nnull.xyz/2016/11/21/此时此刻/"/>
+  <link rel="canonical" href="http://nnull.xyz/2016/12/16/Centos-下搭建FTP服务器/"/>
 
 
 
 
 
-  <title> 此时此刻 | 没什么大不了 </title>
+  <title> Centos 下搭建FTP服务器 | 没什么大不了 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -280,7 +280,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2016/11/21/此时此刻/">
+  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2016/12/16/Centos-下搭建FTP服务器/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xuejun">
@@ -304,7 +304,7 @@
             
             
               
-                此时此刻
+                Centos 下搭建FTP服务器
               
             
           </h1>
@@ -317,8 +317,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-21T16:37:44+08:00">
-                2016-11-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-16T09:33:53+08:00">
+                2016-12-16
               </time>
             
 
@@ -336,8 +336,8 @@
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
+                  <a href="/categories/technology/" itemprop="url" rel="index">
+                    <span itemprop="name">technology</span>
                   </a>
                 </span>
 
@@ -371,12 +371,44 @@
       
 
       
-        <p>此时此刻，喜悦之情溢于言表。过去的烦恼沉浸在编码中，未来的烦恼沉浸在博客中……</p>
-<p>翻阅曾经的过去，第一次书写blog在2007年，转眼间10年一晃而过，按照我用户名的后缀推测，应该是在2005年1月开始注册的email，可谓光阴似箭催人老，光阴如梭赶少年……<br><a id="more"></a><br>第一次接触编程课程毫无疑问就是c语言程序设计了，好像这是所有大学，不分专业的必修课，极其痛苦，一个学期下来，指针是什么都没有搞清楚，后随着专业课的开始好像就有了c++，课堂作业用过c#做过大作业；在实验室的首次接触项目，开始试手用了css，html，jQuery，javascript，貌似玩了二三个月，后不久第一次真正融入到项目中，使用java写了一个不同用户角色登录的功能，由于不理解编程思想，一个登录写了不下6个if嵌套，现在想想简直惨不忍睹；随着项目的进展，后来某个阶段花了二个多月时间又转入到了android，这也是真正进入职场后吃饭的家伙了；后又鬼使神差被带上了ios的不归路，从此进入ios开发中，其中由于服务器没有招聘到合适的人，为了项目顺利进行，不得不使用php几个月，对接移动端数据；现在的项目需要，好像我接触了几个月的python；目前Apple又开始使用swift 3+了……</p>
-<p>几年的工作下来，回顾下自己的学习情况，接触了html、jQuery、javascript、java、php、objective-c、python、swift等等，但并未发现多厉害，去年的某个时候去一上市公司面试，从技术负责人、项目负责人、技术总监、HR一整个下午全过，临场表现可以用较优秀来形容，等待总部报批，最后结果竟然是未通过，评论是：此人什么都懂，什么都会，一定什么都不精。突然想到一首歌词：多么痛的领悟…….</p>
-<p>确实，学习如此多东西，需要的精力、时间是必不可少的，任何人几乎不可能做到面面俱到，而随着编码年限的增加，越来越明白理论的重要性，有时候，可能做了很多的项目，解决了很多的问题，经验提升了很多，但仅仅得到一个理论知识，相反，如果学好了理论，知其所以然，一个理论知识可以演变成实践中的各种情况，二者之间的时间成本完全不在同一个量级上。现在更多的高级语言，面向对象的思路几乎一样，如果完全懂得面向对象编程的思维，做全栈又有多难，最近也看到更多公司，已开始转向招收全栈工程师……</p>
-<p>未来一二年，将重点投入到理论的学习中，对于计算机原理，数据结构，算法之类等方面深入、积累……</p>
-<p>技术积累 ， 人生沉淀 ， 宁静致远</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p> 由于业务需要，在centos 6.5下搭建FTP，用于文件上传</p>
+<h3 id="一、安装vsftpd"><a href="#一、安装vsftpd" class="headerlink" title="一、安装vsftpd"></a>一、安装vsftpd</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 查看是否已经安装vsftpd</div><div class="line">rpm  -qa | grep vsftpd  </div><div class="line"># 如果执行上面命令后什么都没有，则执行下面命令</div><div class="line">yum -y install vsftpd</div><div class="line">开启vsftpd</div><div class="line">chkconfig vsftpd on</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="二、进行内部测试"><a href="#二、进行内部测试" class="headerlink" title="二、进行内部测试"></a>二、进行内部测试</h3><p> 1、安装ftp客户端<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install ftp</div></pre></td></tr></table></figure></p>
+<p>2、执行命令登陆<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ftp localhost</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注：要记得关闭防火墙<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 即时生效，重启后复原</div><div class="line">service iptables stop</div><div class="line"># 或者，永久生效，不会复原</div><div class="line">chkconfig iptables off</div><div class="line"># 查看是否生效</div><div class="line">/etc/init.d/iptables status</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="三、新建一个用户"><a href="#三、新建一个用户" class="headerlink" title="三、新建一个用户"></a>三、新建一个用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">useradd ftpUser</div><div class="line">passwd ftpUser #输入两次密码，即为ftpUser登录密码</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注：用户add成功后，登陆后的默认路径为/home/ftpUser</p>
+</blockquote>
+<h3 id="四、配置vsftpd服务"><a href="#四、配置vsftpd服务" class="headerlink" title="四、配置vsftpd服务"></a>四、配置vsftpd服务</h3><p>进入/etc/vsftpd/vsftpd.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">anonymous\_enable=NO #进入匿名访问</div><div class="line">chroot\_local\_user=YES</div><div class="line">chroot\_list\_enable=YES</div><div class="line">chroot\_list\_file=/etc/vsftpd/chroot\_list</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>其他具体需求，可以根据实际情况来进行配置，目前我的需求仅仅是为了上传文件，或者文件夹而已</p>
+</blockquote>
+<h3 id="五、出现错误"><a href="#五、出现错误" class="headerlink" title="五、出现错误"></a>五、出现错误</h3><ol>
+<li><p>chroot_list不能读</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">500  OOPS: could not read chroot() list file:/etc/vsftpd/chroot\_list</div><div class="line">500  OOPS: priv\_sock\_get\_result</div><div class="line">远程主机关闭连接</div></pre></td></tr></table></figure>
+</li>
+<li><p>上传的目录不能读</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># ftp\_test为ftp\_test用户下的目录</div><div class="line">500 OOPS: cannot change directory:/home/ftp\_test</div><div class="line">500 OOPS: priv\_sock\_get\_cmd</div><div class="line">远程主机关闭连接</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="六、常见错误解决方法"><a href="#六、常见错误解决方法" class="headerlink" title="六、常见错误解决方法"></a>六、常见错误解决方法</h3><ol>
+<li><p>CentOS系统安装了SELinux，默认下是没有开启FTP的支持，所以会有很多的ftp服务都是被禁止的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 查看</div><div class="line">getsebool -a | grep ftp</div><div class="line"># 设置</div><div class="line">setsebool ftp\_home\_dir 1</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看上传目录的权限（如我的目录为/home/ftp_test_）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ls -al</div><div class="line">drwxrwxrwx. 3 ftp\_test ftp\_test 4096 Dec 14 ftp\_test</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="七、测试上传"><a href="#七、测试上传" class="headerlink" title="七、测试上传"></a>七、测试上传</h3><ol>
+<li><p>windows环境下<br>1) 在文件资源管理器中输入FTP服务器的ip，如”ftp://172.110.100.99”，连接成功后，系统将弹出登陆身份，输入账号密码进行登录<br>2) 也可以在cmd下进行操作，输入”ftp 172.110.100.99”，随后按照提示输入账号密码<br>3) 或者下载软件进行上传了，如FlashFXP</p>
+</li>
+<li><p>linux环境下<br>直接输入ftp 172.110.100.99<br>输入账号密码</p>
+</li>
+</ol>
 
       
     </div>
@@ -400,7 +432,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/个人/" rel="tag"># 个人</a>
+            <a href="/tags/centos/" rel="tag"># centos</a>
+          
+            <a href="/tags/ftp/" rel="tag"># ftp</a>
+          
+            <a href="/tags/技术/" rel="tag"># 技术</a>
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
           
         </div>
       
@@ -409,8 +447,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/11/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2016/11/24/让Google收录你的博客/" rel="next" title="让Google收录你的博客">
+                <i class="fa fa-chevron-left"></i> 让Google收录你的博客
               </a>
             
           </div>
@@ -419,8 +457,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/22/关于本站/" rel="prev" title="关于本站">
-                关于本站 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/26/CentOS-下多网卡配置/" rel="prev" title="CentOS 下多网卡配置">
+                CentOS 下多网卡配置 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -468,8 +506,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/icon.jpg"
@@ -522,6 +569,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、安装vsftpd"><span class="nav-number">2.</span> <span class="nav-text">一、安装vsftpd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、进行内部测试"><span class="nav-number">3.</span> <span class="nav-text">二、进行内部测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、新建一个用户"><span class="nav-number">4.</span> <span class="nav-text">三、新建一个用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、配置vsftpd服务"><span class="nav-number">5.</span> <span class="nav-text">四、配置vsftpd服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、出现错误"><span class="nav-number">6.</span> <span class="nav-text">五、出现错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、常见错误解决方法"><span class="nav-number">7.</span> <span class="nav-text">六、常见错误解决方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七、测试上传"><span class="nav-number">8.</span> <span class="nav-text">七、测试上传</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
