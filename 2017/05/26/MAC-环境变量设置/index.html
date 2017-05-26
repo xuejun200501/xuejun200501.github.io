@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="个人," />
+  <meta name="keywords" content="MAC,PATH," />
 
 
 
@@ -84,19 +84,94 @@
 
 
 
-<meta name="description" content="此时此刻，喜悦之情溢于言表。过去的烦恼沉浸在编码中，未来的烦恼沉浸在博客中……
-翻阅曾经的过去，第一次书写blog在2007年，转眼间10年一晃而过，按照我用户名的后缀推测，应该是在2005年1月开始注册的email，可谓光阴似箭催人老，光阴如梭赶少年……">
+<meta name="description" content="MAC环境变量的配置Mac环境变量位置
+
+
+location
+level
+authority
+
+
+
+
+
+/etc/paths
+系统级
+root
+文件，每一行代表一个环境变量，不建议修改
+
+
+~/.bash_profile
+用户级
+当前用户
+文件，~ 代表当前用户目录，该文件可能不存在，不存在创建一个即可
+
+
+临时变量
+用户级
+用户
+临时变量，仅在当前terminal有效，关闭terminal自动失">
 <meta property="og:type" content="article">
-<meta property="og:title" content="此时此刻">
-<meta property="og:url" content="http://nnull.xyz/2016/11/21/此时此刻/index.html">
+<meta property="og:title" content="MAC 环境变量配置">
+<meta property="og:url" content="http://nnull.xyz/2017/05/26/MAC-环境变量设置/index.html">
 <meta property="og:site_name" content="没什么大不了">
-<meta property="og:description" content="此时此刻，喜悦之情溢于言表。过去的烦恼沉浸在编码中，未来的烦恼沉浸在博客中……
-翻阅曾经的过去，第一次书写blog在2007年，转眼间10年一晃而过，按照我用户名的后缀推测，应该是在2005年1月开始注册的email，可谓光阴似箭催人老，光阴如梭赶少年……">
-<meta property="og:updated_time" content="2016-11-21T09:45:30.000Z">
+<meta property="og:description" content="MAC环境变量的配置Mac环境变量位置
+
+
+location
+level
+authority
+
+
+
+
+
+/etc/paths
+系统级
+root
+文件，每一行代表一个环境变量，不建议修改
+
+
+~/.bash_profile
+用户级
+当前用户
+文件，~ 代表当前用户目录，该文件可能不存在，不存在创建一个即可
+
+
+临时变量
+用户级
+用户
+临时变量，仅在当前terminal有效，关闭terminal自动失">
+<meta property="og:updated_time" content="2017-05-26T03:26:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="此时此刻">
-<meta name="twitter:description" content="此时此刻，喜悦之情溢于言表。过去的烦恼沉浸在编码中，未来的烦恼沉浸在博客中……
-翻阅曾经的过去，第一次书写blog在2007年，转眼间10年一晃而过，按照我用户名的后缀推测，应该是在2005年1月开始注册的email，可谓光阴似箭催人老，光阴如梭赶少年……">
+<meta name="twitter:title" content="MAC 环境变量配置">
+<meta name="twitter:description" content="MAC环境变量的配置Mac环境变量位置
+
+
+location
+level
+authority
+
+
+
+
+
+/etc/paths
+系统级
+root
+文件，每一行代表一个环境变量，不建议修改
+
+
+~/.bash_profile
+用户级
+当前用户
+文件，~ 代表当前用户目录，该文件可能不存在，不存在创建一个即可
+
+
+临时变量
+用户级
+用户
+临时变量，仅在当前terminal有效，关闭terminal自动失">
 
 
 
@@ -124,13 +199,13 @@
 
 
 
-  <link rel="canonical" href="http://nnull.xyz/2016/11/21/此时此刻/"/>
+  <link rel="canonical" href="http://nnull.xyz/2017/05/26/MAC-环境变量设置/"/>
 
 
 
 
 
-  <title> 此时此刻 | 没什么大不了 </title>
+  <title> MAC 环境变量配置 | 没什么大不了 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -280,7 +355,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2016/11/21/此时此刻/">
+  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2017/05/26/MAC-环境变量设置/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xuejun">
@@ -304,7 +379,7 @@
             
             
               
-                此时此刻
+                MAC 环境变量配置
               
             
           </h1>
@@ -317,8 +392,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-21T16:37:44+08:00">
-                2016-11-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-26T10:01:45+08:00">
+                2017-05-26
               </time>
             
 
@@ -336,8 +411,8 @@
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
+                  <a href="/categories/technology/" itemprop="url" rel="index">
+                    <span itemprop="name">technology</span>
                   </a>
                 </span>
 
@@ -371,12 +446,60 @@
       
 
       
-        <p>此时此刻，喜悦之情溢于言表。过去的烦恼沉浸在编码中，未来的烦恼沉浸在博客中……</p>
-<p>翻阅曾经的过去，第一次书写blog在2007年，转眼间10年一晃而过，按照我用户名的后缀推测，应该是在2005年1月开始注册的email，可谓光阴似箭催人老，光阴如梭赶少年……<br><a id="more"></a><br>第一次接触编程课程毫无疑问就是c语言程序设计了，好像这是所有大学，不分专业的必修课，极其痛苦，一个学期下来，指针是什么都没有搞清楚，后随着专业课的开始好像就有了c++，课堂作业用过c#做过大作业；在实验室的首次接触项目，开始试手用了css，html，jQuery，javascript，貌似玩了二三个月，后不久第一次真正融入到项目中，使用java写了一个不同用户角色登录的功能，由于不理解编程思想，一个登录写了不下6个if嵌套，现在想想简直惨不忍睹；随着项目的进展，后来某个阶段花了二个多月时间又转入到了android，这也是真正进入职场后吃饭的家伙了；后又鬼使神差被带上了ios的不归路，从此进入ios开发中，其中由于服务器没有招聘到合适的人，为了项目顺利进行，不得不使用php几个月，对接移动端数据；现在的项目需要，好像我接触了几个月的python；目前Apple又开始使用swift 3+了……</p>
-<p>几年的工作下来，回顾下自己的学习情况，接触了html、jQuery、javascript、java、php、objective-c、python、swift等等，但并未发现多厉害，去年的某个时候去一上市公司面试，从技术负责人、项目负责人、技术总监、HR一整个下午全过，临场表现可以用较优秀来形容，等待总部报批，最后结果竟然是未通过，评论是：此人什么都懂，什么都会，一定什么都不精。突然想到一首歌词：多么痛的领悟…….</p>
-<p>确实，学习如此多东西，需要的精力、时间是必不可少的，任何人几乎不可能做到面面俱到，而随着编码年限的增加，越来越明白理论的重要性，有时候，可能做了很多的项目，解决了很多的问题，经验提升了很多，但仅仅得到一个理论知识，相反，如果学好了理论，知其所以然，一个理论知识可以演变成实践中的各种情况，二者之间的时间成本完全不在同一个量级上。现在更多的高级语言，面向对象的思路几乎一样，如果完全懂得面向对象编程的思维，做全栈又有多难，最近也看到更多公司，已开始转向招收全栈工程师……</p>
-<p>未来一二年，将重点投入到理论的学习中，对于计算机原理，数据结构，算法之类等方面深入、积累……</p>
-<p>技术积累 ， 人生沉淀 ， 宁静致远</p>
+        <h1 id="MAC环境变量的配置"><a href="#MAC环境变量的配置" class="headerlink" title="MAC环境变量的配置"></a>MAC环境变量的配置</h1><h2 id="Mac环境变量位置"><a href="#Mac环境变量位置" class="headerlink" title="Mac环境变量位置"></a>Mac环境变量位置</h2><table>
+<thead>
+<tr>
+<th>location</th>
+<th>level</th>
+<th>authority</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/etc/paths</td>
+<td>系统级</td>
+<td>root</td>
+<td>文件，每一行代表一个环境变量，不建议修改</td>
+</tr>
+<tr>
+<td>~/.bash_profile</td>
+<td>用户级</td>
+<td>当前用户</td>
+<td>文件，~ 代表当前用户目录，该文件可能不存在，不存在创建一个即可</td>
+</tr>
+<tr>
+<td>临时变量</td>
+<td>用户级</td>
+<td>用户</td>
+<td>临时变量，仅在当前terminal有效，关闭terminal自动失效</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p> 注：</p>
+<ol>
+<li>环境变量文件读取顺序：paths -> .bash _profile</li>
+<li>若条命令在 用户级 和 系统级 里面均有，优先执行用户级命令<ol>
+<li>Mac获取root用户，详见<a href="https://support.apple.com/zh-cn/HT204012" title="11233" target="_blank" rel="external"> 地址 </a></li>
+</ol>
+</li>
+</ol>
+</blockquote>
+<h2 id="环境变量设置"><a href="#环境变量设置" class="headerlink" title="环境变量设置"></a>环境变量设置</h2><h3 id="etc-paths"><a href="#etc-paths" class="headerlink" title="/etc/paths"></a>/etc/paths</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/usr/local/bin</div><div class="line">/usr/bin</div><div class="line">/bin</div><div class="line">/usr/sbin</div><div class="line">/sbin</div></pre></td></tr></table></figure>
+<blockquote>
+<p> paths 文件每一行代表一个环境变量</p>
+</blockquote>
+<h3 id="bash-profile-bash-profile"><a href="#bash-profile-bash-profile" class="headerlink" title=".bash_profile(~/.bash_profile)"></a>.bash_profile(~/.bash_profile)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export PATH=$&#123;PATH&#125;:/Users/xuejun/Library/Android/sdk/platform-tools</div><div class="line">export PATH=$&#123;PATH&#125;:/Users/xuejun/Library/Android/sdk/tools</div></pre></td></tr></table></figure>
+<p>该文件格式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export PATH=&lt;path1&gt;:&lt;path2&gt;:&lt;path3&gt;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>export表示定义，各个路径之间用 ：（冒号）分隔</p>
+</blockquote>
+<p>多个路径使用以下格式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">export PATH1＝路径1</div><div class="line">export PATH2＝路径2</div><div class="line">export PATH＝$&#123;PATH&#125;:$&#123;PATH1&#125;:$&#123;PATH2&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="临时变量"><a href="#临时变量" class="headerlink" title="临时变量"></a>临时变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 直接执行</div><div class="line">export PATH=$PATH:变量路径</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如：<code>MacBook-Pro:~ xn$  export PATH=$PATH:~/.composer/vendor/bin</code><br>临时变量关闭terminal就会失效</p>
+</blockquote>
 
       
     </div>
@@ -400,7 +523,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/个人/" rel="tag"># 个人</a>
+            <a href="/tags/MAC/" rel="tag"># MAC</a>
+          
+            <a href="/tags/PATH/" rel="tag"># PATH</a>
           
         </div>
       
@@ -409,8 +534,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/11/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2017/05/12/XAMPP-for-Mac-OS/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -418,10 +543,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/22/关于本站/" rel="prev" title="关于本站">
-                关于本站 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -468,8 +589,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/icon.jpg"
@@ -522,6 +652,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MAC环境变量的配置"><span class="nav-number">1.</span> <span class="nav-text">MAC环境变量的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac环境变量位置"><span class="nav-number">1.1.</span> <span class="nav-text">Mac环境变量位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境变量设置"><span class="nav-number">1.2.</span> <span class="nav-text">环境变量设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#etc-paths"><span class="nav-number">1.2.1.</span> <span class="nav-text">/etc/paths</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bash-profile-bash-profile"><span class="nav-number">1.2.2.</span> <span class="nav-text">.bash_profile(~/.bash_profile)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#临时变量"><span class="nav-number">1.2.3.</span> <span class="nav-text">临时变量</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
