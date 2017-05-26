@@ -92,7 +92,7 @@ VPN服务器环境操作系统： CentOS 6.7双网卡： eth1（内网）, eth2�
 <meta property="og:site_name" content="没什么大不了">
 <meta property="og:description" content="前言到年底了，一年一度的抢票大战又开始了，作为南方去武汉的热点线路，不得不加入其中，最近看了多篇文章，及实践测试，发现今年抢票软件的验证码识别没有以前厉害了，不得已想到自己搭建服务器抢票，服务器搭建后，客户端通过VPN桥接，后使用已有的监控软件……
 VPN服务器环境操作系统： CentOS 6.7双网卡： eth1（内网）, eth2（外网）说明：12345[root@deng ~]# ifcon">
-<meta property="og:updated_time" content="2016-12-30T14:57:10.000Z">
+<meta property="og:updated_time" content="2017-05-26T03:32:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 搭建VPN server端">
 <meta name="twitter:description" content="前言到年底了，一年一度的抢票大战又开始了，作为南方去武汉的热点线路，不得不加入其中，最近看了多篇文章，及实践测试，发现今年抢票软件的验证码识别没有以前厉害了，不得已想到自己搭建服务器抢票，服务器搭建后，客户端通过VPN桥接，后使用已有的监控软件……
@@ -377,7 +377,7 @@ VPN服务器环境操作系统： CentOS 6.7双网卡： eth1（内网）, eth2�
 <p>达到结果：<br>eth1负责VPN客户端的连接，也就是分配IP，eth2负责连接外网，eth2通过路由映射到公网IP：210.39.xx.xx连上互联网</p>
 <h3 id="安装VPN服务器包"><a href="#安装VPN服务器包" class="headerlink" title="安装VPN服务器包"></a>安装VPN服务器包</h3><p>1、安装ppp<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@deng ~]# yum install ppp</div><div class="line"># 查看版本号</div><div class="line">[root@deng ~]# yum list installed ppp</div></pre></td></tr></table></figure></p>
 <p>2、安装pptp<br>方法一:<br><a href="http://poptop.sourceforge.net/yum/stable/packages/" target="_blank" rel="external">http://poptop.sourceforge.net/yum/stable/packages/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 查看版本号</div><div class="line">[root@deng ~]# yum list installed ppp </div><div class="line">ppp 2.4.4——————&gt;pptpd 1.3.4</div><div class="line">ppp 2.4.5——————&gt;pptpd 1.4.0</div></pre></td></tr></table></figure></p>
-<p>方法二 :<br><a href="http://rpm.pbone.net/index.php3/stat/4/idpl/26021844/dir/redhat_el_6/com/pptpd-1.4.0-3.el6.x86_64.rpm.html" target="_blank" rel="external">http://rpm.pbone.net/index.php3/stat/4/idpl/26021844/dir/redhat_el_6/com/pptpd-1.4.0-3.el6.x86_64.rpm.html</a><br>下载pptpd-1.4.0-3.el6.x86_64.rpm</p>
+<p>方法二 :<br><a href="http://rpm.pbone.net/index.php3/stat/4/idpl/26021844/dir/redhat\_el\_6/com/pptpd-1.4.0-3.el6.x86\_64.rpm.html" target="_blank" rel="external">http://rpm.pbone.net/index.php3/stat/4/idpl/26021844/dir/redhat\_el\_6/com/pptpd-1.4.0-3.el6.x86\_64.rpm.html</a><br>下载pptpd-1.4.0-3.el6.x86_64.rpm</p>
 <blockquote>
 <p>注：这里下载要根据自己的情况，查看ppp的版本来确定，通过方法一下载的rpm安装一直有问题，此处我是用方法二下载的包</p>
 </blockquote>
@@ -448,8 +448,8 @@ VPN服务器环境操作系统： CentOS 6.7双网卡： eth1（内网）, eth2�
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/12/XAMPP-for-Mac-OS/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/12/XAMPP-for-Mac-OS/" rel="prev" title="XAMPP for Mac OS">
+                XAMPP for Mac OS <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -535,7 +535,7 @@ VPN服务器环境操作系统： CentOS 6.7双网卡： eth1（内网）, eth2�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
