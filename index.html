@@ -275,6 +275,153 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2017/06/07/Centos-7-添加新用户并授权/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xuejun">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/icon.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="没什么大不了">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="没什么大不了" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/07/Centos-7-添加新用户并授权/" itemprop="url">
+                  Centos 7 添加新用户并授权
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-07T14:59:26+08:00">
+                2017-06-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/technology/" itemprop="url" rel="index">
+                    <span itemprop="name">technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="目的：Centos-7服务器-添加新用户，让其他用户登陆访问"><a href="#目的：Centos-7服务器-添加新用户，让其他用户登陆访问" class="headerlink" title="目的：Centos 7服务器 添加新用户，让其他用户登陆访问"></a>目的：Centos 7服务器 添加新用户，让其他用户登陆访问</h1><h3 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h3><p>添加一个用户名：dql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~] # adduser dql</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注：adducer 与useradd在CentOS下的作用是一样的，但在Ubuntu下有如下区别：</p>
+<ol>
+<li>useradd 创建用户是不会在/home下自动创建与用户名同名的用户目录，而且不会自动选择shell版本，也没密码；用户登陆，需要使用passwd命令修改密码</li>
+<li>adduser 创建用户是会在/home下自动创建与用户名同名的用户目录，系统shell版本，同时在创建时提示输入密码</li>
+<li>userdel 删除用户，但并不会删除相关的目录文件，userdel -r 则删除用户及相关目录</li>
+</ol>
+</blockquote>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/06/07/Centos-7-添加新用户并授权/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2017/05/26/MAC-环境变量设置/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -370,8 +517,7 @@
 
       
         
-          
-            <h1 id="MAC环境变量的配置"><a href="#MAC环境变量的配置" class="headerlink" title="MAC环境变量的配置"></a>MAC环境变量的配置</h1><h2 id="Mac环境变量位置"><a href="#Mac环境变量位置" class="headerlink" title="Mac环境变量位置"></a>Mac环境变量位置</h2><table>
+          <h1 id="MAC环境变量的配置"><a href="#MAC环境变量的配置" class="headerlink" title="MAC环境变量的配置"></a>MAC环境变量的配置</h1><h2 id="Mac环境变量位置"><a href="#Mac环境变量位置" class="headerlink" title="Mac环境变量位置"></a>Mac环境变量位置</h2><table>
 <thead>
 <tr>
 <th>location</th>
@@ -406,25 +552,16 @@
 <ol>
 <li>环境变量文件读取顺序：paths -> .bash _profile</li>
 <li>若条命令在 用户级 和 系统级 里面均有，优先执行用户级命令</li>
-<li>Mac获取root用户，详见<a href="https://support.apple.com/zh-cn/HT204012" target="_blank" rel="external">地址</a></li>
+<li>Mac获取root用户，详见<a href="https://support.apple.com/zh-cn/HT204012">地址</a></li>
 </ol>
 </blockquote>
-<h2 id="环境变量设置"><a href="#环境变量设置" class="headerlink" title="环境变量设置"></a>环境变量设置</h2><h3 id="etc-paths"><a href="#etc-paths" class="headerlink" title="/etc/paths"></a>/etc/paths</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/usr/local/bin</div><div class="line">/usr/bin</div><div class="line">/bin</div><div class="line">/usr/sbin</div><div class="line">/sbin</div></pre></td></tr></table></figure>
-<blockquote>
-<p> paths 文件每一行代表一个环境变量</p>
-</blockquote>
-<h3 id="bash-profile-bash-profile"><a href="#bash-profile-bash-profile" class="headerlink" title=".bash_profile(~/.bash_profile)"></a>.bash_profile(~/.bash_profile)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export PATH=$&#123;PATH&#125;:/Users/xuejun/Library/Android/sdk/platform-tools</div><div class="line">export PATH=$&#123;PATH&#125;:/Users/xuejun/Library/Android/sdk/tools</div></pre></td></tr></table></figure>
-<p>该文件格式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export PATH=&lt;path1&gt;:&lt;path2&gt;:&lt;path3&gt;</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>export表示定义，各个路径之间用 ：（冒号）分隔</p>
-</blockquote>
-<p>多个路径使用以下格式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">export PATH1＝路径1</div><div class="line">export PATH2＝路径2</div><div class="line">export PATH＝$&#123;PATH&#125;:$&#123;PATH1&#125;:$&#123;PATH2&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="临时变量"><a href="#临时变量" class="headerlink" title="临时变量"></a>临时变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 直接执行</div><div class="line">export PATH=$PATH:变量路径</div></pre></td></tr></table></figure>
-<blockquote>
-<p>如：<code>MacBook-Pro:~ xn$  export PATH=$PATH:~/.composer/vendor/bin</code><br>临时变量关闭terminal就会失效</p>
-</blockquote>
-
-          
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/05/26/MAC-环境变量设置/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1573,148 +1710,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2016/11/11/hello-world/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="xuejun">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/icon.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="没什么大不了">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="没什么大不了" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/11/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-11T15:16:58+08:00">
-                2016-11-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>一直以来，都梦想着建立自己的博客，但人天性就是懒惰的，直到某一天，发现不知不觉中，从第一次接触谭浩强版《c语言程序设计》到现在，弹指之间整整十年，不得不感慨，人生天地之间，若白驹之过欲，忽然而已… …<br>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/11/hello-world/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1753,7 +1755,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1770,7 +1772,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

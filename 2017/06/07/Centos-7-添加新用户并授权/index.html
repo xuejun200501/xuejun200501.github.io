@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="XAMPP," />
+  <meta name="keywords" content="Centos,添加新用户," />
 
 
 
@@ -84,16 +84,28 @@
 
 
 
-<meta name="description" content="1、安装完成XAMAPP后提示错误Qingliangs-MacBook-Pro.local proftpd978: error: no valid servers configuredQingliangs-MacBook-Pro.local proftpd978: Fatal: error processing configuration file ‘/Applications/XAMPP/xam">
+<meta name="description" content="目的：Centos 7服务器 添加新用户，让其他用户登陆访问添加用户添加一个用户名：dql1[root@localhost ~] # adduser dql
+
+注：adducer 与useradd在CentOS下的作用是一样的，但在Ubuntu下有如下区别：
+
+useradd 创建用户是不会在/home下自动创建与用户名同名的用户目录，而且不会自动选择shell版本，也没密码；用户登陆，需要使用p">
 <meta property="og:type" content="article">
-<meta property="og:title" content="XAMPP for Mac OS">
-<meta property="og:url" content="http://nnull.xyz/2017/05/12/XAMPP-for-Mac-OS/index.html">
+<meta property="og:title" content="Centos 7 添加新用户并授权">
+<meta property="og:url" content="http://nnull.xyz/2017/06/07/Centos-7-添加新用户并授权/index.html">
 <meta property="og:site_name" content="没什么大不了">
-<meta property="og:description" content="1、安装完成XAMAPP后提示错误Qingliangs-MacBook-Pro.local proftpd978: error: no valid servers configuredQingliangs-MacBook-Pro.local proftpd978: Fatal: error processing configuration file ‘/Applications/XAMPP/xam">
-<meta property="og:updated_time" content="2017-05-26T03:33:14.000Z">
+<meta property="og:description" content="目的：Centos 7服务器 添加新用户，让其他用户登陆访问添加用户添加一个用户名：dql1[root@localhost ~] # adduser dql
+
+注：adducer 与useradd在CentOS下的作用是一样的，但在Ubuntu下有如下区别：
+
+useradd 创建用户是不会在/home下自动创建与用户名同名的用户目录，而且不会自动选择shell版本，也没密码；用户登陆，需要使用p">
+<meta property="og:updated_time" content="2017-06-07T08:16:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XAMPP for Mac OS">
-<meta name="twitter:description" content="1、安装完成XAMAPP后提示错误Qingliangs-MacBook-Pro.local proftpd978: error: no valid servers configuredQingliangs-MacBook-Pro.local proftpd978: Fatal: error processing configuration file ‘/Applications/XAMPP/xam">
+<meta name="twitter:title" content="Centos 7 添加新用户并授权">
+<meta name="twitter:description" content="目的：Centos 7服务器 添加新用户，让其他用户登陆访问添加用户添加一个用户名：dql1[root@localhost ~] # adduser dql
+
+注：adducer 与useradd在CentOS下的作用是一样的，但在Ubuntu下有如下区别：
+
+useradd 创建用户是不会在/home下自动创建与用户名同名的用户目录，而且不会自动选择shell版本，也没密码；用户登陆，需要使用p">
 
 
 
@@ -121,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://nnull.xyz/2017/05/12/XAMPP-for-Mac-OS/"/>
+  <link rel="canonical" href="http://nnull.xyz/2017/06/07/Centos-7-添加新用户并授权/"/>
 
 
 
 
 
-  <title> XAMPP for Mac OS | 没什么大不了 </title>
+  <title> Centos 7 添加新用户并授权 | 没什么大不了 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -277,7 +289,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2017/05/12/XAMPP-for-Mac-OS/">
+  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2017/06/07/Centos-7-添加新用户并授权/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xuejun">
@@ -301,7 +313,7 @@
             
             
               
-                XAMPP for Mac OS
+                Centos 7 添加新用户并授权
               
             
           </h1>
@@ -314,8 +326,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-12T11:24:46+08:00">
-                2017-05-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-07T14:59:26+08:00">
+                2017-06-07
               </time>
             
 
@@ -368,7 +380,27 @@
       
 
       
-        <p>1、安装完成XAMAPP后提示错误<br>Qingliangs-MacBook-Pro.local proftpd<a href="">978</a>: error: no valid servers configured<br>Qingliangs-MacBook-Pro.local proftpd<a href="">978</a>: Fatal: error processing configuration file ‘/Applications/XAMPP/xamppfiles/etc/proftpd.conf’<br>解决：查看本地的apache是否启动，关闭本地apache便可</p>
+        <h1 id="目的：Centos-7服务器-添加新用户，让其他用户登陆访问"><a href="#目的：Centos-7服务器-添加新用户，让其他用户登陆访问" class="headerlink" title="目的：Centos 7服务器 添加新用户，让其他用户登陆访问"></a>目的：Centos 7服务器 添加新用户，让其他用户登陆访问</h1><h3 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h3><p>添加一个用户名：dql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~] # adduser dql</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注：adducer 与useradd在CentOS下的作用是一样的，但在Ubuntu下有如下区别：</p>
+<ol>
+<li>useradd 创建用户是不会在/home下自动创建与用户名同名的用户目录，而且不会自动选择shell版本，也没密码；用户登陆，需要使用passwd命令修改密码</li>
+<li>adduser 创建用户是会在/home下自动创建与用户名同名的用户目录，系统shell版本，同时在创建时提示输入密码</li>
+<li>userdel 删除用户，但并不会删除相关的目录文件，userdel -r 则删除用户及相关目录</li>
+</ol>
+</blockquote>
+<a id="more"></a>
+<h3 id="设置密码"><a href="#设置密码" class="headerlink" title="设置密码"></a>设置密码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~] # passwd dql</div><div class="line">Changing password for user dql.</div><div class="line">New password: </div><div class="line">Retype new password: </div><div class="line">passwd: all authentication tokens updated successfully.</div></pre></td></tr></table></figure>
+<h3 id="授权该用户"><a href="#授权该用户" class="headerlink" title="授权该用户"></a>授权该用户</h3><p>授权管理是在sudoers文件下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# sudoers</div><div class="line">-bash: sudoers: command not found</div><div class="line">[root@localhost ~]# whereis sudoers</div><div class="line">sudoers: /etc/sudoers /etc/sudoers.d /usr/libexec/sudoers.so /usr/share/man/man5/sudoers.5.gz</div></pre></td></tr></table></figure></p>
+<p>找到这个文件位置之后再查看权限：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# ls -l /etc/sudoers</div><div class="line">-r--r-----. 1 root root 4188 Jul  7  2015 /etc/sudoers</div></pre></td></tr></table></figure></p>
+<p>该文件为只读文件，添加w权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# chmod -v u+w /etc/sudoers</div><div class="line">mode of ‘/etc/sudoers’ changed from 0440 (r--r-----) to 0640 (rw-r-----)</div><div class="line">[root@localhost ~]# ls -l /etc/sudoers</div><div class="line">-rw-r-----. 1 root root 4188 Jul  7  2015 /etc/sudoers</div></pre></td></tr></table></figure></p>
+<p>在/etc/sudoers文件中添加新用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# vim  /etc/sudoers</div><div class="line">## Allow root to run any commands anywher</div><div class="line">root    ALL=(ALL)       ALL  </div><div class="line">dql     ALL=(ALL)       ALL</div></pre></td></tr></table></figure></p>
+<p>改回原权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# chmod -v u-w /etc/sudoers</div><div class="line">mode of ‘/etc/sudoers’ changed from 0640 (rw-r-----) to 0440 (r--r-----)</div><div class="line">[root@localhost ~]# ls -l /etc/sudoers</div><div class="line">-r--r-----. 1 root root 4216 Jun  7 15:50 /etc/sudoers</div></pre></td></tr></table></figure></p>
+<p>切换用户，第一次是用sudo将看到以下提示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# su dql</div><div class="line">[dql@localhost root]$ sudo cat /etc/passwd</div><div class="line"></div><div class="line">We trust you have received the usual lecture from the local System</div><div class="line">Administrator. It usually boils down to these three things:</div><div class="line"></div><div class="line">    #1) Respect the privacy of others.</div><div class="line">    #2) Think before you type.</div><div class="line">    #3) With great power comes great responsibility.</div><div class="line"></div><div class="line">[sudo] password for dql:</div></pre></td></tr></table></figure></p>
+<h3 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# cat /etc/passwd | grep -v /sbin/nologin |cut -d : -f 1</div><div class="line">root</div><div class="line">sync</div><div class="line">shutdown</div><div class="line">halt</div><div class="line">amandabackup</div><div class="line">postgres</div><div class="line">dql</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注：cut 命令从文件的每一行剪切字节、字符和字段，并将这些字节、字符和字段至标准输出；-f与-d一起使用，指定显示哪个区域，-d：自定义分隔符。</p>
+</blockquote>
 
       
     </div>
@@ -392,7 +424,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/XAMPP/" rel="tag"># XAMPP</a>
+            <a href="/tags/Centos/" rel="tag"># Centos</a>
+          
+            <a href="/tags/添加新用户/" rel="tag"># 添加新用户</a>
           
         </div>
       
@@ -401,8 +435,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/29/CentOS-搭建VPN-server端/" rel="next" title="CentOS 搭建VPN server端">
-                <i class="fa fa-chevron-left"></i> CentOS 搭建VPN server端
+              <a href="/2017/05/26/MAC-环境变量设置/" rel="next" title="MAC 环境变量配置">
+                <i class="fa fa-chevron-left"></i> MAC 环境变量配置
               </a>
             
           </div>
@@ -410,10 +444,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/26/MAC-环境变量设置/" rel="prev" title="MAC 环境变量配置">
-                MAC 环境变量配置 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -460,8 +490,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/icon.jpg"
@@ -514,6 +553,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#目的：Centos-7服务器-添加新用户，让其他用户登陆访问"><span class="nav-number">1.</span> <span class="nav-text">目的：Centos 7服务器 添加新用户，让其他用户登陆访问</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加用户"><span class="nav-number">1.0.1.</span> <span class="nav-text">添加用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置密码"><span class="nav-number">1.0.2.</span> <span class="nav-text">设置密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#授权该用户"><span class="nav-number">1.0.3.</span> <span class="nav-text">授权该用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关命令"><span class="nav-number">1.0.4.</span> <span class="nav-text">相关命令</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
