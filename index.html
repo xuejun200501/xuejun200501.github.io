@@ -301,7 +301,7 @@
               
                 
                 <a class="post-title-link" href="/2017/06/09/Apache配置中遇到相关问题/" itemprop="url">
-                  Untitled
+                  Apache配置中遇到相关问题
                 </a>
               
             
@@ -315,7 +315,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-09T10:03:55+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-09T09:41:57+08:00">
                 2017-06-09
               </time>
             
@@ -325,6 +325,24 @@
             
           </span>
 
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/technology/" itemprop="url" rel="index">
+                    <span itemprop="name">technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -353,16 +371,7 @@
       
         
           
-            <hr>
-<p>title: Apache配置中遇到相关问题<br>date: 2017-06-09 09:41:57<br>categories:</p>
-<ul>
-<li>technology<br>tags:</li>
-<li>Centos</li>
-<li>Apache</li>
-<li>Permission denied</li>
-<li>make_sock</li>
-</ul>
-<h3 id="Apache配置端口时提示错误"><a href="#Apache配置端口时提示错误" class="headerlink" title="Apache配置端口时提示错误"></a>Apache配置端口时提示错误</h3><h4 id="错误提示"><a href="#错误提示" class="headerlink" title="错误提示"></a>错误提示</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">[dql@localhost conf]$ systemctl restart httpd.service</div><div class="line">==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===</div><div class="line">Authentication is required to manage system services or units.</div><div class="line">Authenticating as: root</div><div class="line">Password:</div><div class="line">==== AUTHENTICATION COMPLETE ===</div><div class="line">Job for httpd.service failed because the control process exited with error code. See &quot;systemctl status httpd.service&quot; and &quot;journalctl -xe&quot; for details.</div><div class="line">[dql@localhost conf]$ su root</div><div class="line">Password:</div><div class="line">ABRT has detected 1 problem(s). For more info run: abrt-cli list --since 1496827584</div><div class="line">[root@localhost conf]# systemctl start httpd.service</div><div class="line">Job for httpd.service failed because the control process exited with error code. See &quot;systemctl status httpd.service&quot; and &quot;journalctl -xe&quot; for details.</div><div class="line">[root@localhost conf]# systemctl status httpd.service</div><div class="line">   httpd.service - The Apache HTTP Server</div><div class="line">   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)</div><div class="line">   Active: failed (Result: exit-code) since Thu 2017-06-08 11:16:09 HKT; 26s ago</div><div class="line">     Docs: man:httpd(8)</div><div class="line">           man:apachectl(8)</div><div class="line">  Process: 51284 ExecStop=/bin/kill -WINCH $&#123;MAINPID&#125; (code=exited, status=1/FAILURE)</div><div class="line">  Process: 51282 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)</div><div class="line"> Main PID: 51282 (code=exited, status=1/FAILURE)</div><div class="line"></div><div class="line">Jun 08 11:16:09 localhost.localdomain httpd[51282]: (13)Permission denied: AH00072: make_sock: could...890</div><div class="line">Jun 08 11:16:09 localhost.localdomain httpd[51282]: (13)Permission denied: AH00072: make_sock: could...890</div><div class="line">Jun 08 11:16:09 localhost.localdomain httpd[51282]: no listening sockets available, shutting down</div><div class="line">Jun 08 11:16:09 localhost.localdomain httpd[51282]: AH00015: Unable to open logs</div><div class="line">Jun 08 11:16:09 localhost.localdomain systemd[1]: httpd.service: main process exited, code=exited, s...URE</div><div class="line">Jun 08 11:16:09 localhost.localdomain kill[51284]: kill: cannot find process &quot;&quot;</div><div class="line">Jun 08 11:16:09 localhost.localdomain systemd[1]: httpd.service: control process exited, code=exited...s=1</div><div class="line">Jun 08 11:16:09 localhost.localdomain systemd[1]: Failed to start The Apache HTTP Server.</div><div class="line">Jun 08 11:16:09 localhost.localdomain systemd[1]: Unit httpd.service entered failed state.</div><div class="line">Jun 08 11:16:09 localhost.localdomain systemd[1]: httpd.service failed.</div><div class="line">Hint: Some lines were ellipsized, use -l to show in full.</div></pre></td></tr></table></figure>
+            <h3 id="Apache配置端口时提示错误"><a href="#Apache配置端口时提示错误" class="headerlink" title="Apache配置端口时提示错误"></a>Apache配置端口时提示错误</h3><h4 id="错误提示"><a href="#错误提示" class="headerlink" title="错误提示"></a>错误提示</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">[dql@localhost conf]$ systemctl restart httpd.service</div><div class="line">==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===</div><div class="line">Authentication is required to manage system services or units.</div><div class="line">Authenticating as: root</div><div class="line">Password:</div><div class="line">==== AUTHENTICATION COMPLETE ===</div><div class="line">Job for httpd.service failed because the control process exited with error code. See &quot;systemctl status httpd.service&quot; and &quot;journalctl -xe&quot; for details.</div><div class="line">[dql@localhost conf]$ su root</div><div class="line">Password:</div><div class="line">ABRT has detected 1 problem(s). For more info run: abrt-cli list --since 1496827584</div><div class="line">[root@localhost conf]# systemctl start httpd.service</div><div class="line">Job for httpd.service failed because the control process exited with error code. See &quot;systemctl status httpd.service&quot; and &quot;journalctl -xe&quot; for details.</div><div class="line">[root@localhost conf]# systemctl status httpd.service</div><div class="line">   httpd.service - The Apache HTTP Server</div><div class="line">   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)</div><div class="line">   Active: failed (Result: exit-code) since Thu 2017-06-08 11:16:09 HKT; 26s ago</div><div class="line">     Docs: man:httpd(8)</div><div class="line">           man:apachectl(8)</div><div class="line">  Process: 51284 ExecStop=/bin/kill -WINCH $&#123;MAINPID&#125; (code=exited, status=1/FAILURE)</div><div class="line">  Process: 51282 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)</div><div class="line"> Main PID: 51282 (code=exited, status=1/FAILURE)</div><div class="line"></div><div class="line">Jun 08 11:16:09 localhost.localdomain httpd[51282]: (13)Permission denied: AH00072: make_sock: could...890</div><div class="line">Jun 08 11:16:09 localhost.localdomain httpd[51282]: (13)Permission denied: AH00072: make_sock: could...890</div><div class="line">Jun 08 11:16:09 localhost.localdomain httpd[51282]: no listening sockets available, shutting down</div><div class="line">Jun 08 11:16:09 localhost.localdomain httpd[51282]: AH00015: Unable to open logs</div><div class="line">Jun 08 11:16:09 localhost.localdomain systemd[1]: httpd.service: main process exited, code=exited, s...URE</div><div class="line">Jun 08 11:16:09 localhost.localdomain kill[51284]: kill: cannot find process &quot;&quot;</div><div class="line">Jun 08 11:16:09 localhost.localdomain systemd[1]: httpd.service: control process exited, code=exited...s=1</div><div class="line">Jun 08 11:16:09 localhost.localdomain systemd[1]: Failed to start The Apache HTTP Server.</div><div class="line">Jun 08 11:16:09 localhost.localdomain systemd[1]: Unit httpd.service entered failed state.</div><div class="line">Jun 08 11:16:09 localhost.localdomain systemd[1]: httpd.service failed.</div><div class="line">Hint: Some lines were ellipsized, use -l to show in full.</div></pre></td></tr></table></figure>
 <h4 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">[root@localhost conf]# sudo systemctl start httpd.service</div><div class="line">[root@localhost conf]# sudo systemctl status httpd.service</div><div class="line">   httpd.service - The Apache HTTP Server</div><div class="line">   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)</div><div class="line">   Active: active (running) since Fri 2017-06-09 08:56:42 HKT; 8s ago</div><div class="line">     Docs: man:httpd(8)</div><div class="line">           man:apachectl(8)</div><div class="line"> Main PID: 31078 (httpd)</div><div class="line">   Status: &quot;Processing requests...&quot;</div><div class="line">   CGroup: /system.slice/httpd.service</div><div class="line">           |-----31078 /usr/sbin/httpd -DFOREGROUND</div><div class="line">           |-----31079 /usr/sbin/httpd -DFOREGROUND</div><div class="line">           |-----31080 /usr/sbin/httpd -DFOREGROUND</div><div class="line">           |-----31081 /usr/sbin/httpd -DFOREGROUND</div><div class="line">           |-----31082 /usr/sbin/httpd -DFOREGROUND</div><div class="line">           |-----31083 /usr/sbin/httpd -DFOREGROUND</div><div class="line"></div><div class="line">Jun 09 08:56:42 localhost.localdomain systemd[1]: Starting The Apache HTTP Server...</div><div class="line">Jun 09 08:56:42 localhost.localdomain systemd[1]: Started The Apache HTTP Server.</div><div class="line">[root@localhost conf]#</div></pre></td></tr></table></figure>
 <h3 id="问题分析："><a href="#问题分析：" class="headerlink" title="问题分析："></a>问题分析：</h3><p>对于修改apache的端口号后，需要使用sudo进行绑定，否则会提示权限不够，哪怕使用root用户都不行。</p>
 
@@ -1760,7 +1769,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
