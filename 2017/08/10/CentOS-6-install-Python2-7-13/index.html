@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Centos,添加新用户," />
+  <meta name="keywords" content="Centos,Python,2.7," />
 
 
 
@@ -84,28 +84,22 @@
 
 
 
-<meta name="description" content="目的：Centos 7服务器 添加新用户，让其他用户登陆访问添加用户添加一个用户名：dql1[root@localhost ~] # adduser dql
-
-注：adducer 与useradd在CentOS下的作用是一样的，但在Ubuntu下有如下区别：
-
-useradd 创建用户是不会在/home下自动创建与用户名同名的用户目录，而且不会自动选择shell版本，也没密码；用户登陆，需要使用p">
+<meta name="description" content="前言买了一个VPS，安装了centos 6.9，但自带Python2.6，在使用时会提示一些错误，现需要升级Python2.7，目前最新的为Python2.6.13
+查看当前系统中的 Python 版本12[root@host ~]# python -VPython 2.6.6
+检查 CentOS 版本12[root@host ~]# cat /etc/redhat-release CentOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Centos 7 添加新用户并授权">
-<meta property="og:url" content="http://nnull.xyz/2017/06/07/Centos-7-添加新用户并授权/index.html">
+<meta property="og:title" content="CentOS 6 install Python2.7.13">
+<meta property="og:url" content="http://nnull.xyz/2017/08/10/CentOS-6-install-Python2-7-13/index.html">
 <meta property="og:site_name" content="没什么大不了">
-<meta property="og:description" content="目的：Centos 7服务器 添加新用户，让其他用户登陆访问添加用户添加一个用户名：dql1[root@localhost ~] # adduser dql
-
-注：adducer 与useradd在CentOS下的作用是一样的，但在Ubuntu下有如下区别：
-
-useradd 创建用户是不会在/home下自动创建与用户名同名的用户目录，而且不会自动选择shell版本，也没密码；用户登陆，需要使用p">
-<meta property="og:updated_time" content="2017-06-07T08:16:05.000Z">
+<meta property="og:description" content="前言买了一个VPS，安装了centos 6.9，但自带Python2.6，在使用时会提示一些错误，现需要升级Python2.7，目前最新的为Python2.6.13
+查看当前系统中的 Python 版本12[root@host ~]# python -VPython 2.6.6
+检查 CentOS 版本12[root@host ~]# cat /etc/redhat-release CentOS">
+<meta property="og:updated_time" content="2017-08-10T06:32:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Centos 7 添加新用户并授权">
-<meta name="twitter:description" content="目的：Centos 7服务器 添加新用户，让其他用户登陆访问添加用户添加一个用户名：dql1[root@localhost ~] # adduser dql
-
-注：adducer 与useradd在CentOS下的作用是一样的，但在Ubuntu下有如下区别：
-
-useradd 创建用户是不会在/home下自动创建与用户名同名的用户目录，而且不会自动选择shell版本，也没密码；用户登陆，需要使用p">
+<meta name="twitter:title" content="CentOS 6 install Python2.7.13">
+<meta name="twitter:description" content="前言买了一个VPS，安装了centos 6.9，但自带Python2.6，在使用时会提示一些错误，现需要升级Python2.7，目前最新的为Python2.6.13
+查看当前系统中的 Python 版本12[root@host ~]# python -VPython 2.6.6
+检查 CentOS 版本12[root@host ~]# cat /etc/redhat-release CentOS">
 
 
 
@@ -133,13 +127,13 @@ useradd 创建用户是不会在/home下自动创建与用户名同名的用户�
 
 
 
-  <link rel="canonical" href="http://nnull.xyz/2017/06/07/Centos-7-添加新用户并授权/"/>
+  <link rel="canonical" href="http://nnull.xyz/2017/08/10/CentOS-6-install-Python2-7-13/"/>
 
 
 
 
 
-  <title> Centos 7 添加新用户并授权 | 没什么大不了 </title>
+  <title> CentOS 6 install Python2.7.13 | 没什么大不了 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -289,7 +283,7 @@ useradd 创建用户是不会在/home下自动创建与用户名同名的用户�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2017/06/07/Centos-7-添加新用户并授权/">
+  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2017/08/10/CentOS-6-install-Python2-7-13/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xuejun">
@@ -313,7 +307,7 @@ useradd 创建用户是不会在/home下自动创建与用户名同名的用户�
             
             
               
-                Centos 7 添加新用户并授权
+                CentOS 6 install Python2.7.13
               
             
           </h1>
@@ -326,8 +320,8 @@ useradd 创建用户是不会在/home下自动创建与用户名同名的用户�
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-07T14:59:26+08:00">
-                2017-06-07
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-10T11:26:24+08:00">
+                2017-08-10
               </time>
             
 
@@ -380,27 +374,19 @@ useradd 创建用户是不会在/home下自动创建与用户名同名的用户�
       
 
       
-        <h1 id="目的：Centos-7服务器-添加新用户，让其他用户登陆访问"><a href="#目的：Centos-7服务器-添加新用户，让其他用户登陆访问" class="headerlink" title="目的：Centos 7服务器 添加新用户，让其他用户登陆访问"></a>目的：Centos 7服务器 添加新用户，让其他用户登陆访问</h1><h3 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h3><p>添加一个用户名：dql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~] # adduser dql</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>注：adducer 与useradd在CentOS下的作用是一样的，但在Ubuntu下有如下区别：</p>
-<ol>
-<li>useradd 创建用户是不会在/home下自动创建与用户名同名的用户目录，而且不会自动选择shell版本，也没密码；用户登陆，需要使用passwd命令修改密码</li>
-<li>adduser 创建用户是会在/home下自动创建与用户名同名的用户目录，系统shell版本，同时在创建时提示输入密码</li>
-<li>userdel 删除用户，但并不会删除相关的目录文件，userdel -r 则删除用户及相关目录</li>
-</ol>
-</blockquote>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>买了一个VPS，安装了centos 6.9，但自带Python2.6，在使用时会提示一些错误，现需要升级Python2.7，目前最新的为Python2.6.13</p>
+<h3 id="查看当前系统中的-Python-版本"><a href="#查看当前系统中的-Python-版本" class="headerlink" title="查看当前系统中的 Python 版本"></a>查看当前系统中的 Python 版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@host ~]# python -V</div><div class="line">Python 2.6.6</div></pre></td></tr></table></figure>
+<h3 id="检查-CentOS-版本"><a href="#检查-CentOS-版本" class="headerlink" title="检查 CentOS 版本"></a>检查 CentOS 版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@host ~]# cat /etc/redhat-release </div><div class="line">CentOS release 6.9 (Final)</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<h3 id="设置密码"><a href="#设置密码" class="headerlink" title="设置密码"></a>设置密码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~] # passwd dql</div><div class="line">Changing password for user dql.</div><div class="line">New password: </div><div class="line">Retype new password: </div><div class="line">passwd: all authentication tokens updated successfully.</div></pre></td></tr></table></figure>
-<h3 id="授权该用户"><a href="#授权该用户" class="headerlink" title="授权该用户"></a>授权该用户</h3><p>授权管理是在sudoers文件下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# sudoers</div><div class="line">-bash: sudoers: command not found</div><div class="line">[root@localhost ~]# whereis sudoers</div><div class="line">sudoers: /etc/sudoers /etc/sudoers.d /usr/libexec/sudoers.so /usr/share/man/man5/sudoers.5.gz</div></pre></td></tr></table></figure></p>
-<p>找到这个文件位置之后再查看权限：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# ls -l /etc/sudoers</div><div class="line">-r--r-----. 1 root root 4188 Jul  7  2015 /etc/sudoers</div></pre></td></tr></table></figure></p>
-<p>该文件为只读文件，添加w权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# chmod -v u+w /etc/sudoers</div><div class="line">mode of ‘/etc/sudoers’ changed from 0440 (r--r-----) to 0640 (rw-r-----)</div><div class="line">[root@localhost ~]# ls -l /etc/sudoers</div><div class="line">-rw-r-----. 1 root root 4188 Jul  7  2015 /etc/sudoers</div></pre></td></tr></table></figure></p>
-<p>在/etc/sudoers文件中添加新用户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# vim  /etc/sudoers</div><div class="line">## Allow root to run any commands anywher</div><div class="line">root    ALL=(ALL)       ALL  </div><div class="line">dql     ALL=(ALL)       ALL</div></pre></td></tr></table></figure></p>
-<p>改回原权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# chmod -v u-w /etc/sudoers</div><div class="line">mode of ‘/etc/sudoers’ changed from 0640 (rw-r-----) to 0440 (r--r-----)</div><div class="line">[root@localhost ~]# ls -l /etc/sudoers</div><div class="line">-r--r-----. 1 root root 4216 Jun  7 15:50 /etc/sudoers</div></pre></td></tr></table></figure></p>
-<p>切换用户，第一次是用sudo将看到以下提示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# su dql</div><div class="line">[dql@localhost root]$ sudo cat /etc/passwd</div><div class="line"></div><div class="line">We trust you have received the usual lecture from the local System</div><div class="line">Administrator. It usually boils down to these three things:</div><div class="line"></div><div class="line">    #1) Respect the privacy of others.</div><div class="line">    #2) Think before you type.</div><div class="line">    #3) With great power comes great responsibility.</div><div class="line"></div><div class="line">[sudo] password for dql:</div></pre></td></tr></table></figure></p>
-<h3 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# cat /etc/passwd | grep -v /sbin/nologin |cut -d : -f 1</div><div class="line">root</div><div class="line">sync</div><div class="line">shutdown</div><div class="line">halt</div><div class="line">amandabackup</div><div class="line">postgres</div><div class="line">dql</div></pre></td></tr></table></figure>
-<blockquote>
-<p>注：cut 命令从文件的每一行剪切字节、字符和字段，并将这些字节、字符和字段至标准输出；-f与-d一起使用，指定显示哪个区域，-d：自定义分隔符。</p>
-</blockquote>
+<h3 id="安装开发工具包"><a href="#安装开发工具包" class="headerlink" title="安装开发工具包"></a>安装开发工具包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@host ~]# yum groupinstall -y &quot;Development tools&quot;</div></pre></td></tr></table></figure>
+<h3 id="安装其它的必需包"><a href="#安装其它的必需包" class="headerlink" title="安装其它的必需包"></a>安装其它的必需包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@host ~]# yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel</div></pre></td></tr></table></figure>
+<h3 id="安装wget"><a href="#安装wget" class="headerlink" title="安装wget"></a>安装wget</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@host ~]# yum -y install wget</div></pre></td></tr></table></figure>
+<h3 id="下载、编译和安装-Python-2-7-13"><a href="#下载、编译和安装-Python-2-7-13" class="headerlink" title="下载、编译和安装 Python 2.7.13"></a>下载、编译和安装 Python 2.7.13</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@host ~]# wget https://www.python.org/ftp/python/2.7.13/Python-2.7.13.tgz</div><div class="line">[root@host ~]# tar zxf Python-2.7.13.tgz</div><div class="line">[root@host ~]# cd Python-2.7.13</div><div class="line">[root@host Python-2.7.13]# ./configure</div><div class="line">[root@host Python-2.7.13]# make &amp;&amp; make install</div></pre></td></tr></table></figure>
+<h3 id="默认-Python-2-7-13-会安装在-usr-local-bin-目录下"><a href="#默认-Python-2-7-13-会安装在-usr-local-bin-目录下" class="headerlink" title="默认 Python 2.7.13 会安装在 /usr/local/bin 目录下"></a>默认 Python 2.7.13 会安装在 /usr/local/bin 目录下</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[root@host ~]# ll -tr /usr/local/bin/python*</div><div class="line">-rwxr-xr-x 1 root root 6261528 Aug  9 23:06 /usr/local/bin/python2.7</div><div class="line">-rwxr-xr-x 1 root root    1687 Aug  9 23:06 /usr/local/bin/python2.7-config</div><div class="line">lrwxrwxrwx 1 root root       7 Aug  9 23:06 /usr/local/bin/python -&gt; python2</div><div class="line">lrwxrwxrwx 1 root root       9 Aug  9 23:06 /usr/local/bin/python2 -&gt; python2.7</div><div class="line">lrwxrwxrwx 1 root root      16 Aug  9 23:06 /usr/local/bin/python2-config -&gt; python2.7-config</div><div class="line">lrwxrwxrwx 1 root root      14 Aug  9 23:06 /usr/local/bin/python-config -&gt; python2-config</div></pre></td></tr></table></figure>
+<h3 id="系统自带的-Python-是在-usr-bin-目录下"><a href="#系统自带的-Python-是在-usr-bin-目录下" class="headerlink" title="系统自带的 Python 是在 /usr/bin 目录下"></a>系统自带的 Python 是在 /usr/bin 目录下</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@host ~]# ll -tr /usr/bin/python*</div><div class="line">-rwxr-xr-x 2 root root 4864 Aug 18  2016 /usr/bin/python2.6</div><div class="line">-rwxr-xr-x 2 root root 4864 Aug 18  2016 /usr/bin/python</div><div class="line">lrwxrwxrwx 1 root root    6 Aug  9 05:08 /usr/bin/python2 -&gt; python</div></pre></td></tr></table></figure>
+<h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@host Python-2.7.13]# python --version</div><div class="line">Python 2.7.13</div></pre></td></tr></table></figure>
+<h3 id="安装-setuptools"><a href="#安装-setuptools" class="headerlink" title="安装 setuptools"></a>安装 setuptools</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@host Python-2.7.13]# wget https://bootstrap.pypa.io/ez_setup.py -O - | python</div></pre></td></tr></table></figure>
+<h3 id="安装-pip"><a href="#安装-pip" class="headerlink" title="安装 pip"></a>安装 pip</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@host Python-2.7.13]# easy_install pip</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -426,7 +412,9 @@ useradd 创建用户是不会在/home下自动创建与用户名同名的用户�
           
             <a href="/tags/Centos/" rel="tag"># Centos</a>
           
-            <a href="/tags/添加新用户/" rel="tag"># 添加新用户</a>
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/2-7/" rel="tag"># 2.7</a>
           
         </div>
       
@@ -435,8 +423,8 @@ useradd 创建用户是不会在/home下自动创建与用户名同名的用户�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/26/MAC-环境变量设置/" rel="next" title="MAC 环境变量配置">
-                <i class="fa fa-chevron-left"></i> MAC 环境变量配置
+              <a href="/2017/06/09/Apache配置中遇到相关问题/" rel="next" title="Apache配置中遇到相关问题">
+                <i class="fa fa-chevron-left"></i> Apache配置中遇到相关问题
               </a>
             
           </div>
@@ -444,10 +432,6 @@ useradd 创建用户是不会在/home下自动创建与用户名同名的用户�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/09/Apache配置中遇到相关问题/" rel="prev" title="Apache配置中遇到相关问题">
-                Apache配置中遇到相关问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -567,7 +551,7 @@ useradd 创建用户是不会在/home下自动创建与用户名同名的用户�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#目的：Centos-7服务器-添加新用户，让其他用户登陆访问"><span class="nav-number">1.</span> <span class="nav-text">目的：Centos 7服务器 添加新用户，让其他用户登陆访问</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加用户"><span class="nav-number">1.0.1.</span> <span class="nav-text">添加用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置密码"><span class="nav-number">1.0.2.</span> <span class="nav-text">设置密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#授权该用户"><span class="nav-number">1.0.3.</span> <span class="nav-text">授权该用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关命令"><span class="nav-number">1.0.4.</span> <span class="nav-text">相关命令</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看当前系统中的-Python-版本"><span class="nav-number">1.0.1.</span> <span class="nav-text">查看当前系统中的 Python 版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查-CentOS-版本"><span class="nav-number">1.0.2.</span> <span class="nav-text">检查 CentOS 版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装开发工具包"><span class="nav-number">1.0.3.</span> <span class="nav-text">安装开发工具包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装其它的必需包"><span class="nav-number">1.0.4.</span> <span class="nav-text">安装其它的必需包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装wget"><span class="nav-number">1.0.5.</span> <span class="nav-text">安装wget</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载、编译和安装-Python-2-7-13"><span class="nav-number">1.0.6.</span> <span class="nav-text">下载、编译和安装 Python 2.7.13</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认-Python-2-7-13-会安装在-usr-local-bin-目录下"><span class="nav-number">1.0.7.</span> <span class="nav-text">默认 Python 2.7.13 会安装在 /usr/local/bin 目录下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统自带的-Python-是在-usr-bin-目录下"><span class="nav-number">1.0.8.</span> <span class="nav-text">系统自带的 Python 是在 /usr/bin 目录下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看"><span class="nav-number">1.0.9.</span> <span class="nav-text">查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-setuptools"><span class="nav-number">1.0.10.</span> <span class="nav-text">安装 setuptools</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-pip"><span class="nav-number">1.0.11.</span> <span class="nav-text">安装 pip</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
