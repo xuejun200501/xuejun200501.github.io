@@ -352,22 +352,19 @@
 
       
         
-          
-            <h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><p>CentOS 7.4</p>
+          <h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><p>CentOS 7.4</p>
 <h3 id="服务器端配置"><a href="#服务器端配置" class="headerlink" title="服务器端配置"></a>服务器端配置</h3><h4 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# yum install git</div></pre></td></tr></table></figure>
 <blockquote>
 <p>如果没有ssh，使用yum install ssh安装</p>
 </blockquote>
 <h4 id="创建用户，创建一个操作系统用户-git，并为其建立一个-ssh-目录"><a href="#创建用户，创建一个操作系统用户-git，并为其建立一个-ssh-目录" class="headerlink" title="创建用户，创建一个操作系统用户 git，并为其建立一个 .ssh 目录"></a>创建用户，创建一个操作系统用户 git，并为其建立一个 .ssh 目录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# adduser git</div><div class="line">[root@localhost ~]# su git</div><div class="line">[git@localhost root]# cd</div><div class="line">[git@localhost ~]# mkdir .ssh &amp;&amp; chmod 700 .ssh</div><div class="line">[root@localhost ~]# touch .ssh/authorized_keys &amp;&amp; chmod 600 .ssh/authorized_keys</div></pre></td></tr></table></figure>
-<h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// 生成ssh公钥</div><div class="line">Q-MacBook-Pro:~ xuejun$ ssh-keygen -t rsa</div><div class="line">// 查看公钥位置</div><div class="line">Q-MacBook-Pro: xuejun$ cd /.ssh/</div><div class="line">id_rsa		id_rsa.pub	known_hosts</div><div class="line">Q-MacBook-Pro:~ xuejun$ cat id_rsa.pub </div><div class="line">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCB007n/ww+ouN4gSLKssMxXnBOvf9LGt4L</div><div class="line">ojG6rs6hPB09j9R/T17/x4lhJA0F3FR1rP6kYBRsWj2aThGw6HXLm9/5zytK6Ztg3RPKK+4k</div><div class="line">Yjh6541NYsnEAZuXz0jTTyAUfrtU3Z5E003C4oxOj6H0rfIF1kKI9MAQLMdpGW1GYEIgS9Ez</div><div class="line">Sdfd8AcCIicTDWbqLAcU4UpkaX8KyGlLwsNuuGztobF8m72ALC/nLF6JLtPofwFBlgc+myiv</div><div class="line">O7TCUSBdLQlgMVOFq1I2uPWQOkOWQAHukEOmfjy2jctxSDBQ220ymjaNsHT4kgtZg2AYYgPq</div><div class="line">dAv8JggJICUvax2T9va5 gsg-keypair</div></pre></td></tr></table></figure>
-<h4 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h4><h5 id="将客户端公钥复制到-tmp-id-rsa-dql-pub"><a href="#将客户端公钥复制到-tmp-id-rsa-dql-pub" class="headerlink" title="将客户端公钥复制到/tmp/id_rsa.dql.pub"></a>将客户端公钥复制到/tmp/id_rsa.dql.pub</h5><h5 id="将这些公钥加入系统用户-git-的-ssh-目录下-authorized-keys-文件的末尾："><a href="#将这些公钥加入系统用户-git-的-ssh-目录下-authorized-keys-文件的末尾：" class="headerlink" title="将这些公钥加入系统用户 git 的 .ssh 目录下 authorized_keys 文件的末尾："></a>将这些公钥加入系统用户 git 的 .ssh 目录下 authorized_keys 文件的末尾：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[git@localhost ~]# cat /tmp/id_rsa.dql.pub &gt;&gt; ~/.ssh/authorized_keys</div></pre></td></tr></table></figure>
-<h5 id="现在我们来为开发者新建一个空仓库。可以借助带-–bare-选项的-git-init-命令来做到这一点，该命令在初始化仓库时不会创建工作目录"><a href="#现在我们来为开发者新建一个空仓库。可以借助带-–bare-选项的-git-init-命令来做到这一点，该命令在初始化仓库时不会创建工作目录" class="headerlink" title="现在我们来为开发者新建一个空仓库。可以借助带 –bare 选项的 git init 命令来做到这一点，该命令在初始化仓库时不会创建工作目录"></a>现在我们来为开发者新建一个空仓库。可以借助带 –bare 选项的 git init 命令来做到这一点，该命令在初始化仓库时不会创建工作目录</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[git@localhost ~]# cat /tmp/id_rsa.dql.pub &gt;&gt; ~/.ssh/authorized_keys</div><div class="line">[git@localhost ~]# mkdir project.git</div><div class="line">[git@localhost ~]# cd project.git</div><div class="line">[git@localhost ~]# git init --bare</div><div class="line">Initialized empty Git repository in /opt/git/project.git/</div></pre></td></tr></table></figure>
-<h4 id="可能错误"><a href="#可能错误" class="headerlink" title="可能错误"></a>可能错误</h4><h5 id="1、SSH连接远程服务器（Linux-Centos）以及出现问题解决"><a href="#1、SSH连接远程服务器（Linux-Centos）以及出现问题解决" class="headerlink" title="1、SSH连接远程服务器（Linux-Centos）以及出现问题解决"></a>1、SSH连接远程服务器（Linux-Centos）以及出现问题解决</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]#  ssh root@39.104.1.33</div><div class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</div><div class="line">@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @</div><div class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</div><div class="line">IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!</div><div class="line">Someone could be eavesdropping on you right now (man-in-the-middle attack)!</div><div class="line">It is also possible that a host key has just been changed.</div><div class="line">The fingerprint for the ECDSA key sent by the remote host is</div><div class="line">SHA256:x4AR+0efxXpLKt+rc6B6Hn5j4n7wx9rKhZA3wMNzuSc.</div><div class="line">Please contact your system administrator.</div><div class="line">Add correct host key in /Users/xuejun/.ssh/known_hosts to get rid of this message.</div><div class="line">Offending ECDSA key in /Users/xuejun/.ssh/known_hosts:1</div><div class="line">ECDSA host key for 39.104.14.32 has changed and you have requested strict checking.</div><div class="line">Host key verification failed.</div></pre></td></tr></table></figure>
-<blockquote>
-<p>解决办法：rm /.ssh/knownhosts</p>
-</blockquote>
-
-          
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/03/20/搭建Git服务器/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -481,15 +478,15 @@
 
       
         
-          
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>MariaDB数据库管理系统是MySQL的一个分支，主要由开源社区在维护，采用GPL授权许可 MariaDB的目的是完全兼容MySQL，包括API和命令行，使之能轻松成为MySQL的代替品。CentOS 7 已使用了 MariaDB 替代了默认的 MySQL。</p>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>MariaDB数据库管理系统是MySQL的一个分支，主要由开源社区在维护，采用GPL授权许可 MariaDB的目的是完全兼容MySQL，包括API和命令行，使之能轻松成为MySQL的代替品。CentOS 7 已使用了 MariaDB 替代了默认的 MySQL。</p>
 <h3 id="搜索-MariaDB-现有的包"><a href="#搜索-MariaDB-现有的包" class="headerlink" title="搜索 MariaDB 现有的包"></a>搜索 MariaDB 现有的包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# rpm -qa | grep mariadb</div><div class="line">mariadb-devel-5.5.56-2.el7.x86_64</div><div class="line">mariadb-libs-5.5.56-2.el7.x86_64</div><div class="line">mariadb-5.5.56-2.el7.x86_64</div><div class="line">mariadb-server-5.5.56-2.el7.x86_64</div></pre></td></tr></table></figure>
-<h3 id="移除MariaDB"><a href="#移除MariaDB" class="headerlink" title="移除MariaDB"></a>移除MariaDB</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# yum remove mysql mysql-server mysql-libs compat-mysql51</div></pre></td></tr></table></figure>
-<h3 id="再次MariaDB"><a href="#再次MariaDB" class="headerlink" title="再次MariaDB"></a>再次MariaDB</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# rpm -qa | grep mariadb</div></pre></td></tr></table></figure>
-<h3 id="安装-创建MariaDB-repo文件"><a href="#安装-创建MariaDB-repo文件" class="headerlink" title="安装, 创建MariaDB.repo文件"></a>安装, 创建MariaDB.repo文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# vi /etc/yum.repos.d/MariaDB.repo</div><div class="line">插入以下内容：</div><div class="line"># MariaDB 10.2 CentOS repository list - created 2018-03-08 09:28 UTC</div><div class="line"># http://downloads.mariadb.org/mariadb/repositories/</div><div class="line">[mariadb]</div><div class="line">name = MariaDB</div><div class="line">baseurl = http://yum.mariadb.org/10.2/centos7-amd64</div><div class="line">gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB</div><div class="line">gpgcheck=1</div><div class="line">#(系统及版本选择：https://downloads.mariadb.org/mariadb/repositories/#mirror=tuna)</div></pre></td></tr></table></figure>
-<h3 id="运行安装命令安装MariaDB"><a href="#运行安装命令安装MariaDB" class="headerlink" title="运行安装命令安装MariaDB"></a>运行安装命令安装MariaDB</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# yum -y install MariaDB-server MariaDB-client</div><div class="line">Loaded plugins: fastestmirror</div></pre></td></tr></table></figure>
-
-          
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/03/08/CentOS-7下安装MariaDB/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -750,76 +747,16 @@
 
       
         
-          
-            <h2 id="定义"><a href="#定义" class="headerlink" title="定义:"></a>定义:</h2><p>最短路径问题是图论研究中的一个经典算法问题，旨在寻找图（由结点和路径组成的）中两结点之间的最短路径。</p>
+          <h2 id="定义"><a href="#定义" class="headerlink" title="定义:"></a>定义:</h2><p>最短路径问题是图论研究中的一个经典算法问题，旨在寻找图（由结点和路径组成的）中两结点之间的最短路径。</p>
 <blockquote><p>In graph theory, the shortest path problem is the problem of finding a path between two vertices (or nodes) in a graph such that the sum of the weights of its constituent edges is minimized.</p>
-<footer><strong>Wikipedia</strong><cite><a href="https://en.wikipedia.org/wiki/Shortest\_path\_problem" target="_blank" rel="external">Shortest path problem</a></cite></footer></blockquote>
-<h2 id="最短路径算法"><a href="#最短路径算法" class="headerlink" title="最短路径算法:"></a>最短路径算法:</h2><p>用于解决最短路径问题的算法被称做“最短路径算法”，有时被简称作“路径算法”</p>
-<h2 id="常用的路径算法"><a href="#常用的路径算法" class="headerlink" title="常用的路径算法:"></a>常用的路径算法:</h2><ol>
-<li>Dijkstra算法</li>
-<li>Floyd-Warshall算法</li>
-</ol>
-<h2 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识:"></a>背景知识:</h2><ol>
-<li>动态规划</li>
-<li>贪心</li>
-<li>数学归纳法</li>
-<li>图(有向图/无向图)</li>
-<li>广度优先搜索</li>
-</ol>
-<h3 id="背景知识介绍"><a href="#背景知识介绍" class="headerlink" title="背景知识介绍"></a>背景知识介绍</h3><h4 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h4><p>动态规划(DP)是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。<br>动态规划常常适用于有重叠子问题和最优子结构性质的问题，动态规划方法所耗时间往往远少于朴素解法。</p>
-<blockquote>
-<p><img src="/2018/01/01/Shortest-path-problem/fangqi_01.jpg" alt=""><br>动态规划术语</p>
-<ol>
-<li>阶段：把问题分成几个相互联系的有顺序的几个环节，这些环节即称为阶段。</li>
-<li>状态：某一阶段的出发位置称为状态。通常一个阶段包含若干状态。如图1中，阶段3就有三个状态结点4、5、6。</li>
-<li>决策：从某阶段的一个状态演变到下一个阶段某状态的选择。</li>
-<li>策略：由开始到终点的全过程中，由每段决策组成的决策序列称为全过程策略，简称策略。</li>
-<li>状态转移方程：前一阶段的终点就是后一阶段的起点，前一阶段的决策选择导出了后一阶段的状态，这种关系描述了由k阶段到k+1阶段状态的演变规律，称为状态转移方程。</li>
-<li>目标函数与最优化概念：目标函数是衡量多阶段决策过程优劣的准则。最优化概念是在一定条件下找到一个途径，经过按题目具体性质所确定的运算以后，使全过程的总效益达到最优。<br><a href="https://wenku.baidu.com/view/b46936fb941ea76e58fa0496.html" title="方奇论文" target="_blank" rel="external">以上定义出自方奇论文</a></li>
-</ol>
-</blockquote>
-<blockquote><p>Dynamic programming algorithms are often used for optimization.</p>
-<footer><strong>Wikipedia</strong><cite><a href="https://en.wikipedia.org/wiki/Dynamic\_programming" target="_blank" rel="external">Dynamic programming</a></cite></footer></blockquote>
-<h4 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h4><p>贪心算法（又称贪婪算法）是指，在对问题求解时，总是做出在当前看来是最好的选择。也就是说，不从整体最优上加以考虑，他所做出的是在某种意义上的局部最优解。<br>贪心算法与动态规划的不同在于它对每个子问题的解决方案都做出选择，不能回退。动态规划则会保存以前的运算结果，并根据以前的结果对当前进行选择，有回退功能。<br>贪心法可以解决一些最优化问题，如：求图中的最小生成树、求哈夫曼编码……对于其他问题，贪心法一般不能得到我们所要求的答案。一旦一个问题可以通过贪心法来解决，那么贪心法一般是解决这个问题的最好办法。由于贪心法的高效性以及其所求得的答案比较接近最优结果，贪心法也可以用作辅助算法或者直接解决一些要求结果不特别精确的问题。<br><blockquote><footer><strong>Wikipedia</strong><cite><a href="https://en.wikipedia.org/wiki/Greedy\_algorithm" target="_blank" rel="external">Greedy algorithm</a></cite></footer></blockquote></p>
-<h4 id="数学归纳法"><a href="#数学归纳法" class="headerlink" title="数学归纳法"></a>数学归纳法</h4><p>数学归纳法（Mathematical Induction、MI、ID）是一种数学证明方法，通常被用于证明某个给定命题在整个（或者局部）自然数范围内成立。<br>最简单和常见的数学归纳法是证明当n等于任意一个自然数时某命题成立。证明分下面两步：</p>
-<blockquote>
-<ol>
-<li>证明当n = 1时命题成立。</li>
-<li>证明如果在n = m时命题成立，那么可以推导出在n = m+1时命题也成立。（m代表任意自然数）</li>
-</ol>
-</blockquote>
-<p>这种方法的原理在于：首先证明在某个起点值时命题成立，然后证明从一个值到下一个值的过程有效。当这两点都已经证明，那么任意值都可以通过反复使用这个方法推导出来。把这个方法想成多米诺效应也许更容易理解一些。例如：你有一列很长的直立着的多米诺骨牌，如果你可以：</p>
-<blockquote>
-<ol>
-<li>证明第一张骨牌会倒。</li>
-<li>证明只要任意一张骨牌倒了，那么与其相邻的下一张骨牌也会倒。<br>那么便可以下结论：所有的骨牌都会倒下。</li>
-</ol>
-</blockquote>
-<blockquote><footer><strong>Wikipedia</strong><cite><a href="https://en.wikipedia.org/wiki/Mathematical\_induction" target="_blank" rel="external">Mathematical induction</a></cite></footer></blockquote>
-<h4 id="图"><a href="#图" class="headerlink" title="图"></a>图</h4><p>在数学上，一个图(Graph)是表示物件与物件之间的关系的方法，是图论的基本研究对象。一个图看起来是由一些小圆点(称为顶点或结点)和连结这些圆点的直线或曲线(称为边)组成的。<br>图又有各种变体，包括简单图/多重图;有向图/无向图等。<br><blockquote><p>有向图/无向图<br>如果给图的每条边规定一个方向，那么得到的图称为有向图，其边也称为有向边。在有向图中，与一个节点相关联的边有出边和入边之分，而与一个有向边关联的两个点也有始点和终点之分。相反，边没有方向的图称为无向图。</p>
-<footer><strong>Wikipedia</strong><cite><a href="https://en.wikipedia.org/wiki/Graph\_(abstract\_data\_type)" target="_blank" rel="external">Graph</a></cite></footer></blockquote></p>
-<h4 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h4><p>图的遍历方法有深度优先搜索法和广度（宽度）优先搜索法。</p>
-<ol>
-<li>深度优先搜索法(DFS)<br>是树的先根遍历的推广，它的基本思想是：从图G的某个顶点v0出发，访问v0，然后选择一个与v0相邻且没被访问过的顶点vi访问，再从vi出发选择一个与vi相邻且未被访问的顶点vj进行访问，依次继续。如果当前被访问过的顶点的所有邻接顶点都已被访问，则退回到已被访问的顶点序列中最后一个拥有未被访问的相邻顶点的顶点w，从w出发按同样的方法向前遍历，直到图中所有顶点都被访问。</li>
-<li>广度优先搜索(BFS)<br>是树的按层次遍历的推广，它的基本思想是：首先访问初始点vi，并将其标记为已访问过，接着访问vi的所有未被访问过的邻接点vi1,vi2,…, vi t，并均标记已访问过，然后再按照vi1,vi2,…, vi t的次序，访问每一个顶点的所有未被访问过的邻接点，并均标记为已访问过，依次类推，直到图中所有和初始点vi有路径相通的顶点都被访问过为止。</li>
-</ol>
-<h3 id="相互之间联系"><a href="#相互之间联系" class="headerlink" title="相互之间联系"></a>相互之间联系</h3><p>贪心是一种特殊的动态规划，动态规划的本质是独立的子问题，而贪心则是每次可以找到最优的独立子问题。<br>贪心和动态规划不是互斥的，而是包含的，贪心更快，但约束更强，适应范围更小。<br>动态规划和广度优先搜索的关系也是一样的。</p>
-<p> 动态规划的状态转移函数，可以抽象成这样一种函数：</p>
-<blockquote>
-<p>f(x)=g(f(x1), f(x2), f(x3), … f(xn))</p>
-</blockquote>
-<p> 贪心函数：</p>
-<blockquote>
-<p>f(xi) >= f(x1|x2|…|xn)</p>
-</blockquote>
-<p>  标准的bfs</p>
-<blockquote>
-<p>f(x)=g(f(x1), f(x2), f(x3), … f(xn))</p>
-</blockquote>
-<h2 id="Dijkstra算法"><a href="#Dijkstra算法" class="headerlink" title="Dijkstra算法"></a>Dijkstra算法</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p>迪科斯特拉算法使用了广度优先搜索解决赋权有向图的单源最短路径问题。该算法常用于路由算法或者作为其他图算法的一个子模块。举例来说，如果图中的顶点表示城市，而边上的权重表示城市间开车行经的距离，该演算法可以用来找到两个城市之间的最短路径。<br><img src="/2018/01/01/Shortest-path-problem/Dijkstra_Animation.gif" alt=""></p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>这个算法是通过为每个顶点 v 保留目前为止所找到的从s到v的最短路径来工作的。初始时，原点 s 的路径权重被赋为 0 （d[s] = 0）。若对于顶点 s 存在能直接到达的边（s,m），则把d<a href="">m</a>设为w（s, m）,同时把所有其他（s不能直接到达的）顶点的路径长度设为无穷大，即表示我们不知道任何通向这些顶点的路径（对于所有顶点的集合 V 中的任意顶点 v， 若 v 不为 s 和上述 m 之一， d[v] = ∞）。当算法结束时，d[v] 中储存的便是从 s 到 v 的最短路径，或者如果路径不存在的话是无穷大。</p>
-
-          
+<footer><strong>Wikipedia</strong><cite><a href="https://en.wikipedia.org/wiki/Shortest\_path\_problem">Shortest path problem</a></cite></footer></blockquote>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/01/01/Shortest-path-problem/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
