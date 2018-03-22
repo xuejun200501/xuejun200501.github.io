@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="CentOS,git server," />
 
 
 
@@ -84,31 +84,31 @@
 
 
 
-<meta name="description" content="环境CentOS 7.4
-服务器端配置安装git1[root@localhost ~]# yum install git
+<meta name="description" content="环境服务器：CentOS 7.4  客户端：Mac
+服务器端1、安装git1[root@localhost ~]# yum install git
 
 如果没有ssh，使用yum install ssh安装
 
-创建用户，创建一个操作系统用户 git，并为其建立一个 .ssh 目录12345[root@localhost ~]# adduser git[root@localhost ~]# su git[git@localho">
+2、创建用户，创建一个操作系统用户 git，并为其建立一个 .ssh 目录12345[root@localhost ~]# adduser git[root@localhost ~]# su">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建Git服务器">
 <meta property="og:url" content="http://nnull.xyz/2018/03/20/搭建Git服务器/index.html">
 <meta property="og:site_name" content="没什么大不了">
-<meta property="og:description" content="环境CentOS 7.4
-服务器端配置安装git1[root@localhost ~]# yum install git
+<meta property="og:description" content="环境服务器：CentOS 7.4  客户端：Mac
+服务器端1、安装git1[root@localhost ~]# yum install git
 
 如果没有ssh，使用yum install ssh安装
 
-创建用户，创建一个操作系统用户 git，并为其建立一个 .ssh 目录12345[root@localhost ~]# adduser git[root@localhost ~]# su git[git@localho">
-<meta property="og:updated_time" content="2018-03-20T14:10:01.718Z">
+2、创建用户，创建一个操作系统用户 git，并为其建立一个 .ssh 目录12345[root@localhost ~]# adduser git[root@localhost ~]# su">
+<meta property="og:updated_time" content="2018-03-22T02:13:14.897Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建Git服务器">
-<meta name="twitter:description" content="环境CentOS 7.4
-服务器端配置安装git1[root@localhost ~]# yum install git
+<meta name="twitter:description" content="环境服务器：CentOS 7.4  客户端：Mac
+服务器端1、安装git1[root@localhost ~]# yum install git
 
 如果没有ssh，使用yum install ssh安装
 
-创建用户，创建一个操作系统用户 git，并为其建立一个 .ssh 目录12345[root@localhost ~]# adduser git[root@localhost ~]# su git[git@localho">
+2、创建用户，创建一个操作系统用户 git，并为其建立一个 .ssh 目录12345[root@localhost ~]# adduser git[root@localhost ~]# su">
 
 
 
@@ -340,6 +340,24 @@
           </span>
 
           
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/technology/" itemprop="url" rel="index">
+                    <span itemprop="name">technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -365,22 +383,35 @@
       
 
       
-        <h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><p>CentOS 7.4</p>
-<h3 id="服务器端配置"><a href="#服务器端配置" class="headerlink" title="服务器端配置"></a>服务器端配置</h3><h4 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# yum install git</div></pre></td></tr></table></figure>
+        <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>服务器：CentOS 7.4  客户端：Mac</p>
+<h3 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h3><h4 id="1、安装git"><a href="#1、安装git" class="headerlink" title="1、安装git"></a>1、安装git</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# yum install git</div></pre></td></tr></table></figure>
 <blockquote>
 <p>如果没有ssh，使用yum install ssh安装</p>
 </blockquote>
-<h4 id="创建用户，创建一个操作系统用户-git，并为其建立一个-ssh-目录"><a href="#创建用户，创建一个操作系统用户-git，并为其建立一个-ssh-目录" class="headerlink" title="创建用户，创建一个操作系统用户 git，并为其建立一个 .ssh 目录"></a>创建用户，创建一个操作系统用户 git，并为其建立一个 .ssh 目录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# adduser git</div><div class="line">[root@localhost ~]# su git</div><div class="line">[git@localhost root]# cd</div><div class="line">[git@localhost ~]# mkdir .ssh &amp;&amp; chmod 700 .ssh</div><div class="line">[root@localhost ~]# touch .ssh/authorized_keys &amp;&amp; chmod 600 .ssh/authorized_keys</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// 生成ssh公钥</div><div class="line">Q-MacBook-Pro:~ xuejun$ ssh-keygen -t rsa</div><div class="line">// 查看公钥位置</div><div class="line">Q-MacBook-Pro: xuejun$ cd /.ssh/</div><div class="line">id_rsa		id_rsa.pub	known_hosts</div><div class="line">Q-MacBook-Pro:~ xuejun$ cat id_rsa.pub </div><div class="line">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCB007n/ww+ouN4gSLKssMxXnBOvf9LGt4L</div><div class="line">ojG6rs6hPB09j9R/T17/x4lhJA0F3FR1rP6kYBRsWj2aThGw6HXLm9/5zytK6Ztg3RPKK+4k</div><div class="line">Yjh6541NYsnEAZuXz0jTTyAUfrtU3Z5E003C4oxOj6H0rfIF1kKI9MAQLMdpGW1GYEIgS9Ez</div><div class="line">Sdfd8AcCIicTDWbqLAcU4UpkaX8KyGlLwsNuuGztobF8m72ALC/nLF6JLtPofwFBlgc+myiv</div><div class="line">O7TCUSBdLQlgMVOFq1I2uPWQOkOWQAHukEOmfjy2jctxSDBQ220ymjaNsHT4kgtZg2AYYgPq</div><div class="line">dAv8JggJICUvax2T9va5 gsg-keypair</div></pre></td></tr></table></figure>
-<h4 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h4><h5 id="将客户端公钥复制到-tmp-id-rsa-dql-pub"><a href="#将客户端公钥复制到-tmp-id-rsa-dql-pub" class="headerlink" title="将客户端公钥复制到/tmp/id_rsa.dql.pub"></a>将客户端公钥复制到/tmp/id_rsa.dql.pub</h5><h5 id="将这些公钥加入系统用户-git-的-ssh-目录下-authorized-keys-文件的末尾："><a href="#将这些公钥加入系统用户-git-的-ssh-目录下-authorized-keys-文件的末尾：" class="headerlink" title="将这些公钥加入系统用户 git 的 .ssh 目录下 authorized_keys 文件的末尾："></a>将这些公钥加入系统用户 git 的 .ssh 目录下 authorized_keys 文件的末尾：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[git@localhost ~]# cat /tmp/id_rsa.dql.pub &gt;&gt; ~/.ssh/authorized_keys</div></pre></td></tr></table></figure>
-<h5 id="现在我们来为开发者新建一个空仓库。可以借助带-–bare-选项的-git-init-命令来做到这一点，该命令在初始化仓库时不会创建工作目录"><a href="#现在我们来为开发者新建一个空仓库。可以借助带-–bare-选项的-git-init-命令来做到这一点，该命令在初始化仓库时不会创建工作目录" class="headerlink" title="现在我们来为开发者新建一个空仓库。可以借助带 –bare 选项的 git init 命令来做到这一点，该命令在初始化仓库时不会创建工作目录"></a>现在我们来为开发者新建一个空仓库。可以借助带 –bare 选项的 git init 命令来做到这一点，该命令在初始化仓库时不会创建工作目录</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[git@localhost ~]# cat /tmp/id_rsa.dql.pub &gt;&gt; ~/.ssh/authorized_keys</div><div class="line">[git@localhost ~]# mkdir project.git</div><div class="line">[git@localhost ~]# cd project.git</div><div class="line">[git@localhost ~]# git init --bare</div><div class="line">Initialized empty Git repository in /home/git/project.git/</div></pre></td></tr></table></figure>
-<h4 id="客户端-1"><a href="#客户端-1" class="headerlink" title="客户端"></a>客户端</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Q-MacBook-Pro:~ xuejun$ git clone git@39.104.1.33:/home/git/project.git</div><div class="line">Q-MacBook-Pro:~ xuejun$ </div><div class="line">Q-MacBook-Pro:~ xuejun$</div></pre></td></tr></table></figure>
-<h4 id="可能错误"><a href="#可能错误" class="headerlink" title="可能错误"></a>可能错误</h4><h5 id="1、SSH连接远程服务器（Linux-Centos）以及出现问题解决"><a href="#1、SSH连接远程服务器（Linux-Centos）以及出现问题解决" class="headerlink" title="1、SSH连接远程服务器（Linux-Centos）以及出现问题解决"></a>1、SSH连接远程服务器（Linux-Centos）以及出现问题解决</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]#  ssh root@39.104.1.33</div><div class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</div><div class="line">@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @</div><div class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</div><div class="line">IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!</div><div class="line">Someone could be eavesdropping on you right now (man-in-the-middle attack)!</div><div class="line">It is also possible that a host key has just been changed.</div><div class="line">The fingerprint for the ECDSA key sent by the remote host is</div><div class="line">SHA256:x4AR+0efxXpLKt+rc6B6Hn5j4n7wx9rKhZA3wMNzuSc.</div><div class="line">Please contact your system administrator.</div><div class="line">Add correct host key in /Users/xuejun/.ssh/known_hosts to get rid of this message.</div><div class="line">Offending ECDSA key in /Users/xuejun/.ssh/known_hosts:1</div><div class="line">ECDSA host key for 39.104.14.32 has changed and you have requested strict checking.</div><div class="line">Host key verification failed.</div></pre></td></tr></table></figure>
+<h4 id="2、创建用户，创建一个操作系统用户-git，并为其建立一个-ssh-目录"><a href="#2、创建用户，创建一个操作系统用户-git，并为其建立一个-ssh-目录" class="headerlink" title="2、创建用户，创建一个操作系统用户 git，并为其建立一个 .ssh 目录"></a>2、创建用户，创建一个操作系统用户 git，并为其建立一个 .ssh 目录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# adduser git</div><div class="line">[root@localhost ~]# su git</div><div class="line">[git@localhost root]# cd</div><div class="line">[git@localhost ~]# mkdir .ssh &amp;&amp; chmod 700 .ssh</div><div class="line">[root@localhost ~]# touch .ssh/authorized_keys &amp;&amp; chmod 600 .ssh/authorized_keys</div></pre></td></tr></table></figure>
 <blockquote>
-<p>解决办法：rm /.ssh/knownhosts</p>
+<p>注：此处的git便是下面git clone git@39.104.1.33:/home/git/project.git中的git用户，如果此处建立的是dql用户，那么地址为git clone dql@39.104.1.33:/home/dql/project.git</p>
 </blockquote>
-
+<a id="more"></a>
+<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><h4 id="3、客户端生成密钥"><a href="#3、客户端生成密钥" class="headerlink" title="3、客户端生成密钥"></a>3、客户端生成密钥</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// 生成ssh公钥</div><div class="line">Q-MacBook-Pro:~ xue$ ssh-keygen -t rsa</div><div class="line">// 查看公钥位置</div><div class="line">Q-MacBook-Pro: xue$ cd /.ssh/</div><div class="line">id_rsa		id_rsa.pub	known_hosts</div><div class="line">Q-MacBook-Pro:~ xue$ cat id_rsa.pub </div><div class="line">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCB007n/ww+ouN4gSLKssMxXnBOvf9LGt4L</div><div class="line">ojG6rs6hPB09j9R/T17/x4lhJA0F3FR1rP6kYBRsWj2aThGw6HXLm9/5zytK6Ztg3RPKK+4k</div><div class="line">Yjh6541NYsnEAZuXz0jTTyAUfrtU3Z5E003C4oxOj6H0rfIF1kKI9MAQLMdpGW1GYEIgS9Ez</div><div class="line">Sdfd8AcCIicTDWbqLAcU4UpkaX8KyGlLwsNuuGztobF8m72ALC/nLF6JLtPofwFBlgc+myiv</div><div class="line">O7TCUSBdLQlgMVOFq1I2uPWQOkOWQAHukEOmfjy2jctxSDBQ220ymjaNsHT4kgtZg2AYYgPq</div><div class="line">dAv8JggJICUvax2T9va5 gsg-keypair</div></pre></td></tr></table></figure>
+<h3 id="服务器端-1"><a href="#服务器端-1" class="headerlink" title="服务器端"></a>服务器端</h3><h4 id="4、-将客户端公钥复制到-tmp-id-rsa-dql-pub"><a href="#4、-将客户端公钥复制到-tmp-id-rsa-dql-pub" class="headerlink" title="4、 将客户端公钥复制到/tmp/id_rsa.dql.pub"></a>4、 将客户端公钥复制到/tmp/id_rsa.dql.pub</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 将这些公钥加入系统用户 git 的 .ssh 目录下 authorized\_keys 文件的末尾：</div><div class="line">[git@localhost ~]# cat /tmp/id_rsa.dql.pub &gt;&gt; ~/.ssh/authorized_keys</div></pre></td></tr></table></figure>
+<h4 id="5、-建一个空仓库。可以借助带-–bare-选项的-git-init-命令来做到这一点，该命令在初始化仓库时不会创建工作目录"><a href="#5、-建一个空仓库。可以借助带-–bare-选项的-git-init-命令来做到这一点，该命令在初始化仓库时不会创建工作目录" class="headerlink" title="5、 建一个空仓库。可以借助带 –bare 选项的 git init 命令来做到这一点，该命令在初始化仓库时不会创建工作目录"></a>5、 建一个空仓库。可以借助带 –bare 选项的 git init 命令来做到这一点，该命令在初始化仓库时不会创建工作目录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[git@localhost ~]# cat /tmp/id_rsa.dql.pub &gt;&gt; ~/.ssh/authorized_keys</div><div class="line">[git@localhost ~]# mkdir project.git</div><div class="line">[git@localhost ~]# cd project.git</div><div class="line">[git@localhost ~]# git init --bare</div><div class="line">Initialized empty Git repository in /home/git/project.git/</div></pre></td></tr></table></figure>
+<h3 id="客户端-1"><a href="#客户端-1" class="headerlink" title="客户端"></a>客户端</h3><h4 id="6、下载git服务器端数据"><a href="#6、下载git服务器端数据" class="headerlink" title="6、下载git服务器端数据"></a>6、下载git服务器端数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Q-MacBook-Pro:~ xue$ git clone git@39.104.1.33:/home/git/project.git</div><div class="line">Cloning into &apos;project&apos;...</div><div class="line">warning: You appear to have cloned an empty repository.</div></pre></td></tr></table></figure>
+<h3 id="相关说明"><a href="#相关说明" class="headerlink" title="相关说明"></a>相关说明</h3><h4 id="1、-普通库与裸库的区别"><a href="#1、-普通库与裸库的区别" class="headerlink" title="1、 普通库与裸库的区别 "></a>1、<a href="https://stackoverflow.com/questions/7861184/what-is-the-difference-between-git-init-and-git-init-bare%20" target="_blank" rel="external"> 普通库与裸库的区别 </a></h4><h4 id="2、什么是裸库"><a href="#2、什么是裸库" class="headerlink" title="2、什么是裸库"></a>2、<a href="http://www.saintsjd.com/2011/01/what-is-a-bare-git-repository/%20" target="_blank" rel="external">什么是裸库</a></h4><h3 id="如何使用’git-—bare-init’-repository"><a href="#如何使用’git-—bare-init’-repository" class="headerlink" title="如何使用’git —bare init’ repository"></a>如何使用’git —bare init’ repository</h3><h4 id="1、初始化"><a href="#1、初始化" class="headerlink" title="1、初始化"></a>1、初始化</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[root@localhost to]# pwd</div><div class="line">/home/git/to</div><div class="line">[root@localhost git]# mkdir bare</div><div class="line">[root@localhost git]# mkdir work</div><div class="line">[root@localhost git]# cd bare/</div><div class="line">[root@localhost git]#  git init --bare test_repo.git</div><div class="line">Initialized empty Git repository in /home/git/to/bare/test_repo.git/</div></pre></td></tr></table></figure>
+<h4 id="2、使用git-clone创建新的工作文件夹-空文件夹"><a href="#2、使用git-clone创建新的工作文件夹-空文件夹" class="headerlink" title="2、使用git clone创建新的工作文件夹(空文件夹)"></a>2、使用git clone创建新的工作文件夹(空文件夹)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost test]#git clone /home/git/to/bare/test_repo.git  /home/git/to/work</div><div class="line">Cloning into &apos;/home/git/to/work&apos;...</div><div class="line">warning: You appear to have cloned an empty repository.</div><div class="line">done.</div></pre></td></tr></table></figure>
+<h3 id="可能错误"><a href="#可能错误" class="headerlink" title="可能错误"></a>可能错误</h3><h4 id="1、SSH连接远程服务器（Linux-Centos）以及出现问题解决"><a href="#1、SSH连接远程服务器（Linux-Centos）以及出现问题解决" class="headerlink" title="1、SSH连接远程服务器（Linux-Centos）以及出现问题解决"></a>1、SSH连接远程服务器（Linux-Centos）以及出现问题解决</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]#  ssh root@39.104.1.33</div><div class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</div><div class="line">@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @</div><div class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</div><div class="line">IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!</div><div class="line">Someone could be eavesdropping on you right now (man-in-the-middle attack)!</div><div class="line">It is also possible that a host key has just been changed.</div><div class="line">The fingerprint for the ECDSA key sent by the remote host is</div><div class="line">SHA256:x4AR+0efxXpLKt+rc6B6Hn5j4n7wx9rKhZA3wMNzuSc.</div><div class="line">Please contact your system administrator.</div><div class="line">Add correct host key in /Users/xue/.ssh/known_hosts to get rid of this message.</div><div class="line">Offending ECDSA key in /Users/xue/.ssh/known_hosts:1</div><div class="line">ECDSA host key for 39.104.1.33 has changed and you have requested strict checking.</div><div class="line">Host key verification failed.</div></pre></td></tr></table></figure>
+<blockquote>
+<p>解决办法：rm /.ssh/known<em>hosts</em></p>
+</blockquote>
+<h4 id="2、出现“Could-not-read-from-remote-repository-”"><a href="#2、出现“Could-not-read-from-remote-repository-”" class="headerlink" title="2、出现“Could not read from remote repository.”"></a>2、出现“Could not read from remote repository.”</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Q-MacBook-Pro:~ xue$ git clone git@39.104.1.33:/home/project.git</div><div class="line">Cloning into &apos;project&apos;...</div><div class="line">fatal: &apos;/home/git/project.git&apos; does not appear to be a git repository</div><div class="line">fatal: Could not read from remote repository.</div></pre></td></tr></table></figure>
+<blockquote>
+<p>解决办法：查看服务器的project路径，如上面，服务器的路径为/home/git/project.git，并非/home/project.git</p>
+</blockquote>
+<h4 id="3、出现要求输入密码"><a href="#3、出现要求输入密码" class="headerlink" title="3、出现要求输入密码"></a>3、出现要求输入密码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Q-MacBook-Pro:test xue$ git clone git@39.104.1.33:/home/project.git</div><div class="line">Cloning into &apos;project&apos;...</div><div class="line">git@39.104.1.33&apos;s password: </div><div class="line">Permission denied, please try again.</div></pre></td></tr></table></figure>
+<blockquote>
+<p>解决办法：这种报错一定是ssh密钥问题，所以直接查看服务器的公钥与客户端的是否一致<br>ps：可能存在客户端的用户名为中文，且乱码的情况，所以尽量用英文做用户名，以防不可预测的错误</p>
+</blockquote>
+<h3 id="有关git的官方文档"><a href="#有关git的官方文档" class="headerlink" title=" 有关git的官方文档 "></a><a href="https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols" target="_blank" rel="external"> 有关git的官方文档 </a></h3>
       
     </div>
 
@@ -400,6 +431,14 @@
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CentOS/" rel="tag"># CentOS</a>
+          
+            <a href="/tags/git-server/" rel="tag"># git server</a>
+          
+        </div>
       
 
       
@@ -499,7 +538,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -534,7 +573,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境"><span class="nav-number">1.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器端配置"><span class="nav-number">2.</span> <span class="nav-text">服务器端配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装git"><span class="nav-number">2.1.</span> <span class="nav-text">安装git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建用户，创建一个操作系统用户-git，并为其建立一个-ssh-目录"><span class="nav-number">2.2.</span> <span class="nav-text">创建用户，创建一个操作系统用户 git，并为其建立一个 .ssh 目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#客户端"><span class="nav-number">2.3.</span> <span class="nav-text">客户端</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#服务器"><span class="nav-number">2.4.</span> <span class="nav-text">服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#将客户端公钥复制到-tmp-id-rsa-dql-pub"><span class="nav-number">2.4.1.</span> <span class="nav-text">将客户端公钥复制到/tmp/id_rsa.dql.pub</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#将这些公钥加入系统用户-git-的-ssh-目录下-authorized-keys-文件的末尾："><span class="nav-number">2.4.2.</span> <span class="nav-text">将这些公钥加入系统用户 git 的 .ssh 目录下 authorized_keys 文件的末尾：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#现在我们来为开发者新建一个空仓库。可以借助带-–bare-选项的-git-init-命令来做到这一点，该命令在初始化仓库时不会创建工作目录"><span class="nav-number">2.4.3.</span> <span class="nav-text">现在我们来为开发者新建一个空仓库。可以借助带 –bare 选项的 git init 命令来做到这一点，该命令在初始化仓库时不会创建工作目录</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#客户端-1"><span class="nav-number">2.5.</span> <span class="nav-text">客户端</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可能错误"><span class="nav-number">2.6.</span> <span class="nav-text">可能错误</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、SSH连接远程服务器（Linux-Centos）以及出现问题解决"><span class="nav-number">2.6.1.</span> <span class="nav-text">1、SSH连接远程服务器（Linux-Centos）以及出现问题解决</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">1.</span> <span class="nav-text">环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器端"><span class="nav-number">1.1.</span> <span class="nav-text">服务器端</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、安装git"><span class="nav-number">1.1.1.</span> <span class="nav-text">1、安装git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、创建用户，创建一个操作系统用户-git，并为其建立一个-ssh-目录"><span class="nav-number">1.1.2.</span> <span class="nav-text">2、创建用户，创建一个操作系统用户 git，并为其建立一个 .ssh 目录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端"><span class="nav-number">1.2.</span> <span class="nav-text">客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3、客户端生成密钥"><span class="nav-number">1.2.1.</span> <span class="nav-text">3、客户端生成密钥</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器端-1"><span class="nav-number">1.3.</span> <span class="nav-text">服务器端</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4、-将客户端公钥复制到-tmp-id-rsa-dql-pub"><span class="nav-number">1.3.1.</span> <span class="nav-text">4、 将客户端公钥复制到/tmp/id_rsa.dql.pub</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、-建一个空仓库。可以借助带-–bare-选项的-git-init-命令来做到这一点，该命令在初始化仓库时不会创建工作目录"><span class="nav-number">1.3.2.</span> <span class="nav-text">5、 建一个空仓库。可以借助带 –bare 选项的 git init 命令来做到这一点，该命令在初始化仓库时不会创建工作目录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端-1"><span class="nav-number">1.4.</span> <span class="nav-text">客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6、下载git服务器端数据"><span class="nav-number">1.4.1.</span> <span class="nav-text">6、下载git服务器端数据</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关说明"><span class="nav-number">1.5.</span> <span class="nav-text">相关说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、-普通库与裸库的区别"><span class="nav-number">1.5.1.</span> <span class="nav-text">1、 普通库与裸库的区别 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、什么是裸库"><span class="nav-number">1.5.2.</span> <span class="nav-text">2、什么是裸库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何使用’git-—bare-init’-repository"><span class="nav-number">1.6.</span> <span class="nav-text">如何使用’git —bare init’ repository</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、初始化"><span class="nav-number">1.6.1.</span> <span class="nav-text">1、初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、使用git-clone创建新的工作文件夹-空文件夹"><span class="nav-number">1.6.2.</span> <span class="nav-text">2、使用git clone创建新的工作文件夹(空文件夹)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可能错误"><span class="nav-number">1.7.</span> <span class="nav-text">可能错误</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、SSH连接远程服务器（Linux-Centos）以及出现问题解决"><span class="nav-number">1.7.1.</span> <span class="nav-text">1、SSH连接远程服务器（Linux-Centos）以及出现问题解决</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、出现“Could-not-read-from-remote-repository-”"><span class="nav-number">1.7.2.</span> <span class="nav-text">2、出现“Could not read from remote repository.”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、出现要求输入密码"><span class="nav-number">1.7.3.</span> <span class="nav-text">3、出现要求输入密码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有关git的官方文档"><span class="nav-number">1.8.</span> <span class="nav-text"> 有关git的官方文档 </span></a></li></ol></li></ol></div>
             
 
           </div>
