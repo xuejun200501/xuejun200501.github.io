@@ -1,0 +1,697 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Mac,diskpart,diskutil," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="前言有一个u盘需要分区，但只想通过Windows原生的命令进行，而不用使用其他工具，同时将其中的某个分区进行隐藏，当然在Mac下也能查看此隐藏分区
+进去diskpart界面在Windows命令行中输入diskpart进入界面
+查看当前计算机磁盘情况123456DISKPART&amp;gt; list disk  磁盘 ###  状态           大小     可用     Dyn  Gpt  -">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows下diskpart命令给u盘分区，并隐藏分区，同时可以使用Mac查看隐藏分区">
+<meta property="og:url" content="http://nnull.xyz/2018/12/07/利用diskpart命令给u盘分区，并隐藏分区/index.html">
+<meta property="og:site_name" content="没什么大不了">
+<meta property="og:description" content="前言有一个u盘需要分区，但只想通过Windows原生的命令进行，而不用使用其他工具，同时将其中的某个分区进行隐藏，当然在Mac下也能查看此隐藏分区
+进去diskpart界面在Windows命令行中输入diskpart进入界面
+查看当前计算机磁盘情况123456DISKPART&amp;gt; list disk  磁盘 ###  状态           大小     可用     Dyn  Gpt  -">
+<meta property="og:updated_time" content="2018-12-07T09:26:51.102Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Windows下diskpart命令给u盘分区，并隐藏分区，同时可以使用Mac查看隐藏分区">
+<meta name="twitter:description" content="前言有一个u盘需要分区，但只想通过Windows原生的命令进行，而不用使用其他工具，同时将其中的某个分区进行隐藏，当然在Mac下也能查看此隐藏分区
+进去diskpart界面在Windows命令行中输入diskpart进入界面
+查看当前计算机磁盘情况123456DISKPART&amp;gt; list disk  磁盘 ###  状态           大小     可用     Dyn  Gpt  -">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://nnull.xyz/2018/12/07/利用diskpart命令给u盘分区，并隐藏分区/"/>
+
+
+
+
+
+  <title> Windows下diskpart命令给u盘分区，并隐藏分区，同时可以使用Mac查看隐藏分区 | 没什么大不了 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-87409931-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?5a64b333ce6ab71a6b3b3141166726ad";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">没什么大不了</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">水银泻地 无懈可击</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2018/12/07/利用diskpart命令给u盘分区，并隐藏分区/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xuejun">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/icon.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="没什么大不了">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="没什么大不了" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Windows下diskpart命令给u盘分区，并隐藏分区，同时可以使用Mac查看隐藏分区
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-07T16:09:13+08:00">
+                2018-12-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/technology/" itemprop="url" rel="index">
+                    <span itemprop="name">technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有一个u盘需要分区，但只想通过Windows原生的命令进行，而不用使用其他工具，同时将其中的某个分区进行隐藏，当然在Mac下也能查看此隐藏分区</p>
+<h3 id="进去diskpart界面"><a href="#进去diskpart界面" class="headerlink" title="进去diskpart界面"></a>进去diskpart界面</h3><p>在Windows命令行中输入diskpart进入界面</p>
+<h3 id="查看当前计算机磁盘情况"><a href="#查看当前计算机磁盘情况" class="headerlink" title="查看当前计算机磁盘情况"></a>查看当前计算机磁盘情况</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">DISKPART&gt; list disk</div><div class="line"></div><div class="line">  磁盘 ###  状态           大小     可用     Dyn  Gpt</div><div class="line">  --------  -------------  -------  -------  ---  ---</div><div class="line">  磁盘 0    联机              931 GB  1024 KB</div><div class="line">  磁盘 1    联机             7645 MB      0 B</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="选择u盘所在磁盘"><a href="#选择u盘所在磁盘" class="headerlink" title="选择u盘所在磁盘"></a>选择u盘所在磁盘</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">DISKPART&gt; select disk 1</div><div class="line"></div><div class="line">磁盘 1 现在是所选磁盘。</div><div class="line"></div><div class="line">DISKPART&gt; list disk</div><div class="line"></div><div class="line">  磁盘 ###  状态           大小     可用     Dyn  Gpt</div><div class="line">  --------  -------------  -------  -------  ---  ---</div><div class="line">  磁盘 0    联机              931 GB  1024 KB</div><div class="line">* 磁盘 1    联机             7645 MB      0 B</div></pre></td></tr></table></figure>
+<h3 id="清空磁盘分区（注：一定要看清是否选择了自己的u盘，否则将清空系统盘）"><a href="#清空磁盘分区（注：一定要看清是否选择了自己的u盘，否则将清空系统盘）" class="headerlink" title="清空磁盘分区（注：一定要看清是否选择了自己的u盘，否则将清空系统盘）"></a>清空磁盘分区（注：一定要看清是否选择了自己的u盘，否则将清空系统盘）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> DISKPART&gt; clean</div><div class="line"></div><div class="line">DiskPart 成功地清除了磁盘。</div></pre></td></tr></table></figure>
+<h3 id="计划将u盘分成二个主分区"><a href="#计划将u盘分成二个主分区" class="headerlink" title="计划将u盘分成二个主分区"></a>计划将u盘分成二个主分区</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">DISKPART&gt; list partition</div><div class="line"></div><div class="line">这个磁盘上没有显示的分区。</div><div class="line"></div><div class="line">DISKPART&gt; create partition primary size 2048</div><div class="line"></div><div class="line">DiskPart 成功地创建了指定分区。</div><div class="line"></div><div class="line">DISKPART&gt; list partition</div><div class="line"></div><div class="line">  分区 ###       类型              大小     偏移量</div><div class="line">  -------------  ----------------  -------  -------</div><div class="line">* 分区      1    主要                2048 MB  1024 KB</div><div class="line"></div><div class="line">DISKPART&gt; create partition primary</div><div class="line"></div><div class="line">DiskPart 成功地创建了指定分区。</div><div class="line"></div><div class="line">DISKPART&gt; list partition</div><div class="line"></div><div class="line">  分区 ###       类型              大小     偏移量</div><div class="line">  -------------  ----------------  -------  -------</div><div class="line">  分区      1    主要                2048 MB  1024 KB</div><div class="line">* 分区      2    主要                5596 MB  2049 MB</div></pre></td></tr></table></figure>
+<h3 id="分区后格式化（此时我选择的u盘格式模式为exfat）"><a href="#分区后格式化（此时我选择的u盘格式模式为exfat）" class="headerlink" title="分区后格式化（此时我选择的u盘格式模式为exfat）"></a>分区后格式化（此时我选择的u盘格式模式为exfat）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">DISKPART&gt; list volume</div><div class="line"></div><div class="line">  卷 ###      LTR  标签         FS     类型        大小     状态       信息</div><div class="line">  ----------  ---  -----------  -----  ----------  -------  ---------  --------</div><div class="line">  卷     0         系统保留         NTFS   磁盘分区         100 MB  正常         系统</div><div class="line">  卷     1     C                NTFS   磁盘分区         100 GB  正常         启动</div><div class="line">  卷     2     D                NTFS   磁盘分区         415 GB  正常</div><div class="line">  卷     3     E                NTFS   磁盘分区         415 GB  正常</div><div class="line">  卷     4                      RAW    可移动         2048 MB  正常</div><div class="line">* 卷     5                      RAW    可移动         5596 MB  正常</div><div class="line"></div><div class="line">DISKPART&gt; format fs=exFAT quick</div><div class="line"></div><div class="line">  100 百分比已完成</div><div class="line"></div><div class="line">DiskPart 成功格式化该卷。</div><div class="line"></div><div class="line">DISKPART&gt; list volume</div><div class="line"></div><div class="line">  卷 ###      LTR  标签         FS     类型        大小     状态       信息</div><div class="line">  ----------  ---  -----------  -----  ----------  -------  ---------  --------</div><div class="line">  卷     0         系统保留         NTFS   磁盘分区         100 MB  正常         系统</div><div class="line">  卷     1     C                NTFS   磁盘分区         100 GB  正常         启动</div><div class="line">  卷     2     D                NTFS   磁盘分区         415 GB  正常</div><div class="line">  卷     3     E                NTFS   磁盘分区         415 GB  正常</div><div class="line">  卷     4                      RAW    可移动         2048 MB  正常</div><div class="line">* 卷     5                      exFAT  可移动         5596 MB  正常</div><div class="line"></div><div class="line">DISKPART&gt; select volume 4</div><div class="line"></div><div class="line">卷 4 是所选卷。</div><div class="line"></div><div class="line">DISKPART&gt; list volume</div><div class="line"></div><div class="line">  卷 ###      LTR  标签         FS     类型        大小     状态       信息</div><div class="line">  ----------  ---  -----------  -----  ----------  -------  ---------  --------</div><div class="line">  卷     0         系统保留         NTFS   磁盘分区         100 MB  正常         系统</div><div class="line">  卷     1     C                NTFS   磁盘分区         100 GB  正常         启动</div><div class="line">  卷     2     D                NTFS   磁盘分区         415 GB  正常</div><div class="line">  卷     3     E                NTFS   磁盘分区         415 GB  正常</div><div class="line">* 卷     4                      RAW    可移动         2048 MB  正常</div><div class="line">  卷     5                      FAT32  可移动         5596 MB  正常</div><div class="line"></div><div class="line">DISKPART&gt; format fs=fat32 quick</div><div class="line"></div><div class="line">  100 百分比已完成</div><div class="line"></div><div class="line">DiskPart 成功格式化该卷。</div><div class="line"></div><div class="line">DISKPART&gt; list volume</div><div class="line"></div><div class="line">  卷 ###      LTR  标签         FS     类型        大小     状态       信息</div><div class="line">  ----------  ---  -----------  -----  ----------  -------  ---------  --------</div><div class="line">  卷     0         系统保留         NTFS   磁盘分区         100 MB  正常         系统</div><div class="line">  卷     1     C                NTFS   磁盘分区         100 GB  正常         启动</div><div class="line">  卷     2     D                NTFS   磁盘分区         415 GB  正常</div><div class="line">  卷     3     E                NTFS   磁盘分区         415 GB  正常</div><div class="line">  卷     4                      exFAT  可移动         2048 MB  正常</div><div class="line">* 卷     5                      exFAT  可移动         5596 MB  正常</div></pre></td></tr></table></figure>
+<h3 id="从上图可以看出刚分区的u盘没有盘符（此时在电脑中也是看不到u盘的二个分区，原因也是因为没有盘符）"><a href="#从上图可以看出刚分区的u盘没有盘符（此时在电脑中也是看不到u盘的二个分区，原因也是因为没有盘符）" class="headerlink" title="从上图可以看出刚分区的u盘没有盘符（此时在电脑中也是看不到u盘的二个分区，原因也是因为没有盘符）"></a>从上图可以看出刚分区的u盘没有盘符（此时在电脑中也是看不到u盘的二个分区，原因也是因为没有盘符）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">DISKPART&gt; assign letter=h</div><div class="line"></div><div class="line">DiskPart 成功地分配了驱动器号或装载点。</div><div class="line"></div><div class="line">DISKPART&gt; list volume</div><div class="line"></div><div class="line">  卷 ###      LTR  标签         FS     类型        大小     状态       信息</div><div class="line">  ----------  ---  -----------  -----  ----------  -------  ---------  --------</div><div class="line">  卷     0         系统保留         NTFS   磁盘分区         100 MB  正常         系统</div><div class="line">  卷     1     C                NTFS   磁盘分区         100 GB  正常         启动</div><div class="line">  卷     2     D                NTFS   磁盘分区         415 GB  正常</div><div class="line">  卷     3     E                NTFS   磁盘分区         415 GB  正常</div><div class="line">  卷     4                       exFAT  可移动         1126 MB  正常</div><div class="line">* 卷     5     H               exFAT  可移动         6518 MB  正常</div><div class="line"></div><div class="line">DISKPART&gt; select volume 4</div><div class="line"></div><div class="line">卷 4 是所选卷。</div><div class="line"></div><div class="line">DISKPART&gt; assign letter=g</div><div class="line"></div><div class="line">DiskPart 成功地分配了驱动器号或装载点。</div><div class="line"></div><div class="line">DISKPART&gt; list volume</div><div class="line"></div><div class="line">  卷 ###      LTR  标签         FS     类型        大小     状态       信息</div><div class="line">  ----------  ---  -----------  -----  ----------  -------  ---------  --------</div><div class="line">  卷     0         系统保留         NTFS   磁盘分区         100 MB  正常         系统</div><div class="line">  卷     1     C                NTFS   磁盘分区         100 GB  正常         启动</div><div class="line">  卷     2     D                NTFS   磁盘分区         415 GB  正常</div><div class="line">  卷     3     E                NTFS   磁盘分区         415 GB  正常</div><div class="line">* 卷     4    G                exFAT  可移动         2048 MB  正常</div><div class="line">  卷     5     H                exFAT  可移动         5596 MB  正常</div></pre></td></tr></table></figure>
+<h3 id="查看当前u盘的分区情况"><a href="#查看当前u盘的分区情况" class="headerlink" title="查看当前u盘的分区情况"></a>查看当前u盘的分区情况</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">DISKPART&gt; list partition</div><div class="line"></div><div class="line">  分区 ###       类型              大小     偏移量</div><div class="line">  -------------  ----------------  -------  -------</div><div class="line">  分区      1    主要                2048 MB  1024 KB</div><div class="line">* 分区      2    主要                5596 MB  2049 MB</div></pre></td></tr></table></figure>
+<h3 id="将u盘的其中一个分区隐藏"><a href="#将u盘的其中一个分区隐藏" class="headerlink" title="将u盘的其中一个分区隐藏"></a>将u盘的其中一个分区隐藏</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"> DISKPART&gt; select partition 1</div><div class="line"></div><div class="line">分区 1 现在是所选分区。</div><div class="line"></div><div class="line">DISKPART&gt; list partition</div><div class="line"></div><div class="line">  分区 ###       类型              大小     偏移量</div><div class="line">  -------------  ----------------  -------  -------</div><div class="line">* 分区      1    主要                2048 MB  1024 KB</div><div class="line">  分区      2    主要                5596 MB  2049 MB</div><div class="line"></div><div class="line">DISKPART&gt; set id=12</div><div class="line"></div><div class="line">DiskPart 成功设置了分区 ID。</div><div class="line"></div><div class="line">DISKPART&gt; list partition</div><div class="line"></div><div class="line">  分区 ###       类型              大小     偏移量</div><div class="line">  -------------  ----------------  -------  -------</div><div class="line">* 分区      1    OEM               2048 MB  1024 KB</div><div class="line">  分区      2    主要                5596 MB  2049 MB</div><div class="line">&gt; 此时可以看到一个OEM类型</div><div class="line">&gt; 如果需要显示该分区，可使用set id=07</div></pre></td></tr></table></figure>
+<h2 id="Mac下查看"><a href="#Mac下查看" class="headerlink" title="Mac下查看"></a>Mac下查看</h2><h3 id="查看Mac下的分区情况"><a href="#查看Mac下的分区情况" class="headerlink" title="查看Mac下的分区情况"></a>查看Mac下的分区情况</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">QL-MacBook-Pro:~ xj$ diskutil list</div><div class="line">/dev/disk0 (internal, physical):</div><div class="line">   #:                       TYPE NAME                    SIZE       IDENTIFIER</div><div class="line">   0:      GUID_partition_scheme                        *251.0 GB   disk0</div><div class="line">   1:                        EFI EFI                     209.7 MB   disk0s1</div><div class="line">   2:                 Apple_APFS Container disk1         250.8 GB   disk0s2</div><div class="line"></div><div class="line">/dev/disk1 (synthesized):</div><div class="line">   #:                       TYPE NAME                    SIZE       IDENTIFIER</div><div class="line">   0:      APFS Container Scheme -                      +250.8 GB   disk1</div><div class="line">                                 Physical Store disk0s2</div><div class="line">   1:                APFS Volume Macintosh HD            186.4 GB   disk1s1</div><div class="line">   2:                APFS Volume Preboot                 44.6 MB    disk1s2</div><div class="line">   3:                APFS Volume Recovery                512.4 MB   disk1s3</div><div class="line">   4:                APFS Volume VM                      9.7 GB     disk1s4</div><div class="line"></div><div class="line">/dev/disk2 (disk image):</div><div class="line">   #:                       TYPE NAME                    SIZE       IDENTIFIER</div><div class="line">   0:     Apple_partition_scheme                        +24.3 MB    disk2</div><div class="line">   1:        Apple_partition_map                         32.3 KB    disk2s1</div><div class="line">   2:                  Apple_HFS Flash Player            24.2 MB    disk2s2</div><div class="line"></div><div class="line">/dev/disk3 (disk image):</div><div class="line">   #:                       TYPE NAME                    SIZE       IDENTIFIER</div><div class="line">   0:     Apple_partition_scheme                        +24.2 MB    disk3</div><div class="line">   1:        Apple_partition_map                         32.3 KB    disk3s1</div><div class="line">   2:                  Apple_HFS Flash Player            24.2 MB    disk3s2</div><div class="line"></div><div class="line">/dev/disk4 (disk image):</div><div class="line">   #:                       TYPE NAME                    SIZE       IDENTIFIER</div><div class="line">   0:     Apple_partition_scheme                        +24.3 MB    disk4</div><div class="line">   1:        Apple_partition_map                         32.3 KB    disk4s1</div><div class="line">   2:                  Apple_HFS Flash Player            24.2 MB    disk4s2</div><div class="line"></div><div class="line">/dev/disk5 (external, physical):</div><div class="line">   #:                       TYPE NAME                    SIZE       IDENTIFIER</div><div class="line">   0:     FDisk_partition_scheme                   *8.0 GB     disk5</div><div class="line">   1:                       0x12                                    2.1 GB     disk5s1</div><div class="line">   2:               Windows_NTFS                         5.9 GB     disk5s2</div></pre></td></tr></table></figure>
+<h3 id="在Mac下，u盘挂载在-Volumes下"><a href="#在Mac下，u盘挂载在-Volumes下" class="headerlink" title="在Mac下，u盘挂载在/Volumes下"></a>在Mac下，u盘挂载在/Volumes下</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">QL-MacBook-Pro:~ xj$ cd /Volumes</div><div class="line">QL-MacBook-Pro:Volumes xj$ ls -al</div><div class="line">total 64</div><div class="line">drwxr-xr-x@  7 root    wheel    224 Dec  7 16:40 .</div><div class="line">drwxr-xr-x  30 root    wheel    960 Oct 18 15:47 ..</div><div class="line">lrwxr-xr-x   1 root    wheel      1 Oct 18 15:37 Macintosh HD -&gt; /</div><div class="line">drwxr-xr-x+  3 root    wheel     96 Nov 14  2017 Preboot</div><div class="line">drwxr-xr-x   3 root    wheel     96 Nov 14  2017 Recovery</div><div class="line">drwxrwxrwx   1 xuejun  staff  32768 Jan  1  1980 Untitled</div></pre></td></tr></table></figure>
+<h3 id="在-Volumes新建一个目录test，用于挂在u盘的隐藏分区"><a href="#在-Volumes新建一个目录test，用于挂在u盘的隐藏分区" class="headerlink" title="在/Volumes新建一个目录test，用于挂在u盘的隐藏分区"></a>在/Volumes新建一个目录test，用于挂在u盘的隐藏分区</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">QL-MacBook-Pro:Volumes xj$ sudo mkdir test</div><div class="line">QL-MacBook-Pro:test xj$ sudo mount -t exfat  /dev/disk5s1 /Volumes/test</div></pre></td></tr></table></figure>
+<h3 id="进去test目录就可以查看u盘隐藏分区的内容了"><a href="#进去test目录就可以查看u盘隐藏分区的内容了" class="headerlink" title="进去test目录就可以查看u盘隐藏分区的内容了"></a>进去test目录就可以查看u盘隐藏分区的内容了</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">QL-MacBook-Pro:Volumes xj$ cd test</div><div class="line">QL-MacBook-Pro:test xj$ ls</div><div class="line">System Volume Information</div></pre></td></tr></table></figure>
+<h3 id="退出u盘"><a href="#退出u盘" class="headerlink" title="退出u盘"></a>退出u盘</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">QL-MacBook-Pro:test xj$ cd..</div><div class="line">QL-MacBook-Pro:Volumes xj$ sudo umount  /Volumes/test/</div></pre></td></tr></table></figure>
+<h3 id="遇到问题的解决方法"><a href="#遇到问题的解决方法" class="headerlink" title="遇到问题的解决方法"></a>遇到问题的解决方法</h3><ol>
+<li>无法卸载<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">QL-MacBook-Pro:Volumes xj$ sudo umount  /Volumes/test/</div><div class="line">umount(/Volumes/test): Resource busy -- try &apos;diskutil unmount&apos;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>解决方案<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">QL-MacBook-Pro:Volumes xj$ sudo diskutil unmount  /Volumes/test/</div></pre></td></tr></table></figure></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Mac/" rel="tag"># Mac</a>
+          
+            <a href="/tags/diskpart/" rel="tag"># diskpart</a>
+          
+            <a href="/tags/diskutil/" rel="tag"># diskutil</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/06/solve-xxx-is-damaged-and-can’t-be-opened-you-should-eject-the-disk-image-On-MAC-OS/" rel="next" title="解决’xxx' is damaged and can’t be opened. you should eject the disk image  问题">
+                <i class="fa fa-chevron-left"></i> 解决’xxx' is damaged and can’t be opened. you should eject the disk image  问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/07/Linux编译安装时configure、make和make-install的作用/" rel="prev" title="Linux编译安装时configure、make和make install的作用">
+                Linux编译安装时configure、make和make install的作用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/icon.jpg"
+               alt="xuejun" />
+          <p class="site-author-name" itemprop="name">xuejun</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进去diskpart界面"><span class="nav-number">1.1.</span> <span class="nav-text">进去diskpart界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看当前计算机磁盘情况"><span class="nav-number">1.2.</span> <span class="nav-text">查看当前计算机磁盘情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择u盘所在磁盘"><span class="nav-number">1.3.</span> <span class="nav-text">选择u盘所在磁盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清空磁盘分区（注：一定要看清是否选择了自己的u盘，否则将清空系统盘）"><span class="nav-number">1.4.</span> <span class="nav-text">清空磁盘分区（注：一定要看清是否选择了自己的u盘，否则将清空系统盘）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计划将u盘分成二个主分区"><span class="nav-number">1.5.</span> <span class="nav-text">计划将u盘分成二个主分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分区后格式化（此时我选择的u盘格式模式为exfat）"><span class="nav-number">1.6.</span> <span class="nav-text">分区后格式化（此时我选择的u盘格式模式为exfat）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从上图可以看出刚分区的u盘没有盘符（此时在电脑中也是看不到u盘的二个分区，原因也是因为没有盘符）"><span class="nav-number">1.7.</span> <span class="nav-text">从上图可以看出刚分区的u盘没有盘符（此时在电脑中也是看不到u盘的二个分区，原因也是因为没有盘符）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看当前u盘的分区情况"><span class="nav-number">1.8.</span> <span class="nav-text">查看当前u盘的分区情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将u盘的其中一个分区隐藏"><span class="nav-number">1.9.</span> <span class="nav-text">将u盘的其中一个分区隐藏</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac下查看"><span class="nav-number">2.</span> <span class="nav-text">Mac下查看</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看Mac下的分区情况"><span class="nav-number">2.1.</span> <span class="nav-text">查看Mac下的分区情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在Mac下，u盘挂载在-Volumes下"><span class="nav-number">2.2.</span> <span class="nav-text">在Mac下，u盘挂载在/Volumes下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在-Volumes新建一个目录test，用于挂在u盘的隐藏分区"><span class="nav-number">2.3.</span> <span class="nav-text">在/Volumes新建一个目录test，用于挂在u盘的隐藏分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进去test目录就可以查看u盘隐藏分区的内容了"><span class="nav-number">2.4.</span> <span class="nav-text">进去test目录就可以查看u盘隐藏分区的内容了</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#退出u盘"><span class="nav-number">2.5.</span> <span class="nav-text">退出u盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遇到问题的解决方法"><span class="nav-number">2.6.</span> <span class="nav-text">遇到问题的解决方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  Copyright &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="author" itemprop="copyrightHolder">xuejun</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
