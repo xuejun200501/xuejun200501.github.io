@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo,博客,站点地图," />
+  <meta name="keywords" content="Ubuntu,timezone," />
 
 
 
@@ -84,16 +84,22 @@
 
 
 
-<meta name="description" content="前言博客搭起来自然希望让人能够在百度或者Google中搜索到自己的文章，方便交流，以下便是讲述如何在Google搜索中到自己的文章，由于GitHub屏蔽了百度的爬虫，所以暂时操作无法成功，等那天有空将blog迁移到vps时，再进行配置">
+<meta name="description" content="前言安装Ubuntu后，默认时区不是中国区
+查看当前系统时间12admin@Ubuntu:~$ date -RThu Dec 2018 02:53:31 +0000
+运行tzselect1234567891011121314admin@Ubuntu:~$ tzselectPlease identify a location so that time zone rules can be set co">
 <meta property="og:type" content="article">
-<meta property="og:title" content="让Google收录你的博客">
-<meta property="og:url" content="http://nnull.xyz/2016/11/24/让Google收录你的博客/index.html">
+<meta property="og:title" content="Ubuntu设置时区">
+<meta property="og:url" content="http://nnull.xyz/2018/12/20/Ubuntu-set-time-zone/index.html">
 <meta property="og:site_name" content="没什么大不了">
-<meta property="og:description" content="前言博客搭起来自然希望让人能够在百度或者Google中搜索到自己的文章，方便交流，以下便是讲述如何在Google搜索中到自己的文章，由于GitHub屏蔽了百度的爬虫，所以暂时操作无法成功，等那天有空将blog迁移到vps时，再进行配置">
-<meta property="og:updated_time" content="2016-11-25T03:26:05.000Z">
+<meta property="og:description" content="前言安装Ubuntu后，默认时区不是中国区
+查看当前系统时间12admin@Ubuntu:~$ date -RThu Dec 2018 02:53:31 +0000
+运行tzselect1234567891011121314admin@Ubuntu:~$ tzselectPlease identify a location so that time zone rules can be set co">
+<meta property="og:updated_time" content="2018-12-20T03:18:40.106Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="让Google收录你的博客">
-<meta name="twitter:description" content="前言博客搭起来自然希望让人能够在百度或者Google中搜索到自己的文章，方便交流，以下便是讲述如何在Google搜索中到自己的文章，由于GitHub屏蔽了百度的爬虫，所以暂时操作无法成功，等那天有空将blog迁移到vps时，再进行配置">
+<meta name="twitter:title" content="Ubuntu设置时区">
+<meta name="twitter:description" content="前言安装Ubuntu后，默认时区不是中国区
+查看当前系统时间12admin@Ubuntu:~$ date -RThu Dec 2018 02:53:31 +0000
+运行tzselect1234567891011121314admin@Ubuntu:~$ tzselectPlease identify a location so that time zone rules can be set co">
 
 
 
@@ -121,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://nnull.xyz/2016/11/24/让Google收录你的博客/"/>
+  <link rel="canonical" href="http://nnull.xyz/2018/12/20/Ubuntu-set-time-zone/"/>
 
 
 
 
 
-  <title> 让Google收录你的博客 | 没什么大不了 </title>
+  <title> Ubuntu设置时区 | 没什么大不了 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -277,7 +283,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2016/11/24/让Google收录你的博客/">
+  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2018/12/20/Ubuntu-set-time-zone/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xuejun">
@@ -301,7 +307,7 @@
             
             
               
-                让Google收录你的博客
+                Ubuntu设置时区
               
             
           </h1>
@@ -314,8 +320,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-24T16:57:15+08:00">
-                2016-11-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-20T11:01:21+08:00">
+                2018-12-20
               </time>
             
 
@@ -368,20 +374,17 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>博客搭起来自然希望让人能够在百度或者Google中搜索到自己的文章，方便交流，以下便是讲述如何在Google搜索中到自己的文章，由于GitHub屏蔽了百度的爬虫，所以暂时操作无法成功，等那天有空将blog迁移到vps时，再进行配置</p>
-<a id="more"></a>
-<h3 id="1、登陆-Google-Search-Console-，输入需要验证的网站域名（翻墙）"><a href="#1、登陆-Google-Search-Console-，输入需要验证的网站域名（翻墙）" class="headerlink" title="1、登陆 Google Search Console ，输入需要验证的网站域名（翻墙）"></a>1、登陆<a href="https://www.google.com/webmasters/tools/home" target="_blank" rel="external"> Google Search Console </a>，输入需要验证的网站域名（翻墙）</h3><h3 id="2、安装插件"><a href="#2、安装插件" class="headerlink" title="2、安装插件"></a>2、安装插件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MacBook-Pro:Blog xuejun$ pwd</div><div class="line">/Users/xuejun/Work/xuejun01.github.io/Blog</div><div class="line">MacBook-Pro:Blog xuejun$ npm install hexo-generator-sitemap --save</div></pre></td></tr></table></figure>
-<h3 id="3、在博客目录的config-yml中添加如下代码："><a href="#3、在博客目录的config-yml中添加如下代码：" class="headerlink" title="3、在博客目录的config.yml中添加如下代码："></a>3、在博客目录的<em>config.yml中添加如下代码：</em></h3><blockquote>
-<p>#自动生成sitemap<br>sitemap:<br>   path: sitemap.xml</p>
-</blockquote>
-<h3 id="4、hexo编译的时候会自动在根目录生成站点地图"><a href="#4、hexo编译的时候会自动在根目录生成站点地图" class="headerlink" title="4、hexo编译的时候会自动在根目录生成站点地图"></a>4、hexo编译的时候会自动在根目录生成站点地图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MacBook-Pro:Blog xuejun$ ls -al public/</div><div class="line">total 96</div><div class="line">-rw-r--r--   1 xuejun  staff   1278 Nov 24 14:48 sitemap.xml</div></pre></td></tr></table></figure>
-<h3 id="5、编译推送"><a href="#5、编译推送" class="headerlink" title="5、编译推送"></a>5、编译推送</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MacBook-Pro:Blog xuejun$ hexo clean</div><div class="line">MacBook-Pro:Blog xuejun$ hexo g</div><div class="line">MacBook-Pro:Blog xuejun$ hexo d</div></pre></td></tr></table></figure>
-<h3 id="6、在站点地图中提交上一步生成的sitemap-xml文件"><a href="#6、在站点地图中提交上一步生成的sitemap-xml文件" class="headerlink" title="6、在站点地图中提交上一步生成的sitemap.xml文件"></a>6、在站点地图中提交上一步生成的sitemap.xml文件</h3><blockquote>
-<p>抓取 —> 站点地图 —> 添加／测试站点地图<br>输入sitemap.xml，点击提交</p>
-</blockquote>
-<h3 id="7、-打开www-google-com输入nnull-xyz（当然这里属于自己的网址）测试，看到自己的网站，便成功了"><a href="#7、-打开www-google-com输入nnull-xyz（当然这里属于自己的网址）测试，看到自己的网站，便成功了" class="headerlink" title="7、 打开www.google.com输入nnull.xyz（当然这里属于自己的网址）测试，看到自己的网站，便成功了"></a>7、 打开www.google.com输入nnull.xyz（当然这里属于自己的网址）测试，看到自己的网站，便成功了</h3><h3 id="8、几天后，我发现Google里还是不能搜索blog，查资料发现还差最后一步，在-Search-Console-中添加自己的网址"><a href="#8、几天后，我发现Google里还是不能搜索blog，查资料发现还差最后一步，在-Search-Console-中添加自己的网址" class="headerlink" title="8、几天后，我发现Google里还是不能搜索blog，查资料发现还差最后一步，在 Search Console 中添加自己的网址"></a>8、几天后，我发现Google里还是不能搜索blog，查资料发现还差最后一步，在<a href="https://www.google.com/webmasters/tools/submit-url?pli=1" target="_blank" rel="external"> Search Console </a>中添加自己的网址</h3><blockquote>
-<p>ps：看了下Google搜索时出现的列表，简单优化了下<br>进入index.swig（路径themes\next\layout），当然我用的是next的主题，其他主题暂时还没有测试过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% block title %&#125; &#123;&#123; config.title &#125;&#125; &#123;% endblock %&#125;</div></pre></td></tr></table></figure></p>
-<p>改成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% block title %&#125; &#123;&#123; config.title &#125;&#125; - &#123;&#123; theme.description &#125;&#125; &#123;% endblock %&#125;</div></pre></td></tr></table></figure></p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>安装Ubuntu后，默认时区不是中国区</p>
+<h3 id="查看当前系统时间"><a href="#查看当前系统时间" class="headerlink" title="查看当前系统时间"></a>查看当前系统时间</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">admin@Ubuntu:~$ date -R</div><div class="line">Thu Dec 2018 02:53:31 +0000</div></pre></td></tr></table></figure>
+<h3 id="运行tzselect"><a href="#运行tzselect" class="headerlink" title="运行tzselect"></a>运行tzselect</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">admin@Ubuntu:~$ tzselect</div><div class="line">Please identify a location so that time zone rules can be set correctly.</div><div class="line">Please select a continent, ocean, &quot;coord&quot;, or &quot;TZ&quot;.</div><div class="line"> 1) Africa</div><div class="line"> 2) Americas</div><div class="line"> 3) Antarctica</div><div class="line"> 4) Asia</div><div class="line"> 5) Atlantic Ocean</div><div class="line"> 6) Australia</div><div class="line"> 7) Europe</div><div class="line"> 8) Indian Ocean</div><div class="line"> 9) Pacific Ocean</div><div class="line">10) coord - I want to use geographical coordinates.</div><div class="line">11) TZ - I want to specify the time zone using the Posix TZ format.</div></pre></td></tr></table></figure>
+<h3 id="选择亚洲（4）"><a href="#选择亚洲（4）" class="headerlink" title="选择亚洲（4）"></a>选择亚洲（4）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">#? 4</div><div class="line">Please select a country whose clocks agree with yours.</div><div class="line"> 1) Afghanistan           18) Israel                35) Palestine</div><div class="line"> 2) Armenia               19) Japan                 36) Philippines</div><div class="line"> 3) Azerbaijan            20) Jordan                37) Qatar</div><div class="line"> 4) Bahrain               21) Kazakhstan            38) Russia</div><div class="line"> 5) Bangladesh            22) Korea (North)         39) Saudi Arabia</div><div class="line"> 6) Bhutan                23) Korea (South)         40) Singapore</div><div class="line"> 7) Brunei                24) Kuwait                41) Sri Lanka</div><div class="line"> 8) Cambodia              25) Kyrgyzstan            42) Syria</div><div class="line"> 9) China                 26) Laos                  43) Taiwan</div><div class="line">10) Cyprus                27) Lebanon               44) Tajikistan</div><div class="line">11) East Timor            28) Macau                 45) Thailand</div><div class="line">12) Georgia               29) Malaysia              46) Turkmenistan</div><div class="line">13) Hong Kong             30) Mongolia              47) United Arab Emirates</div><div class="line">14) India                 31) Myanmar (Burma)       48) Uzbekistan</div><div class="line">15) Indonesia             32) Nepal                 49) Vietnam</div><div class="line">16) Iran                  33) Oman                  50) Yemen</div><div class="line">17) Iraq                  34) Pakistan</div></pre></td></tr></table></figure>
+<h3 id="选择中国（9）"><a href="#选择中国（9）" class="headerlink" title="选择中国（9）"></a>选择中国（9）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#? 9</div><div class="line">Please select one of the following time zone regions.</div><div class="line">1) Beijing Time</div><div class="line">2) Xinjiang Time</div></pre></td></tr></table></figure>
+<h3 id="选择北京时间（1）"><a href="#选择北京时间（1）" class="headerlink" title="选择北京时间（1）"></a>选择北京时间（1）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#? 1</div><div class="line"></div><div class="line">The following information has been given:</div><div class="line"></div><div class="line">        China</div><div class="line">        Beijing Time</div><div class="line"></div><div class="line">Therefore TZ=&apos;Asia/Shanghai&apos; will be used.</div><div class="line">Selected time is now:   Thu Dec 20 10:54:37 CST 2018.</div><div class="line">Universal Time is now:  Thu Dec 20 02:54:37 UTC 2018.</div><div class="line">Is the above information OK?</div><div class="line">1) Yes</div><div class="line">2) No</div></pre></td></tr></table></figure>
+<h3 id="选择是（1）进行保存"><a href="#选择是（1）进行保存" class="headerlink" title="选择是（1）进行保存"></a>选择是（1）进行保存</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#? 1</div><div class="line"></div><div class="line">You can make this change permanent for yourself by appending the line</div><div class="line">        TZ=&apos;Asia/Shanghai&apos;; export TZ</div><div class="line">to the file &apos;.profile&apos; in your home directory; then log out and log in again.</div><div class="line"></div><div class="line">Here is that TZ value again, this time on standard output so that you</div><div class="line">can use the /usr/bin/tzselect command in shell scripts:</div><div class="line">Asia/Shanghai</div></pre></td></tr></table></figure>
+<h3 id="保存时间"><a href="#保存时间" class="headerlink" title="保存时间"></a>保存时间</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">admin@Ubuntu:~$ sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</div></pre></td></tr></table></figure>
+<h3 id="再次查看时间"><a href="#再次查看时间" class="headerlink" title="再次查看时间"></a>再次查看时间</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">admin@Ubuntu:~$ date -R</div><div class="line">Thu, 20 Dec 2018 10:59:06 +0800</div></pre></td></tr></table></figure>
+<blockquote>
+<p>ps :同步时间到硬件sudo hwclock –systohc</p>
 </blockquote>
 
       
@@ -406,11 +409,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
           
-            <a href="/tags/博客/" rel="tag"># 博客</a>
-          
-            <a href="/tags/站点地图/" rel="tag"># 站点地图</a>
+            <a href="/tags/timezone/" rel="tag"># timezone</a>
           
         </div>
       
@@ -419,8 +420,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/23/2小时用hexo创建个人博客/" rel="next" title="2小时用hexo搭建个人博客">
-                <i class="fa fa-chevron-left"></i> 2小时用hexo搭建个人博客
+              <a href="/2018/12/07/Linux编译安装时configure、make和make-install的作用/" rel="next" title="Linux编译安装时configure、make和make install的作用">
+                <i class="fa fa-chevron-left"></i> Linux编译安装时configure、make和make install的作用
               </a>
             
           </div>
@@ -428,10 +429,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/16/Centos-下搭建FTP服务器/" rel="prev" title="Centos 下搭建FTP服务器">
-                Centos 下搭建FTP服务器 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -551,7 +548,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、登陆-Google-Search-Console-，输入需要验证的网站域名（翻墙）"><span class="nav-number">1.1.</span> <span class="nav-text">1、登陆 Google Search Console ，输入需要验证的网站域名（翻墙）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、安装插件"><span class="nav-number">1.2.</span> <span class="nav-text">2、安装插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、在博客目录的config-yml中添加如下代码："><span class="nav-number">1.3.</span> <span class="nav-text">3、在博客目录的config.yml中添加如下代码：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、hexo编译的时候会自动在根目录生成站点地图"><span class="nav-number">1.4.</span> <span class="nav-text">4、hexo编译的时候会自动在根目录生成站点地图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、编译推送"><span class="nav-number">1.5.</span> <span class="nav-text">5、编译推送</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、在站点地图中提交上一步生成的sitemap-xml文件"><span class="nav-number">1.6.</span> <span class="nav-text">6、在站点地图中提交上一步生成的sitemap.xml文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7、-打开www-google-com输入nnull-xyz（当然这里属于自己的网址）测试，看到自己的网站，便成功了"><span class="nav-number">1.7.</span> <span class="nav-text">7、 打开www.google.com输入nnull.xyz（当然这里属于自己的网址）测试，看到自己的网站，便成功了</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8、几天后，我发现Google里还是不能搜索blog，查资料发现还差最后一步，在-Search-Console-中添加自己的网址"><span class="nav-number">1.8.</span> <span class="nav-text">8、几天后，我发现Google里还是不能搜索blog，查资料发现还差最后一步，在 Search Console 中添加自己的网址</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看当前系统时间"><span class="nav-number">1.1.</span> <span class="nav-text">查看当前系统时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行tzselect"><span class="nav-number">1.2.</span> <span class="nav-text">运行tzselect</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择亚洲（4）"><span class="nav-number">1.3.</span> <span class="nav-text">选择亚洲（4）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择中国（9）"><span class="nav-number">1.4.</span> <span class="nav-text">选择中国（9）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择北京时间（1）"><span class="nav-number">1.5.</span> <span class="nav-text">选择北京时间（1）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择是（1）进行保存"><span class="nav-number">1.6.</span> <span class="nav-text">选择是（1）进行保存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存时间"><span class="nav-number">1.7.</span> <span class="nav-text">保存时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#再次查看时间"><span class="nav-number">1.8.</span> <span class="nav-text">再次查看时间</span></a></li></ol></li></ol></div>
             
 
           </div>

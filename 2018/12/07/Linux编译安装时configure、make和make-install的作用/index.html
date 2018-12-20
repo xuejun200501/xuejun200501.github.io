@@ -85,21 +85,18 @@
 
 
 <meta name="description" content="前言有时下载了某个应用程序的源码，需要在Linux、Mac上进行编译安装
-configureconfigure 脚本检查当前的系统环境和配置选项，在当前目录中生成 Makefile 文件1QL-MacBook-Pro:aria2-1.34.0 xj$ ./configure
-makemake，这一步就是编译，当执行make的时候，make会在当前目录下搜索Makefile（makefile）这个文">
+configureconfigure 脚本检查当前的系统环境和配置选项，在当前目录中生成 Makefile 文件1QL-MacBook-Pro:aria2-1.34.0 xj$ ./configure">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux编译安装时configure、make和make install的作用">
 <meta property="og:url" content="http://nnull.xyz/2018/12/07/Linux编译安装时configure、make和make-install的作用/index.html">
 <meta property="og:site_name" content="没什么大不了">
 <meta property="og:description" content="前言有时下载了某个应用程序的源码，需要在Linux、Mac上进行编译安装
-configureconfigure 脚本检查当前的系统环境和配置选项，在当前目录中生成 Makefile 文件1QL-MacBook-Pro:aria2-1.34.0 xj$ ./configure
-makemake，这一步就是编译，当执行make的时候，make会在当前目录下搜索Makefile（makefile）这个文">
-<meta property="og:updated_time" content="2018-12-07T09:25:56.716Z">
+configureconfigure 脚本检查当前的系统环境和配置选项，在当前目录中生成 Makefile 文件1QL-MacBook-Pro:aria2-1.34.0 xj$ ./configure">
+<meta property="og:updated_time" content="2018-12-20T03:34:10.727Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux编译安装时configure、make和make install的作用">
 <meta name="twitter:description" content="前言有时下载了某个应用程序的源码，需要在Linux、Mac上进行编译安装
-configureconfigure 脚本检查当前的系统环境和配置选项，在当前目录中生成 Makefile 文件1QL-MacBook-Pro:aria2-1.34.0 xj$ ./configure
-makemake，这一步就是编译，当执行make的时候，make会在当前目录下搜索Makefile（makefile）这个文">
+configureconfigure 脚本检查当前的系统环境和配置选项，在当前目录中生成 Makefile 文件1QL-MacBook-Pro:aria2-1.34.0 xj$ ./configure">
 
 
 
@@ -376,6 +373,7 @@ makemake，这一步就是编译，当执行make的时候，make会在当前目�
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有时下载了某个应用程序的源码，需要在Linux、Mac上进行编译安装</p>
 <h3 id="configure"><a href="#configure" class="headerlink" title="configure"></a>configure</h3><p>configure 脚本检查当前的系统环境和配置选项，在当前目录中生成 Makefile 文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">QL-MacBook-Pro:aria2-1.34.0 xj$ ./configure</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <h3 id="make"><a href="#make" class="headerlink" title="make"></a>make</h3><p>make，这一步就是编译，当执行make的时候，make会在当前目录下搜索Makefile（makefile）这个文本文件，而makefile里面记录了源码如何编译的详细信息。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">QL-MacBook-Pro:aria2-1.34.0 xj$ make</div></pre></td></tr></table></figure></p>
 <h3 id="make-install"><a href="#make-install" class="headerlink" title="make install"></a>make install</h3><p>make insatll，这条命令来进行安装，这一步一般需要你有 root 权限（因为要向系统写入文件）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">QL-MacBook-Pro:aria2-1.34.0 xj$ sudo make install</div></pre></td></tr></table></figure></p>
 <h4 id="ps-configure-后加上参数来对安装进行控制"><a href="#ps-configure-后加上参数来对安装进行控制" class="headerlink" title="ps:configure 后加上参数来对安装进行控制"></a>ps:configure 后加上参数来对安装进行控制</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">QL-MacBook-Pro:aria2-1.34.0 xj$ ./configure -prefix=/usr</div></pre></td></tr></table></figure>
@@ -424,6 +422,10 @@ makemake，这一步就是编译，当执行make的时候，make会在当前目�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/20/Ubuntu-set-time-zone/" rel="prev" title="Ubuntu设置时区">
+                Ubuntu设置时区 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -491,7 +493,7 @@ makemake，这一步就是编译，当执行make的时候，make会在当前目�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-count">28</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -508,7 +510,7 @@ makemake，这一步就是编译，当执行make的时候，make会在当前目�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

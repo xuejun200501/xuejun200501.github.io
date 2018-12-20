@@ -275,6 +275,152 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2018/12/20/Ubuntu-set-time-zone/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xuejun">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/icon.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="没什么大不了">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="没什么大不了" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/12/20/Ubuntu-set-time-zone/" itemprop="url">
+                  Ubuntu设置时区
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-20T11:01:21+08:00">
+                2018-12-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/technology/" itemprop="url" rel="index">
+                    <span itemprop="name">technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>安装Ubuntu后，默认时区不是中国区</p>
+<h3 id="查看当前系统时间"><a href="#查看当前系统时间" class="headerlink" title="查看当前系统时间"></a>查看当前系统时间</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">admin@Ubuntu:~$ date -R</div><div class="line">Thu Dec 2018 02:53:31 +0000</div></pre></td></tr></table></figure>
+<h3 id="运行tzselect"><a href="#运行tzselect" class="headerlink" title="运行tzselect"></a>运行tzselect</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">admin@Ubuntu:~$ tzselect</div><div class="line">Please identify a location so that time zone rules can be set correctly.</div><div class="line">Please select a continent, ocean, &quot;coord&quot;, or &quot;TZ&quot;.</div><div class="line"> 1) Africa</div><div class="line"> 2) Americas</div><div class="line"> 3) Antarctica</div><div class="line"> 4) Asia</div><div class="line"> 5) Atlantic Ocean</div><div class="line"> 6) Australia</div><div class="line"> 7) Europe</div><div class="line"> 8) Indian Ocean</div><div class="line"> 9) Pacific Ocean</div><div class="line">10) coord - I want to use geographical coordinates.</div><div class="line">11) TZ - I want to specify the time zone using the Posix TZ format.</div></pre></td></tr></table></figure>
+<h3 id="选择亚洲（4）"><a href="#选择亚洲（4）" class="headerlink" title="选择亚洲（4）"></a>选择亚洲（4）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">#? 4</div><div class="line">Please select a country whose clocks agree with yours.</div><div class="line"> 1) Afghanistan           18) Israel                35) Palestine</div><div class="line"> 2) Armenia               19) Japan                 36) Philippines</div><div class="line"> 3) Azerbaijan            20) Jordan                37) Qatar</div><div class="line"> 4) Bahrain               21) Kazakhstan            38) Russia</div><div class="line"> 5) Bangladesh            22) Korea (North)         39) Saudi Arabia</div><div class="line"> 6) Bhutan                23) Korea (South)         40) Singapore</div><div class="line"> 7) Brunei                24) Kuwait                41) Sri Lanka</div><div class="line"> 8) Cambodia              25) Kyrgyzstan            42) Syria</div><div class="line"> 9) China                 26) Laos                  43) Taiwan</div><div class="line">10) Cyprus                27) Lebanon               44) Tajikistan</div><div class="line">11) East Timor            28) Macau                 45) Thailand</div><div class="line">12) Georgia               29) Malaysia              46) Turkmenistan</div><div class="line">13) Hong Kong             30) Mongolia              47) United Arab Emirates</div><div class="line">14) India                 31) Myanmar (Burma)       48) Uzbekistan</div><div class="line">15) Indonesia             32) Nepal                 49) Vietnam</div><div class="line">16) Iran                  33) Oman                  50) Yemen</div><div class="line">17) Iraq                  34) Pakistan</div></pre></td></tr></table></figure>
+<h3 id="选择中国（9）"><a href="#选择中国（9）" class="headerlink" title="选择中国（9）"></a>选择中国（9）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#? 9</div><div class="line">Please select one of the following time zone regions.</div><div class="line">1) Beijing Time</div><div class="line">2) Xinjiang Time</div></pre></td></tr></table></figure>
+<h3 id="选择北京时间（1）"><a href="#选择北京时间（1）" class="headerlink" title="选择北京时间（1）"></a>选择北京时间（1）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#? 1</div><div class="line"></div><div class="line">The following information has been given:</div><div class="line"></div><div class="line">        China</div><div class="line">        Beijing Time</div><div class="line"></div><div class="line">Therefore TZ=&apos;Asia/Shanghai&apos; will be used.</div><div class="line">Selected time is now:   Thu Dec 20 10:54:37 CST 2018.</div><div class="line">Universal Time is now:  Thu Dec 20 02:54:37 UTC 2018.</div><div class="line">Is the above information OK?</div><div class="line">1) Yes</div><div class="line">2) No</div></pre></td></tr></table></figure>
+<h3 id="选择是（1）进行保存"><a href="#选择是（1）进行保存" class="headerlink" title="选择是（1）进行保存"></a>选择是（1）进行保存</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#? 1</div><div class="line"></div><div class="line">You can make this change permanent for yourself by appending the line</div><div class="line">        TZ=&apos;Asia/Shanghai&apos;; export TZ</div><div class="line">to the file &apos;.profile&apos; in your home directory; then log out and log in again.</div><div class="line"></div><div class="line">Here is that TZ value again, this time on standard output so that you</div><div class="line">can use the /usr/bin/tzselect command in shell scripts:</div><div class="line">Asia/Shanghai</div></pre></td></tr></table></figure>
+<h3 id="保存时间"><a href="#保存时间" class="headerlink" title="保存时间"></a>保存时间</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">admin@Ubuntu:~$ sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</div></pre></td></tr></table></figure>
+<h3 id="再次查看时间"><a href="#再次查看时间" class="headerlink" title="再次查看时间"></a>再次查看时间</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">admin@Ubuntu:~$ date -R</div><div class="line">Thu, 20 Dec 2018 10:59:06 +0800</div></pre></td></tr></table></figure>
+<blockquote>
+<p>ps :同步时间到硬件sudo hwclock –systohc</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2018/12/07/Linux编译安装时configure、make和make-install的作用/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -370,18 +516,15 @@
 
       
         
-          
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有时下载了某个应用程序的源码，需要在Linux、Mac上进行编译安装</p>
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有时下载了某个应用程序的源码，需要在Linux、Mac上进行编译安装</p>
 <h3 id="configure"><a href="#configure" class="headerlink" title="configure"></a>configure</h3><p>configure 脚本检查当前的系统环境和配置选项，在当前目录中生成 Makefile 文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">QL-MacBook-Pro:aria2-1.34.0 xj$ ./configure</div></pre></td></tr></table></figure></p>
-<h3 id="make"><a href="#make" class="headerlink" title="make"></a>make</h3><p>make，这一步就是编译，当执行make的时候，make会在当前目录下搜索Makefile（makefile）这个文本文件，而makefile里面记录了源码如何编译的详细信息。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">QL-MacBook-Pro:aria2-1.34.0 xj$ make</div></pre></td></tr></table></figure></p>
-<h3 id="make-install"><a href="#make-install" class="headerlink" title="make install"></a>make install</h3><p>make insatll，这条命令来进行安装，这一步一般需要你有 root 权限（因为要向系统写入文件）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">QL-MacBook-Pro:aria2-1.34.0 xj$ sudo make install</div></pre></td></tr></table></figure></p>
-<h4 id="ps-configure-后加上参数来对安装进行控制"><a href="#ps-configure-后加上参数来对安装进行控制" class="headerlink" title="ps:configure 后加上参数来对安装进行控制"></a>ps:configure 后加上参数来对安装进行控制</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">QL-MacBook-Pro:aria2-1.34.0 xj$ ./configure -prefix=/usr</div></pre></td></tr></table></figure>
-<blockquote>
-<p>意思是将该软件安装在 /usr 下面，执行文件就会安装在 /usr/bin （而不是默认的 /usr/local/bin)，资源文件就会安装在 /usr/share（而不是默认的/usr/local/share）<br>./configure –prefix=/usr/local/test安装后的所有资源文件都会被放在/usr/local/test目录中，不会分散到其他目录。<br>使用–prefix选项的另一个好处是方便卸载软件或移植软件；当某个安装的软件不再需要时，只须简单的删除该安装目录，就可以把软件卸载得干干净净；而移植软件只需拷贝整个目录到另外一个机器即可（相同的操作系统下）。<br>当然要卸载程序，也可以在原来的make目录下用一次make uninstall，但前提是Makefile文件有uninstall命令</p>
-</blockquote>
-<h3 id="记录安装日志"><a href="#记录安装日志" class="headerlink" title="记录安装日志"></a>记录安装日志</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">QL-MacBook-Pro:aria2-1.34.0 xj$ make install &amp;&gt; |tee make.log’</div></pre></td></tr></table></figure>
-
-          
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/12/07/Linux编译安装时configure、make和make-install的作用/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1501,145 +1644,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2018/04/01/Shadowsocks相关知识/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="xuejun">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/icon.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="没什么大不了">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="没什么大不了" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/04/01/Shadowsocks相关知识/" itemprop="url">
-                  Shadowsocks相关知识
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-01T20:58:34+08:00">
-                2018-04-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/technology/" itemprop="url" rel="index">
-                    <span itemprop="name">technology</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Shadowsocks可以指：一種基於Socks5代理方式的加密傳輸協定，也可以指實作這個協定的各種傳輸套件，並採用Apache许可证、GPL、MIT許可證等多種自由軟體許可協定開放原始碼。shadowsocks分为服务器端和客户端，在使用之前，需要先将服务器端部署到服务器上面，然后通过客户端连接并建立本地代理。目前套件使用Python、C、C++、C#、Go语言等程式語言开发。</p>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2018/04/01/Shadowsocks相关知识/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1685,7 +1689,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-count">28</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1702,7 +1706,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
