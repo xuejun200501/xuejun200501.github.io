@@ -275,6 +275,902 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2019/04/13/Ubuntu-install-PostgreSQL/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xuejun">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/icon.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="没什么大不了">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="没什么大不了" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/04/13/Ubuntu-install-PostgreSQL/" itemprop="url">
+                  Ubuntu 安装 PostgreSQL
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-13T16:22:24+08:00">
+                2019-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/technology/" itemprop="url" rel="index">
+                    <span itemprop="name">technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于相关需求，需要安装PostgreSQL数据库，但卸载时，出现问题</p>
+<h3 id="安装PostgreSQL"><a href="#安装PostgreSQL" class="headerlink" title="安装PostgreSQL"></a>安装PostgreSQL</h3><ul>
+<li><p>CentOS</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># Install the repository RPM:</div><div class="line">yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm</div><div class="line"># Install the client packages:</div><div class="line">yum install postgresql10</div><div class="line"># Optionally install the server packages:</div><div class="line">yum install postgresql10-server</div><div class="line">#  Optionally initialize the database and enable automatic start:</div><div class="line">/usr/pgsql-10/bin/postgresql-10-setup initdb</div><div class="line">systemctl enable postgresql-10</div><div class="line"># start postgresql</div><div class="line">systemctl start postgresql-10</div></pre></td></tr></table></figure>
+</li>
+<li><p>Ubuntu</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># create the file /etc/apt/sources.list.d/pgdg.list and add a line for the repository</div><div class="line">odoo@odoo:~$ sudo vim /etc/apt/sources.list.d/pgdg.list</div><div class="line">odoo@odoo:~$ sudo cat /etc/apt/sources.list.d/pgdg.list</div><div class="line">deb http://apt.postgresql.org/pub/repos/apt/ YOUR_UBUNTU_VERSION_HERE-pgdg main</div><div class="line"># Import the repository signing key, and update the package lists</div><div class="line">odoo@odoo:~$ sudo wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -</div><div class="line">odoo@odoo:~$ sudo apt-get update</div><div class="line">odoo@odoo:~$ sudo apt-get install postgresql-10</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="卸载PostgreSQL"><a href="#卸载PostgreSQL" class="headerlink" title="卸载PostgreSQL"></a>卸载PostgreSQL</h3><ul>
+<li><p>Ubuntu</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">查看</div><div class="line">odoo@odoo:~$ odoo@odoo:~$ dpkg -l | grep postgres</div><div class="line">ii  postgresql                            10+190                             all          object-relational SQL database (supported version)</div><div class="line">ii  postgresql-10                         10.6-0ubuntu0.18.04.1              amd64        object-relational SQL database, version 10 server</div><div class="line">ii  postgresql-client-10                  10.6-0ubuntu0.18.04.1              amd64        front-end programs for PostgreSQL 10</div><div class="line">ii  postgresql-client-common              190                                all          manager for multiple PostgreSQL client versions</div><div class="line">ii  postgresql-common                     190                                all          PostgreSQL database-cluster manager</div><div class="line"># 删除</div><div class="line">odoo@odoo:$ odoo@odoo:$ sudo apt-get --purge remove postgresql postgresql-10 postgresql-client-10 postgresql-client-common postgresql-common</div></pre></td></tr></table></figure>
+</li>
+<li><p>CentOS</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 查看</div><div class="line">[odoo12@localhost ~]$ yum list installed | grep postgresql</div><div class="line">postgresql10.x86_64                  10.7-2PGDG.rhel7            @pgdg10</div><div class="line">postgresql10-devel.x86_64            10.7-2PGDG.rhel7            @pgdg10</div><div class="line">postgresql10-libs.x86_64             10.7-2PGDG.rhel7            @pgdg10</div><div class="line">postgresql10-server.x86_64           10.7-2PGDG.rhel7            @pgdg10</div><div class="line"># 删除</div><div class="line">[odoo12@localhost ~]$ yum remove postgresql*</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="启动PostgreSQL"><a href="#启动PostgreSQL" class="headerlink" title="启动PostgreSQL"></a>启动PostgreSQL</h3><ul>
+<li><p>Ubuntu</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">root@odoo ~# systemctl start postgresql-10.service</div></pre></td></tr></table></figure>
+</li>
+<li><p>CentOS</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# systemctl start postgresql-10.service</div></pre></td></tr></table></figure>
+</li>
+<li><p>Mac</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log restart</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="查看pg-hba-conf-postgresql-conf位置"><a href="#查看pg-hba-conf-postgresql-conf位置" class="headerlink" title="查看pg_hba.conf, postgresql.conf位置"></a>查看pg_hba.conf, postgresql.conf位置</h3><ul>
+<li><p>Ubuntu</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">root@odoo:~# find / -name &apos;pg_hba.conf&apos;</div><div class="line">/etc/postgresql/10/main/pg_hba.conf</div><div class="line">root@odoo:~# find / -name &apos;postgresql.conf&apos;</div><div class="line">/etc/postgresql/10/main/postgresql.conf</div></pre></td></tr></table></figure>
+</li>
+<li><p>CentOS</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# find / -name &apos;pg_hba.conf&apos;</div><div class="line">/var/lib/pgsql/10/data/pg_hba.conf</div><div class="line">[root@localhost ~]# find / -name &apos;postgresql.conf&apos;</div><div class="line">	~~ /var/lib/pgsql/10/data/postgresql.conf</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="修改postgresql-conf文件"><a href="#修改postgresql-conf文件" class="headerlink" title="修改postgresql.conf文件"></a>修改postgresql.conf文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"># 是否将日志重定向至文件中，默认是off</div><div class="line">logging_collector = on/off</div><div class="line"># 日志文件目录，默认是PGDATA的相对路径</div><div class="line"># 默认为$&#123;PGDATA&#125;/log，即集群目录下，但是日志文件可能会非常多，建议将日志重定向到其他目录或分区。</div><div class="line"># 将此配置修改为/var/log/pg_log下，必须先创建此目录，并修改权限</div><div class="line">log_directory = &apos;log&apos;</div><div class="line"># 日志文件命名形式，使用默认即可</div><div class="line">log_filename = &apos;postgresql-%Y-%m-%d_%H%M%S.log&apos; </div><div class="line"># 单个日志文件的生存期，默认1天，在日志文件大小没有达到log_rotation_size时，一天只生成一个日志文件</div><div class="line">log_rotation_age = 1d</div><div class="line"># 单个日志文件的大小，如果时间没有超过log_rotation_age，一个日志文件最大只能到10M，否则将新生成一个日志文件</div><div class="line">log_rotation_size = 10MB</div><div class="line"># 当日志文件已存在时，该配置如果为off，新生成的日志将在文件尾部追加，如果为on，则会覆盖原来的日志</div><div class="line">log_truncate_on_rotation = off</div><div class="line">记录每条SQL语句执行完成消耗的时间，将此配置设置为on,用于统计哪些SQL语句耗时较长。</div><div class="line">log_duration = off</div></pre></td></tr></table></figure>
+<h3 id="修改postgresql-conf"><a href="#修改postgresql-conf" class="headerlink" title="修改postgresql.conf"></a>修改postgresql.conf</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">listen_addresses = &apos;*&apos;</div><div class="line">host  all  all 0.0.0.0/0 md5</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2019/04/10/Ubuntu-18-04-install-odoo12/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xuejun">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/icon.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="没什么大不了">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="没什么大不了" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/04/10/Ubuntu-18-04-install-odoo12/" itemprop="url">
+                  Ubuntu 18.04 下安装 Odoo 12
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-10T20:01:13+08:00">
+                2019-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/technology/" itemprop="url" rel="index">
+                    <span itemprop="name">technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>根据公司要求搭建odoo开源企业管理系统</p>
+<h2 id="软件需求"><a href="#软件需求" class="headerlink" title="软件需求"></a>软件需求</h2><ul>
+<li>odoo12</li>
+<li>ubuntu 18.04</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="安装前准备"><a href="#安装前准备" class="headerlink" title="安装前准备"></a>安装前准备</h3><ol>
+<li><p>更新系统最新安装包</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">odoo@odoo:~$ sudo apt update &amp;&amp; sudo apt upgrade</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装pip, git, node.js 和其他odoo必须依赖工具</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">odoo@odoo:~$ sudo apt install git python3-pip build-essential wget python3-dev python3-venv python3-wheel libxslt-dev libzip-dev libldap2-dev libsasl2-dev python3-setuptools node-less</div></pre></td></tr></table></figure>
+</li>
+</ol>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2019/04/10/Ubuntu-18-04-install-odoo12/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2019/04/10/git-忽略文件的几种情形/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xuejun">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/icon.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="没什么大不了">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="没什么大不了" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/04/10/git-忽略文件的几种情形/" itemprop="url">
+                  git 忽略文件的几种情形
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-10T13:44:31+08:00">
+                2019-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/technology/" itemprop="url" rel="index">
+                    <span itemprop="name">technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>git最近在使用时，遇到一种情况：项目中代码必须以生产环境为准，故git服务器的代码以生产环境为基准，而某个配置文件在测试环境会做调整，但测试环境的此配置文件不能提交到git服务器上。每次项目中代码需在测试环境验证后，方可提交到生产环境。</p>
+<h2 id="git-忽略而不提交文件的3种情形"><a href="#git-忽略而不提交文件的3种情形" class="headerlink" title="git 忽略而不提交文件的3种情形"></a>git 忽略而不提交文件的3种情形</h2><h3 id="情况一：从未提交过的文件可以用-gitignore"><a href="#情况一：从未提交过的文件可以用-gitignore" class="headerlink" title="情况一：从未提交过的文件可以用.gitignore"></a>情况一：从未提交过的文件可以用.gitignore</h3><p><code>conf/database.xml</code><br></p>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2019/04/10/git-忽略文件的几种情形/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2019/04/08/python-相关问题/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xuejun">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/icon.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="没什么大不了">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="没什么大不了" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/04/08/python-相关问题/" itemprop="url">
+                  python 相关问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-08T11:18:00+08:00">
+                2019-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/technology/" itemprop="url" rel="index">
+                    <span itemprop="name">technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前言（Ubuntu）"><a href="#前言（Ubuntu）" class="headerlink" title="前言（Ubuntu）"></a>前言（Ubuntu）</h2><p>pip版本为9.0，使用python更新后，pip报错，无法使用</p>
+<h3 id="更新pip"><a href="#更新pip" class="headerlink" title="更新pip"></a>更新pip</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">odoo@odoo:/opt/odoo$ python3 -m pip install --upgrade pip</div><div class="line">Collecting pip</div><div class="line">  Downloading https://files.pythonhosted.org/packages/d8/f3/413bab4ff08e1fc4828dfc59996d721917df8e8583ea85  385d51125dceff/pip-19.0.3-py2.py3-none-any.whl (1.4MB)</div><div class="line">    100% |████████████████████████████████| 1.4MB 176kB/s</div><div class="line">Installing collected packages: pip</div><div class="line">Successfully installed pip-19.0.3</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2019/04/08/python-相关问题/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2018/12/21/Ubuntu-common-commands/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xuejun">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/icon.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="没什么大不了">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="没什么大不了" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/12/21/Ubuntu-common-commands/" itemprop="url">
+                  Ubuntu common commands
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-21T15:16:10+08:00">
+                2018-12-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/technology/" itemprop="url" rel="index">
+                    <span itemprop="name">technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于长时间不用Ubuntu，导致一些基本的命令容易忘记</p>
+<h3 id="apt-get命令"><a href="#apt-get命令" class="headerlink" title="apt-get命令"></a>apt-get命令</h3><ol>
+<li><p>更新软件源</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">admin@Ubuntu:~$ sudo apt-get update</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装软件</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">admin@Ubuntu:~$ sudo apt-get install packagename</div></pre></td></tr></table></figure>
+</li>
+<li><p>卸载软件</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># 卸载一个已安装的软件包（保留配置文档）</div><div class="line">admin@Ubuntu:~$ apt-get remove packagename</div><div class="line"># 卸载一个已安装的软件包（删除配置文档）</div><div class="line">admin@Ubuntu:~$ apt-get remove --purge packagename</div><div class="line"># 删除包及其依赖的软件包</div><div class="line">admin@Ubuntu:~$ apt-get autoremove packagename</div><div class="line"># 删除包及其依赖的软件包+配置文件，比上面的要删除的彻底一点</div><div class="line">admin@Ubuntu:~$ apt-get autoremove --purge packagename</div><div class="line"># 强制卸载</div><div class="line">admin@Ubuntu:~$ dpkg --force-all --purge packagename</div></pre></td></tr></table></figure>
+</li>
+</ol>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/12/21/Ubuntu-common-commands/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2018/12/21/Linux-often-has-problems-and-solutions/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xuejun">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/icon.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="没什么大不了">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="没什么大不了" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/12/21/Linux-often-has-problems-and-solutions/" itemprop="url">
+                  Linux/Ubuntu/Centos常见问题及解决方案
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-21T10:12:50+08:00">
+                2018-12-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/technology/" itemprop="url" rel="index">
+                    <span itemprop="name">technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>经常在使用Linux、CentOS出现问题及解决方法</p>
+<h3 id="1-CentOS-ssh登陆时出现cannot-change-locale-UTF-8"><a href="#1-CentOS-ssh登陆时出现cannot-change-locale-UTF-8" class="headerlink" title="1. CentOS ssh登陆时出现cannot change locale (UTF-8)"></a>1. CentOS ssh登陆时出现cannot change locale (UTF-8)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">QL-MacBook-Pro: ~ xjun$ ssh -p 9999  root@96.112.206.118</div><div class="line">-bash: warning: setlocale: LC_CTYPE: cannot change locale (UTF-8): No such file or directory</div></pre></td></tr></table></figure>
+<blockquote>
+<p>解决方案:在远程主机中添加以下二行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@host ~]# cat /etc/environment </div><div class="line">LANG=en_US.utf-8</div><div class="line">LC_ALL=en_US.utf-8</div></pre></td></tr></table></figure></p>
+</blockquote>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/12/21/Linux-often-has-problems-and-solutions/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2018/12/20/Ubuntu-set-time-zone/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -370,21 +1266,15 @@
 
       
         
-          
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>安装Ubuntu后，默认时区不是中国区</p>
-<h3 id="查看当前系统时间"><a href="#查看当前系统时间" class="headerlink" title="查看当前系统时间"></a>查看当前系统时间</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">admin@Ubuntu:~$ date -R</div><div class="line">Thu Dec 2018 02:53:31 +0000</div></pre></td></tr></table></figure>
-<h3 id="运行tzselect"><a href="#运行tzselect" class="headerlink" title="运行tzselect"></a>运行tzselect</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">admin@Ubuntu:~$ tzselect</div><div class="line">Please identify a location so that time zone rules can be set correctly.</div><div class="line">Please select a continent, ocean, &quot;coord&quot;, or &quot;TZ&quot;.</div><div class="line"> 1) Africa</div><div class="line"> 2) Americas</div><div class="line"> 3) Antarctica</div><div class="line"> 4) Asia</div><div class="line"> 5) Atlantic Ocean</div><div class="line"> 6) Australia</div><div class="line"> 7) Europe</div><div class="line"> 8) Indian Ocean</div><div class="line"> 9) Pacific Ocean</div><div class="line">10) coord - I want to use geographical coordinates.</div><div class="line">11) TZ - I want to specify the time zone using the Posix TZ format.</div></pre></td></tr></table></figure>
-<h3 id="选择亚洲（4）"><a href="#选择亚洲（4）" class="headerlink" title="选择亚洲（4）"></a>选择亚洲（4）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">#? 4</div><div class="line">Please select a country whose clocks agree with yours.</div><div class="line"> 1) Afghanistan           18) Israel                35) Palestine</div><div class="line"> 2) Armenia               19) Japan                 36) Philippines</div><div class="line"> 3) Azerbaijan            20) Jordan                37) Qatar</div><div class="line"> 4) Bahrain               21) Kazakhstan            38) Russia</div><div class="line"> 5) Bangladesh            22) Korea (North)         39) Saudi Arabia</div><div class="line"> 6) Bhutan                23) Korea (South)         40) Singapore</div><div class="line"> 7) Brunei                24) Kuwait                41) Sri Lanka</div><div class="line"> 8) Cambodia              25) Kyrgyzstan            42) Syria</div><div class="line"> 9) China                 26) Laos                  43) Taiwan</div><div class="line">10) Cyprus                27) Lebanon               44) Tajikistan</div><div class="line">11) East Timor            28) Macau                 45) Thailand</div><div class="line">12) Georgia               29) Malaysia              46) Turkmenistan</div><div class="line">13) Hong Kong             30) Mongolia              47) United Arab Emirates</div><div class="line">14) India                 31) Myanmar (Burma)       48) Uzbekistan</div><div class="line">15) Indonesia             32) Nepal                 49) Vietnam</div><div class="line">16) Iran                  33) Oman                  50) Yemen</div><div class="line">17) Iraq                  34) Pakistan</div></pre></td></tr></table></figure>
-<h3 id="选择中国（9）"><a href="#选择中国（9）" class="headerlink" title="选择中国（9）"></a>选择中国（9）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#? 9</div><div class="line">Please select one of the following time zone regions.</div><div class="line">1) Beijing Time</div><div class="line">2) Xinjiang Time</div></pre></td></tr></table></figure>
-<h3 id="选择北京时间（1）"><a href="#选择北京时间（1）" class="headerlink" title="选择北京时间（1）"></a>选择北京时间（1）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#? 1</div><div class="line"></div><div class="line">The following information has been given:</div><div class="line"></div><div class="line">        China</div><div class="line">        Beijing Time</div><div class="line"></div><div class="line">Therefore TZ=&apos;Asia/Shanghai&apos; will be used.</div><div class="line">Selected time is now:   Thu Dec 20 10:54:37 CST 2018.</div><div class="line">Universal Time is now:  Thu Dec 20 02:54:37 UTC 2018.</div><div class="line">Is the above information OK?</div><div class="line">1) Yes</div><div class="line">2) No</div></pre></td></tr></table></figure>
-<h3 id="选择是（1）进行保存"><a href="#选择是（1）进行保存" class="headerlink" title="选择是（1）进行保存"></a>选择是（1）进行保存</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#? 1</div><div class="line"></div><div class="line">You can make this change permanent for yourself by appending the line</div><div class="line">        TZ=&apos;Asia/Shanghai&apos;; export TZ</div><div class="line">to the file &apos;.profile&apos; in your home directory; then log out and log in again.</div><div class="line"></div><div class="line">Here is that TZ value again, this time on standard output so that you</div><div class="line">can use the /usr/bin/tzselect command in shell scripts:</div><div class="line">Asia/Shanghai</div></pre></td></tr></table></figure>
-<h3 id="保存时间"><a href="#保存时间" class="headerlink" title="保存时间"></a>保存时间</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">admin@Ubuntu:~$ sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</div></pre></td></tr></table></figure>
-<h3 id="再次查看时间"><a href="#再次查看时间" class="headerlink" title="再次查看时间"></a>再次查看时间</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">admin@Ubuntu:~$ date -R</div><div class="line">Thu, 20 Dec 2018 10:59:06 +0800</div></pre></td></tr></table></figure>
-<blockquote>
-<p>ps :同步时间到硬件sudo hwclock –systohc</p>
-</blockquote>
-
-          
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>安装Ubuntu后，默认时区不是中国区</p>
+<h2 id="方法一：使用tzselect命令"><a href="#方法一：使用tzselect命令" class="headerlink" title="方法一：使用tzselect命令"></a>方法一：使用tzselect命令</h2><h3 id="查看当前系统时间"><a href="#查看当前系统时间" class="headerlink" title="查看当前系统时间"></a>查看当前系统时间</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">admin@Ubuntu:~$ date -R</div><div class="line">Thu Dec 2018 02:53:31 +0000</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/12/20/Ubuntu-set-time-zone/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -836,819 +1726,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2018/11/28/Chinese-gibberish-in-the-sublime-text-in-Mac/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="xuejun">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/icon.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="没什么大不了">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="没什么大不了" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/11/28/Chinese-gibberish-in-the-sublime-text-in-Mac/" itemprop="url">
-                  解决Mac下sublime text中文出现乱码
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-28T17:28:33+08:00">
-                2018-11-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/technology/" itemprop="url" rel="index">
-                    <span itemprop="name">technology</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>由于项目需要搭载了bug跟踪系统，使用了xampp建站集成包</p>
-<h2 id="下载ConvertToUTF8（自动）"><a href="#下载ConvertToUTF8（自动）" class="headerlink" title="下载ConvertToUTF8（自动）"></a>下载ConvertToUTF8（自动）</h2><p>command+shift+p，在输入框输入Package Control: Install Package，待载入所有的包目录后输入ConvertToUTF8，回车安装。</p>
-<h2 id="安装Codecs33（手动）"><a href="#安装Codecs33（手动）" class="headerlink" title="安装Codecs33（手动）"></a>安装Codecs33（手动）</h2><p>下载<a href="https://github.com/seanliang/Codecs33" title="Codecs33" target="_blank" rel="external">Codecs33</a>。将下载完的压缩包解压，把文件夹的名字修改为Codecs33并放在sublime的package目录下（/Users/个人用户/Library/Application\ Support/Sublime\ Text\ 3/Packages/）</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2018/08/12/one-fo-entrepreneurs-jumped-from-the-building-and-died/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="xuejun">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/icon.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="没什么大不了">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="没什么大不了" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/08/12/one-fo-entrepreneurs-jumped-from-the-building-and-died/" itemprop="url">
-                  22楼跳下，猝然离世！摧毁一个IT创业者有多容易？
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-12T19:33:09+08:00">
-                2018-08-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>“这几天，整个互联网在疯狂转发一张截图，8 月 7 日晚间，又一位创业者从 22 楼纵身跳下，猝然离世。</p>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>这位阿甘名叫甘来，是腾讯前员工，离职创业后经历两次失败，在第三家公司尚未成功之际，他选择用跳楼的方式结束了自己的生命。<br>甘来旗下的 3 家公司，2 家是法人<br>我们无法确切知道，他轻生时到底在想什么，但可以肯定的是：选择自杀这种极端方式，可见他承受了多么大的压力。</p>
-<p>令人扼腕的是：谷安天下&amp;安全牛创始人李华因病不治在同一天结束了自己的生命。</p>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2018/08/12/one-fo-entrepreneurs-jumped-from-the-building-and-died/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2018/06/27/Giveup/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="xuejun">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/icon.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="没什么大不了">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="没什么大不了" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/06/27/Giveup/" itemprop="url">
-                  放弃
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-27T23:23:52+08:00">
-                2018-06-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="待续"><a href="#待续" class="headerlink" title="待续"></a>待续</h2>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2018/05/15/XAMPP-mysql-is-not-running/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="xuejun">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/icon.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="没什么大不了">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="没什么大不了" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/05/15/XAMPP-mysql-is-not-running/" itemprop="url">
-                  XAMPP 中mysql无法启动
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-15T21:55:48+08:00">
-                2018-05-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>由于项目需要搭载了bug跟踪系统，使用了xampp建站集成包</p>
-<h2 id="待续"><a href="#待续" class="headerlink" title="待续"></a>待续</h2>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2018/04/15/Windows-10-Professional-Product-Key/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="xuejun">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/icon.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="没什么大不了">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="没什么大不了" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/04/15/Windows-10-Professional-Product-Key/" itemprop="url">
-                  Windows 10 专业版激活
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T21:53:44+08:00">
-                2018-04-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/technology/" itemprop="url" rel="index">
-                    <span itemprop="name">technology</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本方法只适用于学习、交流使用，请购买Windows正版系统</p>
-<h4 id="下载正版Windows-10-专业版（非ghost版本）"><a href="#下载正版Windows-10-专业版（非ghost版本）" class="headerlink" title="下载正版Windows 10 专业版（非ghost版本）"></a>下载正版Windows 10 专业版（非ghost版本）</h4><p>去<a href="https://msdn.itellyou.cn/" title="itellyou">网站</a>下载Windows 10 专业版，我选择的<br>Windows 10 (Multiple Editions), Version 1703 (Updated June 2017) (x86) - DVD (Chinese-Simplified)</p>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2018/04/15/Windows-10-Professional-Product-Key/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2018/04/12/Sorting-Algorithm-Quicksort/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="xuejun">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/icon.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="没什么大不了">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="没什么大不了" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/04/12/Sorting-Algorithm-Quicksort/" itemprop="url">
-                  排序算法之快速排序
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-12T22:25:04+08:00">
-                2018-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>快速排序（英语：Quicksort），又称划分交换排序（partition-exchange sort），简称快排，一种排序算法，最早由东尼·霍尔（Tony Hoare ）提出。在平均状况下，排序个项目要O(n log n)次比较。在最坏状况下则需要 O(n2) 次比较，但这种状况并不常见。事实上，快速排序通常明显比其他算法更快，因为它的内部循环（inner loop）可以在大部分的架构上很有效率地达成。</p>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2018/04/12/Sorting-Algorithm-Quicksort/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1689,7 +1771,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1706,7 +1788,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -1746,7 +1828,7 @@
         <div class="copyright" >
   
   Copyright &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="author" itemprop="copyrightHolder">xuejun</span>
 </div>
 

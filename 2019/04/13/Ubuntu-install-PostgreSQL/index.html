@@ -1,0 +1,709 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Ubuntu,PostgreSQL," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="前言由于相关需求，需要安装PostgreSQL数据库，但卸载时，出现问题
+安装PostgreSQL
+CentOS
+  1234567891011# Install the repository RPM:yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu 安装 PostgreSQL">
+<meta property="og:url" content="http://nnull.xyz/2019/04/13/Ubuntu-install-PostgreSQL/index.html">
+<meta property="og:site_name" content="没什么大不了">
+<meta property="og:description" content="前言由于相关需求，需要安装PostgreSQL数据库，但卸载时，出现问题
+安装PostgreSQL
+CentOS
+  1234567891011# Install the repository RPM:yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-">
+<meta property="og:updated_time" content="2019-04-13T11:37:16.185Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu 安装 PostgreSQL">
+<meta name="twitter:description" content="前言由于相关需求，需要安装PostgreSQL数据库，但卸载时，出现问题
+安装PostgreSQL
+CentOS
+  1234567891011# Install the repository RPM:yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://nnull.xyz/2019/04/13/Ubuntu-install-PostgreSQL/"/>
+
+
+
+
+
+  <title> Ubuntu 安装 PostgreSQL | 没什么大不了 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-87409931-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?5a64b333ce6ab71a6b3b3141166726ad";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">没什么大不了</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">水银泻地 无懈可击</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2019/04/13/Ubuntu-install-PostgreSQL/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xuejun">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/icon.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="没什么大不了">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="没什么大不了" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Ubuntu 安装 PostgreSQL
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-13T16:22:24+08:00">
+                2019-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/technology/" itemprop="url" rel="index">
+                    <span itemprop="name">technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于相关需求，需要安装PostgreSQL数据库，但卸载时，出现问题</p>
+<h3 id="安装PostgreSQL"><a href="#安装PostgreSQL" class="headerlink" title="安装PostgreSQL"></a>安装PostgreSQL</h3><ul>
+<li><p>CentOS</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># Install the repository RPM:</div><div class="line">yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm</div><div class="line"># Install the client packages:</div><div class="line">yum install postgresql10</div><div class="line"># Optionally install the server packages:</div><div class="line">yum install postgresql10-server</div><div class="line">#  Optionally initialize the database and enable automatic start:</div><div class="line">/usr/pgsql-10/bin/postgresql-10-setup initdb</div><div class="line">systemctl enable postgresql-10</div><div class="line"># start postgresql</div><div class="line">systemctl start postgresql-10</div></pre></td></tr></table></figure>
+</li>
+<li><p>Ubuntu</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># create the file /etc/apt/sources.list.d/pgdg.list and add a line for the repository</div><div class="line">odoo@odoo:~$ sudo vim /etc/apt/sources.list.d/pgdg.list</div><div class="line">odoo@odoo:~$ sudo cat /etc/apt/sources.list.d/pgdg.list</div><div class="line">deb http://apt.postgresql.org/pub/repos/apt/ YOUR_UBUNTU_VERSION_HERE-pgdg main</div><div class="line"># Import the repository signing key, and update the package lists</div><div class="line">odoo@odoo:~$ sudo wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -</div><div class="line">odoo@odoo:~$ sudo apt-get update</div><div class="line">odoo@odoo:~$ sudo apt-get install postgresql-10</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="卸载PostgreSQL"><a href="#卸载PostgreSQL" class="headerlink" title="卸载PostgreSQL"></a>卸载PostgreSQL</h3><ul>
+<li><p>Ubuntu</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">查看</div><div class="line">odoo@odoo:~$ odoo@odoo:~$ dpkg -l | grep postgres</div><div class="line">ii  postgresql                            10+190                             all          object-relational SQL database (supported version)</div><div class="line">ii  postgresql-10                         10.6-0ubuntu0.18.04.1              amd64        object-relational SQL database, version 10 server</div><div class="line">ii  postgresql-client-10                  10.6-0ubuntu0.18.04.1              amd64        front-end programs for PostgreSQL 10</div><div class="line">ii  postgresql-client-common              190                                all          manager for multiple PostgreSQL client versions</div><div class="line">ii  postgresql-common                     190                                all          PostgreSQL database-cluster manager</div><div class="line"># 删除</div><div class="line">odoo@odoo:$ odoo@odoo:$ sudo apt-get --purge remove postgresql postgresql-10 postgresql-client-10 postgresql-client-common postgresql-common</div></pre></td></tr></table></figure>
+</li>
+<li><p>CentOS</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 查看</div><div class="line">[odoo12@localhost ~]$ yum list installed | grep postgresql</div><div class="line">postgresql10.x86_64                  10.7-2PGDG.rhel7            @pgdg10</div><div class="line">postgresql10-devel.x86_64            10.7-2PGDG.rhel7            @pgdg10</div><div class="line">postgresql10-libs.x86_64             10.7-2PGDG.rhel7            @pgdg10</div><div class="line">postgresql10-server.x86_64           10.7-2PGDG.rhel7            @pgdg10</div><div class="line"># 删除</div><div class="line">[odoo12@localhost ~]$ yum remove postgresql*</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="启动PostgreSQL"><a href="#启动PostgreSQL" class="headerlink" title="启动PostgreSQL"></a>启动PostgreSQL</h3><ul>
+<li><p>Ubuntu</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">root@odoo ~# systemctl start postgresql-10.service</div></pre></td></tr></table></figure>
+</li>
+<li><p>CentOS</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# systemctl start postgresql-10.service</div></pre></td></tr></table></figure>
+</li>
+<li><p>Mac</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log restart</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="查看pg-hba-conf-postgresql-conf位置"><a href="#查看pg-hba-conf-postgresql-conf位置" class="headerlink" title="查看pg_hba.conf, postgresql.conf位置"></a>查看pg_hba.conf, postgresql.conf位置</h3><ul>
+<li><p>Ubuntu</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">root@odoo:~# find / -name &apos;pg_hba.conf&apos;</div><div class="line">/etc/postgresql/10/main/pg_hba.conf</div><div class="line">root@odoo:~# find / -name &apos;postgresql.conf&apos;</div><div class="line">/etc/postgresql/10/main/postgresql.conf</div></pre></td></tr></table></figure>
+</li>
+<li><p>CentOS</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# find / -name &apos;pg_hba.conf&apos;</div><div class="line">/var/lib/pgsql/10/data/pg_hba.conf</div><div class="line">[root@localhost ~]# find / -name &apos;postgresql.conf&apos;</div><div class="line">	~~ /var/lib/pgsql/10/data/postgresql.conf</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="修改postgresql-conf文件"><a href="#修改postgresql-conf文件" class="headerlink" title="修改postgresql.conf文件"></a>修改postgresql.conf文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"># 是否将日志重定向至文件中，默认是off</div><div class="line">logging_collector = on/off</div><div class="line"># 日志文件目录，默认是PGDATA的相对路径</div><div class="line"># 默认为$&#123;PGDATA&#125;/log，即集群目录下，但是日志文件可能会非常多，建议将日志重定向到其他目录或分区。</div><div class="line"># 将此配置修改为/var/log/pg_log下，必须先创建此目录，并修改权限</div><div class="line">log_directory = &apos;log&apos;</div><div class="line"># 日志文件命名形式，使用默认即可</div><div class="line">log_filename = &apos;postgresql-%Y-%m-%d_%H%M%S.log&apos; </div><div class="line"># 单个日志文件的生存期，默认1天，在日志文件大小没有达到log_rotation_size时，一天只生成一个日志文件</div><div class="line">log_rotation_age = 1d</div><div class="line"># 单个日志文件的大小，如果时间没有超过log_rotation_age，一个日志文件最大只能到10M，否则将新生成一个日志文件</div><div class="line">log_rotation_size = 10MB</div><div class="line"># 当日志文件已存在时，该配置如果为off，新生成的日志将在文件尾部追加，如果为on，则会覆盖原来的日志</div><div class="line">log_truncate_on_rotation = off</div><div class="line">记录每条SQL语句执行完成消耗的时间，将此配置设置为on,用于统计哪些SQL语句耗时较长。</div><div class="line">log_duration = off</div></pre></td></tr></table></figure>
+<h3 id="修改postgresql-conf"><a href="#修改postgresql-conf" class="headerlink" title="修改postgresql.conf"></a>修改postgresql.conf</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">listen_addresses = &apos;*&apos;</div><div class="line">host  all  all 0.0.0.0/0 md5</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
+          
+            <a href="/tags/PostgreSQL/" rel="tag"># PostgreSQL</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/10/Ubuntu-18-04-install-odoo12/" rel="next" title="Ubuntu 18.04 下安装 Odoo 12">
+                <i class="fa fa-chevron-left"></i> Ubuntu 18.04 下安装 Odoo 12
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/icon.jpg"
+               alt="xuejun" />
+          <p class="site-author-name" itemprop="name">xuejun</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装PostgreSQL"><span class="nav-number">1.1.</span> <span class="nav-text">安装PostgreSQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卸载PostgreSQL"><span class="nav-number">1.2.</span> <span class="nav-text">卸载PostgreSQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动PostgreSQL"><span class="nav-number">1.3.</span> <span class="nav-text">启动PostgreSQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看pg-hba-conf-postgresql-conf位置"><span class="nav-number">1.4.</span> <span class="nav-text">查看pg_hba.conf, postgresql.conf位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改postgresql-conf文件"><span class="nav-number">1.5.</span> <span class="nav-text">修改postgresql.conf文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改postgresql-conf"><span class="nav-number">1.6.</span> <span class="nav-text">修改postgresql.conf</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  Copyright &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="author" itemprop="copyrightHolder">xuejun</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

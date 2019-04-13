@@ -1,0 +1,681 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="python," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="前言（Ubuntu）pip版本为9.0，使用python更新后，pip报错，无法使用
+更新pip123456odoo@odoo:/opt/odoo$ python3 -m pip install --upgrade pipCollecting pip  Downloading https://files.pythonhosted.org/packages/d8/f3/413bab4ff08e1fc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python 相关问题">
+<meta property="og:url" content="http://nnull.xyz/2019/04/08/python-相关问题/index.html">
+<meta property="og:site_name" content="没什么大不了">
+<meta property="og:description" content="前言（Ubuntu）pip版本为9.0，使用python更新后，pip报错，无法使用
+更新pip123456odoo@odoo:/opt/odoo$ python3 -m pip install --upgrade pipCollecting pip  Downloading https://files.pythonhosted.org/packages/d8/f3/413bab4ff08e1fc">
+<meta property="og:updated_time" content="2019-04-10T11:58:06.937Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python 相关问题">
+<meta name="twitter:description" content="前言（Ubuntu）pip版本为9.0，使用python更新后，pip报错，无法使用
+更新pip123456odoo@odoo:/opt/odoo$ python3 -m pip install --upgrade pipCollecting pip  Downloading https://files.pythonhosted.org/packages/d8/f3/413bab4ff08e1fc">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://nnull.xyz/2019/04/08/python-相关问题/"/>
+
+
+
+
+
+  <title> python 相关问题 | 没什么大不了 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-87409931-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?5a64b333ce6ab71a6b3b3141166726ad";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">没什么大不了</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">水银泻地 无懈可击</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2019/04/08/python-相关问题/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xuejun">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/icon.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="没什么大不了">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="没什么大不了" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                python 相关问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-08T11:18:00+08:00">
+                2019-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/technology/" itemprop="url" rel="index">
+                    <span itemprop="name">technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言（Ubuntu）"><a href="#前言（Ubuntu）" class="headerlink" title="前言（Ubuntu）"></a>前言（Ubuntu）</h2><p>pip版本为9.0，使用python更新后，pip报错，无法使用</p>
+<h3 id="更新pip"><a href="#更新pip" class="headerlink" title="更新pip"></a>更新pip</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">odoo@odoo:/opt/odoo$ python3 -m pip install --upgrade pip</div><div class="line">Collecting pip</div><div class="line">  Downloading https://files.pythonhosted.org/packages/d8/f3/413bab4ff08e1fc4828dfc59996d721917df8e8583ea85  385d51125dceff/pip-19.0.3-py2.py3-none-any.whl (1.4MB)</div><div class="line">    100% |████████████████████████████████| 1.4MB 176kB/s</div><div class="line">Installing collected packages: pip</div><div class="line">Successfully installed pip-19.0.3</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="pip报错"><a href="#pip报错" class="headerlink" title="pip报错"></a>pip报错</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">odoo@odoo:/opt/odoo$ pip3 -V</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;/usr/bin/pip3&quot;, line 9, in &lt;module&gt; from pip import main</div><div class="line">ImportError: cannot import name &apos;main&apos;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注：以上报错原因是不能使用python进行更新pip</p>
+</blockquote>
+<h3 id="使用python卸载pip"><a href="#使用python卸载pip" class="headerlink" title="使用python卸载pip"></a>使用python卸载pip</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">odoo@odoo:/opt/odoo$ sudo python3 -m pip uninstall pip &amp;&amp; sudo apt install python3-pip --reinstall</div><div class="line">The directory &apos;/home/odoo/.cache/pip/http&apos; or its parent directory is not owned by the current user and th  e cache has been disabled. Please check the permissions and owner of that directory. If executing pip with   sudo, you may want sudo&apos;s -H flag.</div><div class="line">Uninstalling pip-19.0.3:</div><div class="line">  Would remove:</div><div class="line">    /home/odoo/.local/bin/pip</div><div class="line">    /home/odoo/.local/bin/pip3</div><div class="line">    /home/odoo/.local/bin/pip3.6</div><div class="line">    /home/odoo/.local/lib/python3.6/site-packages/pip-19.0.3.dist-info/*</div><div class="line">    /home/odoo/.local/lib/python3.6/site-packages/pip/*</div><div class="line">Proceed (y/n)? y</div><div class="line">  Successfully uninstalled pip-19.0.3</div><div class="line">Reading package lists... Done</div><div class="line">Building dependency tree</div><div class="line">Reading state information... Done</div><div class="line">0 upgraded, 0 newly installed, 1 reinstalled, 0 to remove and 15 not upgraded.</div><div class="line">Need to get 114 kB of archives.</div><div class="line">After this operation, 0 B of additional disk space will be used.</div><div class="line">Get:1 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 python3-pip all 9.0.1-2.3~ubuntu1 [11  4 kB]</div><div class="line">Fetched 114 kB in 1s (86.3 kB/s)</div><div class="line">(Reading database ... 112479 files and directories currently installed.)</div><div class="line">Preparing to unpack .../python3-pip_9.0.1-2.3~ubuntu1_all.deb ...</div><div class="line">Unpacking python3-pip (9.0.1-2.3~ubuntu1) over (9.0.1-2.3~ubuntu1) ...</div><div class="line">Setting up python3-pip (9.0.1-2.3~ubuntu1) ...</div><div class="line">Processing triggers for man-db (2.8.3-2ubuntu0.1) ...</div></pre></td></tr></table></figure>
+<h3 id="卸载后pip命令正常使用，且版本为9-0"><a href="#卸载后pip命令正常使用，且版本为9-0" class="headerlink" title="卸载后pip命令正常使用，且版本为9.0"></a>卸载后pip命令正常使用，且版本为9.0</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">odoo@odoo:/opt/odoo$ pip3 -V</div><div class="line">pip 9.0.1 from /usr/lib/python3/dist-packages (python 3.6)</div></pre></td></tr></table></figure>
+<h3 id="使用pip更新pip"><a href="#使用pip更新pip" class="headerlink" title="使用pip更新pip"></a>使用pip更新pip</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">odoo@odoo:/opt/odoo$ sudo pip install pip --upgrade</div><div class="line">sudo: pip: command not found</div><div class="line">odoo@odoo:/opt/odoo$ sudo pip3 install pip3 --upgrade</div><div class="line">The directory &apos;/home/odoo/.cache/pip/http&apos; or its parent directory is not owned by the current user and th  e cache has been disabled. Please check the permissions and owner of that directory. If executing pip with   sudo, you may want sudo&apos;s -H flag.</div><div class="line">The directory &apos;/home/odoo/.cache/pip&apos; or its parent directory is not owned by the current user and caching   wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo,   you may want sudo&apos;s -H flag.</div><div class="line">Collecting pip3</div><div class="line">  Could not find a version that satisfies the requirement pip3 (from versions: )</div><div class="line">No matching distribution found for pip3</div><div class="line">odoo@odoo:/opt/odoo$ sudo pip3 install pip --upgrade</div><div class="line">The directory &apos;/home/odoo/.cache/pip/http&apos; or its parent directory is not owned by the current user and th  e cache has been disabled. Please check the permissions and owner of that directory. If executing pip with   sudo, you may want sudo&apos;s -H flag.</div><div class="line">The directory &apos;/home/odoo/.cache/pip&apos; or its parent directory is not owned by the current user and caching   wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo,   you may want sudo&apos;s -H flag.</div><div class="line">Collecting pip</div><div class="line">  Downloading https://files.pythonhosted.org/packages/d8/f3/413bab4ff08e1fc4828dfc59996d721917df8e8583ea85  385d51125dceff/pip-19.0.3-py2.py3-none-any.whl (1.4MB)</div><div class="line">    100% |████████████████████████████████| 1.4MB 181kB/s</div><div class="line">Installing collected packages: pip</div><div class="line">  Found existing installation: pip 9.0.1</div><div class="line">    Not uninstalling pip at /usr/lib/python3/dist-packages, outside environment /usr</div><div class="line">Successfully installed pip-19.0.3</div></pre></td></tr></table></figure>
+<h3 id="pip-pip3-6正常，pip3不正常"><a href="#pip-pip3-6正常，pip3不正常" class="headerlink" title="pip,pip3.6正常，pip3不正常"></a>pip,pip3.6正常，pip3不正常</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">odoo@odoo:/usr/local/bin$ pip -V</div><div class="line">pip 19.0.3 from /usr/local/lib/python3.6/dist-packages/pip (python 3.6)</div><div class="line">odoo@odoo:/usr/local/bin$ pip3 -V</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;/usr/bin/pip3&quot;, line 9, in &lt;module&gt;</div><div class="line">    from pip import main</div><div class="line">ImportError: cannot import name &apos;main&apos;</div><div class="line">odoo@odoo:/usr/local/bin$ pip3.6 -V</div><div class="line">pip 19.0.3 from /usr/local/lib/python3.6/dist-packages/pip (python 3.6)</div></pre></td></tr></table></figure>
+<h3 id="使用hash清理缓存"><a href="#使用hash清理缓存" class="headerlink" title="使用hash清理缓存"></a>使用hash清理缓存</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">odoo@odoo:/usr/local/bin$ hash -r</div></pre></td></tr></table></figure>
+<h3 id="pip都正常运行"><a href="#pip都正常运行" class="headerlink" title="pip都正常运行"></a>pip都正常运行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">odoo@odoo:/usr/local/bin$ pip3.6 -V</div><div class="line">pip 19.0.3 from /usr/local/lib/python3.6/dist-packages/pip (python 3.6)</div><div class="line">odoo@odoo:/usr/local/bin$ pip3 -V</div><div class="line">pip 19.0.3 from /usr/local/lib/python3.6/dist-packages/pip (python 3.6)</div><div class="line">odoo@odoo:/usr/local/bin$ pip -V</div><div class="line">pip 19.0.3 from /usr/local/lib/python3.6/dist-packages/pip (python 3.6)</div></pre></td></tr></table></figure>
+<h3 id="如非root用户，请使用sudo-H"><a href="#如非root用户，请使用sudo-H" class="headerlink" title="如非root用户，请使用sudo -H"></a>如非root用户，请使用sudo -H</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">odoo@odoo:/usr/local/bin$ sudo -H pip3 install --upgrade pip</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/21/Ubuntu-common-commands/" rel="next" title="Ubuntu common commands">
+                <i class="fa fa-chevron-left"></i> Ubuntu common commands
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/10/git-忽略文件的几种情形/" rel="prev" title="git 忽略文件的几种情形">
+                git 忽略文件的几种情形 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/icon.jpg"
+               alt="xuejun" />
+          <p class="site-author-name" itemprop="name">xuejun</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言（Ubuntu）"><span class="nav-number">1.</span> <span class="nav-text">前言（Ubuntu）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#更新pip"><span class="nav-number">1.1.</span> <span class="nav-text">更新pip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pip报错"><span class="nav-number">1.2.</span> <span class="nav-text">pip报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用python卸载pip"><span class="nav-number">1.3.</span> <span class="nav-text">使用python卸载pip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卸载后pip命令正常使用，且版本为9-0"><span class="nav-number">1.4.</span> <span class="nav-text">卸载后pip命令正常使用，且版本为9.0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用pip更新pip"><span class="nav-number">1.5.</span> <span class="nav-text">使用pip更新pip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pip-pip3-6正常，pip3不正常"><span class="nav-number">1.6.</span> <span class="nav-text">pip,pip3.6正常，pip3不正常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用hash清理缓存"><span class="nav-number">1.7.</span> <span class="nav-text">使用hash清理缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pip都正常运行"><span class="nav-number">1.8.</span> <span class="nav-text">pip都正常运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如非root用户，请使用sudo-H"><span class="nav-number">1.9.</span> <span class="nav-text">如非root用户，请使用sudo -H</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  Copyright &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="author" itemprop="copyrightHolder">xuejun</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

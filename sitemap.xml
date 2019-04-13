@@ -2,16 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://nnull.xyz/2018/12/07/Linux%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E6%97%B6configure%E3%80%81make%E5%92%8Cmake-install%E7%9A%84%E4%BD%9C%E7%94%A8/</loc>
+    <loc>http://nnull.xyz/2019/04/13/Ubuntu-install-PostgreSQL/</loc>
     
-    <lastmod>2018-12-20T03:34:10.727Z</lastmod>
+    <lastmod>2019-04-13T11:37:16.185Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nnull.xyz/2019/04/10/Ubuntu-18-04-install-odoo12/</loc>
+    
+    <lastmod>2019-04-13T11:04:03.111Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nnull.xyz/2019/04/10/git-%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%BD%A2/</loc>
+    
+    <lastmod>2019-04-13T10:17:35.025Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nnull.xyz/2019/04/08/python-%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</loc>
+    
+    <lastmod>2019-04-10T11:58:06.937Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nnull.xyz/2018/12/21/Ubuntu-common-commands/</loc>
+    
+    <lastmod>2019-04-10T11:20:51.578Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nnull.xyz/2018/12/21/Linux-often-has-problems-and-solutions/</loc>
+    
+    <lastmod>2018-12-21T08:52:07.402Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://nnull.xyz/2018/12/20/Ubuntu-set-time-zone/</loc>
     
-    <lastmod>2018-12-20T03:18:40.106Z</lastmod>
+    <lastmod>2018-12-21T08:51:53.358Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nnull.xyz/2018/12/07/Linux%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E6%97%B6configure%E3%80%81make%E5%92%8Cmake-install%E7%9A%84%E4%BD%9C%E7%94%A8/</loc>
+    
+    <lastmod>2018-12-20T03:34:10.727Z</lastmod>
     
   </url>
   
