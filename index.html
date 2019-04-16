@@ -275,6 +275,145 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2019/04/15/Gitlab-配置/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xuejun">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/icon.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="没什么大不了">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="没什么大不了" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/04/15/Gitlab-配置/" itemprop="url">
+                  Gitlab 配置
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-15T16:32:52+08:00">
+                2019-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/technology/" itemprop="url" rel="index">
+                    <span itemprop="name">technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于公司内网与外网映射问题，导致git clone时一直出现问题</p>
+<h3 id="出现报错"><a href="#出现报错" class="headerlink" title="出现报错"></a>出现报错</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git clone ssh://git@git.test.cn:9080/root/odoo-custom-addons.git</div><div class="line">Cloning into &apos;odoo-custom-addons&apos;...</div><div class="line">ssh_exchange_identification: Connection closed by remote host</div><div class="line">fatal: Could not read from remote repository.</div></pre></td></tr></table></figure>
+<h3 id="gitlab-rb配置（-etc-gitlab）"><a href="#gitlab-rb配置（-etc-gitlab）" class="headerlink" title="gitlab.rb配置（/etc/gitlab）"></a>gitlab.rb配置（/etc/gitlab）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">external_url &apos;http://127.0.0.1:9080&apos;</div><div class="line">gitlab_rails[&apos;gitlab_shell_ssh_port&apos;] = 22</div></pre></td></tr></table></figure>
+<h3 id="出现问题原因"><a href="#出现问题原因" class="headerlink" title="出现问题原因"></a>出现问题原因</h3><p>git clone 在使用ssh时，端口号默认时22，所以下面的端口号不是9080，而由于公司的分了内网与外网，所以只需要知道外面的映射的内网22的端口号为多少便可，后经确定，得知外网映射的内网22为9022<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone ssh://git@git.test.cn:9080/root/odoo-custom-addons.git</div></pre></td></tr></table></figure></p>
+<p>故使用以下地址下载便可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone ssh://git@git.test.cn:9022/root/odoo-custom-addons.git</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2019/04/13/Ubuntu-install-PostgreSQL/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1583,149 +1722,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2018/12/06/solve-xxx-is-damaged-and-can’t-be-opened-you-should-eject-the-disk-image-On-MAC-OS/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="xuejun">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/icon.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="没什么大不了">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="没什么大不了" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/12/06/solve-xxx-is-damaged-and-can’t-be-opened-you-should-eject-the-disk-image-On-MAC-OS/" itemprop="url">
-                  解决’xxx' is damaged and can’t be opened. you should eject the disk image  问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-06T16:25:06+08:00">
-                2018-12-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/technology/" itemprop="url" rel="index">
-                    <span itemprop="name">technology</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Mac升级到macOS Sierra 10.12后，原有的某软件破解版已经无法使用，需要更新版本。安装新版本的破解版后，发现提示“xxx已损坏，打不开。您应该推出磁盘映像”</p>
-<h3 id="导致原因"><a href="#导致原因" class="headerlink" title="导致原因"></a>导致原因</h3><p>软件有经过了汉化或者破解，所以可能被Mac认为「已损坏」</p>
-<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><ol>
-<li>系统偏好设置 -> 安全性与隐私 -> 通用 -> 选择“任何来源”</li>
-<li>终端下输入“sudo spctl –master-disable” （显示”任何来源”选项在控制台中执行）<blockquote>
-<p>注：<br>不显示”任何来源”选项（macOS 10.12默认为不显示）在控制台中执行：<br>sudo spctl –master-enable</p>
-</blockquote>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1771,7 +1767,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-count">35</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1788,7 +1784,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-count">44</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

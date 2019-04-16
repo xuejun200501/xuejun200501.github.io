@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="linux," />
+  <meta name="keywords" content="Gitlab," />
 
 
 
@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="前言有时下载了某个应用程序的源码，需要在Linux、Mac上进行编译安装
-configureconfigure 脚本检查当前的系统环境和配置选项，在当前目录中生成 Makefile 文件1QL-MacBook-Pro:aria2-1.34.0 xj$ ./configure">
+<meta name="description" content="前言由于公司内网与外网映射问题，导致git clone时一直出现问题
+出现报错1234$ git clone ssh://git@git.test.cn:9080/root/odoo-custom-addons.gitCloning into &amp;apos;odoo-custom-addons&amp;apos;...ssh_exchange_identification: Connection close">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux编译安装时configure、make和make install的作用">
-<meta property="og:url" content="http://nnull.xyz/2018/12/07/Linux编译安装时configure、make和make-install的作用/index.html">
+<meta property="og:title" content="Gitlab 配置">
+<meta property="og:url" content="http://nnull.xyz/2019/04/15/Gitlab-配置/index.html">
 <meta property="og:site_name" content="没什么大不了">
-<meta property="og:description" content="前言有时下载了某个应用程序的源码，需要在Linux、Mac上进行编译安装
-configureconfigure 脚本检查当前的系统环境和配置选项，在当前目录中生成 Makefile 文件1QL-MacBook-Pro:aria2-1.34.0 xj$ ./configure">
-<meta property="og:updated_time" content="2018-12-20T03:34:10.727Z">
+<meta property="og:description" content="前言由于公司内网与外网映射问题，导致git clone时一直出现问题
+出现报错1234$ git clone ssh://git@git.test.cn:9080/root/odoo-custom-addons.gitCloning into &amp;apos;odoo-custom-addons&amp;apos;...ssh_exchange_identification: Connection close">
+<meta property="og:updated_time" content="2019-04-16T02:43:11.704Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux编译安装时configure、make和make install的作用">
-<meta name="twitter:description" content="前言有时下载了某个应用程序的源码，需要在Linux、Mac上进行编译安装
-configureconfigure 脚本检查当前的系统环境和配置选项，在当前目录中生成 Makefile 文件1QL-MacBook-Pro:aria2-1.34.0 xj$ ./configure">
+<meta name="twitter:title" content="Gitlab 配置">
+<meta name="twitter:description" content="前言由于公司内网与外网映射问题，导致git clone时一直出现问题
+出现报错1234$ git clone ssh://git@git.test.cn:9080/root/odoo-custom-addons.gitCloning into &amp;apos;odoo-custom-addons&amp;apos;...ssh_exchange_identification: Connection close">
 
 
 
@@ -124,13 +124,13 @@ configureconfigure 脚本检查当前的系统环境和配置选项，在当前�
 
 
 
-  <link rel="canonical" href="http://nnull.xyz/2018/12/07/Linux编译安装时configure、make和make-install的作用/"/>
+  <link rel="canonical" href="http://nnull.xyz/2019/04/15/Gitlab-配置/"/>
 
 
 
 
 
-  <title> Linux编译安装时configure、make和make install的作用 | 没什么大不了 </title>
+  <title> Gitlab 配置 | 没什么大不了 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -280,7 +280,7 @@ configureconfigure 脚本检查当前的系统环境和配置选项，在当前�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2018/12/07/Linux编译安装时configure、make和make-install的作用/">
+  <link itemprop="mainEntityOfPage" href="http://nnull.xyz/2019/04/15/Gitlab-配置/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xuejun">
@@ -304,7 +304,7 @@ configureconfigure 脚本检查当前的系统环境和配置选项，在当前�
             
             
               
-                Linux编译安装时configure、make和make install的作用
+                Gitlab 配置
               
             
           </h1>
@@ -317,8 +317,8 @@ configureconfigure 脚本检查当前的系统环境和配置选项，在当前�
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-07T16:54:59+08:00">
-                2018-12-07
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-15T16:32:52+08:00">
+                2019-04-15
               </time>
             
 
@@ -371,16 +371,11 @@ configureconfigure 脚本检查当前的系统环境和配置选项，在当前�
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有时下载了某个应用程序的源码，需要在Linux、Mac上进行编译安装</p>
-<h3 id="configure"><a href="#configure" class="headerlink" title="configure"></a>configure</h3><p>configure 脚本检查当前的系统环境和配置选项，在当前目录中生成 Makefile 文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">QL-MacBook-Pro:aria2-1.34.0 xj$ ./configure</div></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<h3 id="make"><a href="#make" class="headerlink" title="make"></a>make</h3><p>make，这一步就是编译，当执行make的时候，make会在当前目录下搜索Makefile（makefile）这个文本文件，而makefile里面记录了源码如何编译的详细信息。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">QL-MacBook-Pro:aria2-1.34.0 xj$ make</div></pre></td></tr></table></figure></p>
-<h3 id="make-install"><a href="#make-install" class="headerlink" title="make install"></a>make install</h3><p>make insatll，这条命令来进行安装，这一步一般需要你有 root 权限（因为要向系统写入文件）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">QL-MacBook-Pro:aria2-1.34.0 xj$ sudo make install</div></pre></td></tr></table></figure></p>
-<h4 id="ps-configure-后加上参数来对安装进行控制"><a href="#ps-configure-后加上参数来对安装进行控制" class="headerlink" title="ps:configure 后加上参数来对安装进行控制"></a>ps:configure 后加上参数来对安装进行控制</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">QL-MacBook-Pro:aria2-1.34.0 xj$ ./configure -prefix=/usr</div></pre></td></tr></table></figure>
-<blockquote>
-<p>意思是将该软件安装在 /usr 下面，执行文件就会安装在 /usr/bin （而不是默认的 /usr/local/bin)，资源文件就会安装在 /usr/share（而不是默认的/usr/local/share）<br>./configure –prefix=/usr/local/test安装后的所有资源文件都会被放在/usr/local/test目录中，不会分散到其他目录。<br>使用–prefix选项的另一个好处是方便卸载软件或移植软件；当某个安装的软件不再需要时，只须简单的删除该安装目录，就可以把软件卸载得干干净净；而移植软件只需拷贝整个目录到另外一个机器即可（相同的操作系统下）。<br>当然要卸载程序，也可以在原来的make目录下用一次make uninstall，但前提是Makefile文件有uninstall命令</p>
-</blockquote>
-<h3 id="记录安装日志"><a href="#记录安装日志" class="headerlink" title="记录安装日志"></a>记录安装日志</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">QL-MacBook-Pro:aria2-1.34.0 xj$ make install &amp;&gt; |tee make.log’</div></pre></td></tr></table></figure>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于公司内网与外网映射问题，导致git clone时一直出现问题</p>
+<h3 id="出现报错"><a href="#出现报错" class="headerlink" title="出现报错"></a>出现报错</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git clone ssh://git@git.test.cn:9080/root/odoo-custom-addons.git</div><div class="line">Cloning into &apos;odoo-custom-addons&apos;...</div><div class="line">ssh_exchange_identification: Connection closed by remote host</div><div class="line">fatal: Could not read from remote repository.</div></pre></td></tr></table></figure>
+<h3 id="gitlab-rb配置（-etc-gitlab）"><a href="#gitlab-rb配置（-etc-gitlab）" class="headerlink" title="gitlab.rb配置（/etc/gitlab）"></a>gitlab.rb配置（/etc/gitlab）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">external_url &apos;http://127.0.0.1:9080&apos;</div><div class="line">gitlab_rails[&apos;gitlab_shell_ssh_port&apos;] = 22</div></pre></td></tr></table></figure>
+<h3 id="出现问题原因"><a href="#出现问题原因" class="headerlink" title="出现问题原因"></a>出现问题原因</h3><p>git clone 在使用ssh时，端口号默认时22，所以下面的端口号不是9080，而由于公司的分了内网与外网，所以只需要知道外面的映射的内网22的端口号为多少便可，后经确定，得知外网映射的内网22为9022<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone ssh://git@git.test.cn:9080/root/odoo-custom-addons.git</div></pre></td></tr></table></figure></p>
+<p>故使用以下地址下载便可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone ssh://git@git.test.cn:9022/root/odoo-custom-addons.git</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -404,7 +399,7 @@ configureconfigure 脚本检查当前的系统环境和配置选项，在当前�
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"># linux</a>
+            <a href="/tags/Gitlab/" rel="tag"># Gitlab</a>
           
         </div>
       
@@ -413,8 +408,8 @@ configureconfigure 脚本检查当前的系统环境和配置选项，在当前�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/07/利用diskpart命令给u盘分区，并隐藏分区/" rel="next" title="Windows下diskpart命令给u盘分区，并隐藏分区，同时可以使用Mac查看隐藏分区">
-                <i class="fa fa-chevron-left"></i> Windows下diskpart命令给u盘分区，并隐藏分区，同时可以使用Mac查看隐藏分区
+              <a href="/2019/04/13/Ubuntu-install-PostgreSQL/" rel="next" title="Ubuntu 安装 PostgreSQL">
+                <i class="fa fa-chevron-left"></i> Ubuntu 安装 PostgreSQL
               </a>
             
           </div>
@@ -422,10 +417,6 @@ configureconfigure 脚本检查当前的系统环境和配置选项，在当前�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/20/Ubuntu-set-time-zone/" rel="prev" title="Ubuntu设置时区">
-                Ubuntu设置时区 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -545,7 +536,7 @@ configureconfigure 脚本检查当前的系统环境和配置选项，在当前�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#configure"><span class="nav-number">1.1.</span> <span class="nav-text">configure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#make"><span class="nav-number">1.2.</span> <span class="nav-text">make</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#make-install"><span class="nav-number">1.3.</span> <span class="nav-text">make install</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ps-configure-后加上参数来对安装进行控制"><span class="nav-number">1.3.1.</span> <span class="nav-text">ps:configure 后加上参数来对安装进行控制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#记录安装日志"><span class="nav-number">1.4.</span> <span class="nav-text">记录安装日志</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#出现报错"><span class="nav-number">1.1.</span> <span class="nav-text">出现报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gitlab-rb配置（-etc-gitlab）"><span class="nav-number">1.2.</span> <span class="nav-text">gitlab.rb配置（/etc/gitlab）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#出现问题原因"><span class="nav-number">1.3.</span> <span class="nav-text">出现问题原因</span></a></li></ol></li></ol></div>
             
 
           </div>
