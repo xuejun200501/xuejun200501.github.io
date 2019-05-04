@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://nnull.xyz/2019/05/04/%E5%85%B3%E4%BA%8E%E6%97%B6%E9%97%B4%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%84%9F%E6%82%9F/</loc>
+    
+    <lastmod>2019-05-04T11:43:46.022Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nnull.xyz/2016/11/11/hello-world/</loc>
+    
+    <lastmod>2019-05-04T11:32:39.060Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://nnull.xyz/2019/04/13/Ubuntu-install-PostgreSQL/</loc>
+    
+    <lastmod>2019-04-16T03:21:41.004Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://nnull.xyz/2019/04/10/Ubuntu-18-04-install-odoo12/</loc>
     
-    <lastmod>2019-04-16T03:17:12.246Z</lastmod>
+    <lastmod>2019-04-16T03:21:10.344Z</lastmod>
     
   </url>
   
@@ -12,13 +33,6 @@
     <loc>http://nnull.xyz/2019/04/15/Gitlab-%E9%85%8D%E7%BD%AE/</loc>
     
     <lastmod>2019-04-16T02:43:11.704Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nnull.xyz/2019/04/13/Ubuntu-install-PostgreSQL/</loc>
-    
-    <lastmod>2019-04-13T11:37:16.185Z</lastmod>
     
   </url>
   
@@ -243,13 +257,6 @@
     <loc>http://nnull.xyz/2016/11/21/%E6%AD%A4%E6%97%B6%E6%AD%A4%E5%88%BB/</loc>
     
     <lastmod>2016-11-21T09:45:30.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://nnull.xyz/2016/11/11/hello-world/</loc>
-    
-    <lastmod>2016-11-21T09:43:16.000Z</lastmod>
     
   </url>
   

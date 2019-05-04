@@ -86,23 +86,20 @@
 
 <meta name="description" content="前言由于相关需求，需要安装PostgreSQL数据库，但卸载时，出现问题
 安装PostgreSQL
-CentOS
-  1234567891011# Install the repository RPM:yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-">
+CentOS  1234567891011# Install the repository RPM:yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu 安装 PostgreSQL">
 <meta property="og:url" content="http://nnull.xyz/2019/04/13/Ubuntu-install-PostgreSQL/index.html">
 <meta property="og:site_name" content="没什么大不了">
 <meta property="og:description" content="前言由于相关需求，需要安装PostgreSQL数据库，但卸载时，出现问题
 安装PostgreSQL
-CentOS
-  1234567891011# Install the repository RPM:yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-">
-<meta property="og:updated_time" content="2019-04-13T11:37:16.185Z">
+CentOS  1234567891011# Install the repository RPM:yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2">
+<meta property="og:updated_time" content="2019-04-16T03:21:41.004Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu 安装 PostgreSQL">
 <meta name="twitter:description" content="前言由于相关需求，需要安装PostgreSQL数据库，但卸载时，出现问题
 安装PostgreSQL
-CentOS
-  1234567891011# Install the repository RPM:yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-">
+CentOS  1234567891011# Install the repository RPM:yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2">
 
 
 
@@ -379,11 +376,12 @@ CentOS
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于相关需求，需要安装PostgreSQL数据库，但卸载时，出现问题</p>
 <h3 id="安装PostgreSQL"><a href="#安装PostgreSQL" class="headerlink" title="安装PostgreSQL"></a>安装PostgreSQL</h3><ul>
-<li><p>CentOS</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># Install the repository RPM:</div><div class="line">yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm</div><div class="line"># Install the client packages:</div><div class="line">yum install postgresql10</div><div class="line"># Optionally install the server packages:</div><div class="line">yum install postgresql10-server</div><div class="line">#  Optionally initialize the database and enable automatic start:</div><div class="line">/usr/pgsql-10/bin/postgresql-10-setup initdb</div><div class="line">systemctl enable postgresql-10</div><div class="line"># start postgresql</div><div class="line">systemctl start postgresql-10</div></pre></td></tr></table></figure>
+<li>CentOS  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># Install the repository RPM:</div><div class="line">yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm</div><div class="line"># Install the client packages:</div><div class="line">yum install postgresql10</div><div class="line"># Optionally install the server packages:</div><div class="line">yum install postgresql10-server</div><div class="line">#  Optionally initialize the database and enable automatic start:</div><div class="line">/usr/pgsql-10/bin/postgresql-10-setup initdb</div><div class="line">systemctl enable postgresql-10</div><div class="line"># start postgresql</div><div class="line">systemctl start postgresql-10</div></pre></td></tr></table></figure>
 </li>
-<li><p>Ubuntu</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># create the file /etc/apt/sources.list.d/pgdg.list and add a line for the repository</div><div class="line">odoo@odoo:~$ sudo vim /etc/apt/sources.list.d/pgdg.list</div><div class="line">odoo@odoo:~$ sudo cat /etc/apt/sources.list.d/pgdg.list</div><div class="line">deb http://apt.postgresql.org/pub/repos/apt/ YOUR_UBUNTU_VERSION_HERE-pgdg main</div><div class="line"># Import the repository signing key, and update the package lists</div><div class="line">odoo@odoo:~$ sudo wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -</div><div class="line">odoo@odoo:~$ sudo apt-get update</div><div class="line">odoo@odoo:~$ sudo apt-get install postgresql-10</div></pre></td></tr></table></figure>
+</ul>
+<a id="more"></a>
+<ul>
+<li>Ubuntu <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># create the file /etc/apt/sources.list.d/pgdg.list and add a line for the repository</div><div class="line">odoo@odoo:~$ sudo vim /etc/apt/sources.list.d/pgdg.list</div><div class="line">odoo@odoo:~$ sudo cat /etc/apt/sources.list.d/pgdg.list</div><div class="line">deb http://apt.postgresql.org/pub/repos/apt/ YOUR_UBUNTU_VERSION_HERE-pgdg main</div><div class="line"># Import the repository signing key, and update the package lists</div><div class="line">odoo@odoo:~$ sudo wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -</div><div class="line">odoo@odoo:~$ sudo apt-get update</div><div class="line">odoo@odoo:~$ sudo apt-get install postgresql-10</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="卸载PostgreSQL"><a href="#卸载PostgreSQL" class="headerlink" title="卸载PostgreSQL"></a>卸载PostgreSQL</h3><ul>
@@ -410,7 +408,7 @@ CentOS
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">root@odoo:~# find / -name &apos;pg_hba.conf&apos;</div><div class="line">/etc/postgresql/10/main/pg_hba.conf</div><div class="line">root@odoo:~# find / -name &apos;postgresql.conf&apos;</div><div class="line">/etc/postgresql/10/main/postgresql.conf</div></pre></td></tr></table></figure>
 </li>
 <li><p>CentOS</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# find / -name &apos;pg_hba.conf&apos;</div><div class="line">/var/lib/pgsql/10/data/pg_hba.conf</div><div class="line">[root@localhost ~]# find / -name &apos;postgresql.conf&apos;</div><div class="line">	~~ /var/lib/pgsql/10/data/postgresql.conf</div></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# find / -name &apos;pg_hba.conf&apos;</div><div class="line">/var/lib/pgsql/10/data/pg_hba.conf</div><div class="line">[root@localhost ~]# find / -name &apos;postgresql.conf&apos;</div><div class="line">    ~~ /var/lib/pgsql/10/data/postgresql.conf</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="修改postgresql-conf文件"><a href="#修改postgresql-conf文件" class="headerlink" title="修改postgresql.conf文件"></a>修改postgresql.conf文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"># 是否将日志重定向至文件中，默认是off</div><div class="line">logging_collector = on/off</div><div class="line"># 日志文件目录，默认是PGDATA的相对路径</div><div class="line"># 默认为$&#123;PGDATA&#125;/log，即集群目录下，但是日志文件可能会非常多，建议将日志重定向到其他目录或分区。</div><div class="line"># 将此配置修改为/var/log/pg_log下，必须先创建此目录，并修改权限</div><div class="line">log_directory = &apos;log&apos;</div><div class="line"># 日志文件命名形式，使用默认即可</div><div class="line">log_filename = &apos;postgresql-%Y-%m-%d_%H%M%S.log&apos; </div><div class="line"># 单个日志文件的生存期，默认1天，在日志文件大小没有达到log_rotation_size时，一天只生成一个日志文件</div><div class="line">log_rotation_age = 1d</div><div class="line"># 单个日志文件的大小，如果时间没有超过log_rotation_age，一个日志文件最大只能到10M，否则将新生成一个日志文件</div><div class="line">log_rotation_size = 10MB</div><div class="line"># 当日志文件已存在时，该配置如果为off，新生成的日志将在文件尾部追加，如果为on，则会覆盖原来的日志</div><div class="line">log_truncate_on_rotation = off</div><div class="line">记录每条SQL语句执行完成消耗的时间，将此配置设置为on,用于统计哪些SQL语句耗时较长。</div><div class="line">log_duration = off</div></pre></td></tr></table></figure>
@@ -529,7 +527,7 @@ CentOS
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-count">36</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -546,7 +544,7 @@ CentOS
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
