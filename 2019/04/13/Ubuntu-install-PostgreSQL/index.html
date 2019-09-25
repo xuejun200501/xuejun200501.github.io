@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="PostgreSQL,Ubuntu," />
+  <meta name="keywords" content="Ubuntu,PostgreSQL," />
 
 
 
@@ -94,7 +94,7 @@ CentOS  1234567891011# Install the repository RPM:yum install https://download.p
 <meta property="og:description" content="前言由于相关需求，需要安装PostgreSQL数据库，但卸载时，出现问题
 安装PostgreSQL
 CentOS  1234567891011# Install the repository RPM:yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2">
-<meta property="og:updated_time" content="2019-09-25T07:40:18.172Z">
+<meta property="og:updated_time" content="2019-09-25T08:12:04.401Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu 安装 PostgreSQL">
 <meta name="twitter:description" content="前言由于相关需求，需要安装PostgreSQL数据库，但卸载时，出现问题
@@ -419,9 +419,10 @@ CentOS  1234567891011# Install the repository RPM:yum install https://download.p
 </blockquote>
 <h3 id="Navicat密码不对情况"><a href="#Navicat密码不对情况" class="headerlink" title="Navicat密码不对情况"></a>Navicat密码不对情况</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FATAL : password authentication failed for user “postgres”</div></pre></td></tr></table></figure>
 <blockquote>
-<p>解决方法<br>```<br>$ sudo -u postgres psql -c “ALTER USER postgres PASSWORD ‘postgres’;”</p>
-</blockquote>
+<p>解决方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; `&gt; $ sudo -u postgres psql -c &quot;ALTER USER postgres PASSWORD &apos;postgres&apos;;&quot;</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+<p>`</p>
 <h3 id="无密码登录PostgreSQL"><a href="#无密码登录PostgreSQL" class="headerlink" title="无密码登录PostgreSQL"></a>无密码登录PostgreSQL</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">oderp@oderp:~$ su postgres</div><div class="line">Password:</div><div class="line">postgres@oderp:/home/oderp$ psql</div><div class="line">psql (10.10 (Ubuntu 10.10-0ubuntu0.18.04.1))</div><div class="line">Type &quot;help&quot; for help.</div></pre></td></tr></table></figure>
+</blockquote>
 <h3 id="指定ip、端口号、数据库等登录PostgreSQL"><a href="#指定ip、端口号、数据库等登录PostgreSQL" class="headerlink" title="指定ip、端口号、数据库等登录PostgreSQL"></a>指定ip、端口号、数据库等登录PostgreSQL</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">oderp@oderp:~$ sudo psql -h 127.0.0.1 -p 5432 -d database -U postgres</div></pre></td></tr></table></figure>
 <h3 id="修改PostgreSQL中用户方法"><a href="#修改PostgreSQL中用户方法" class="headerlink" title="修改PostgreSQL中用户方法"></a>修改PostgreSQL中用户方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo -u postgres psql -c &quot;Alter user postgres password &apos;test123&apos;&quot;</div></pre></td></tr></table></figure>
 
@@ -447,9 +448,9 @@ CentOS  1234567891011# Install the repository RPM:yum install https://download.p
       
         <div class="post-tags">
           
-            <a href="/tags/PostgreSQL/" rel="tag"># PostgreSQL</a>
-          
             <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
+          
+            <a href="/tags/PostgreSQL/" rel="tag"># PostgreSQL</a>
           
         </div>
       
