@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Ubuntu,PostgreSQL," />
+  <meta name="keywords" content="PostgreSQL,Ubuntu," />
 
 
 
@@ -94,7 +94,7 @@ CentOS  1234567891011# Install the repository RPM:yum install https://download.p
 <meta property="og:description" content="前言由于相关需求，需要安装PostgreSQL数据库，但卸载时，出现问题
 安装PostgreSQL
 CentOS  1234567891011# Install the repository RPM:yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2">
-<meta property="og:updated_time" content="2019-04-16T03:21:41.004Z">
+<meta property="og:updated_time" content="2019-09-25T07:40:18.172Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu 安装 PostgreSQL">
 <meta name="twitter:description" content="前言由于相关需求，需要安装PostgreSQL数据库，但卸载时，出现问题
@@ -413,6 +413,17 @@ CentOS  1234567891011# Install the repository RPM:yum install https://download.p
 </ul>
 <h3 id="修改postgresql-conf文件"><a href="#修改postgresql-conf文件" class="headerlink" title="修改postgresql.conf文件"></a>修改postgresql.conf文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"># 是否将日志重定向至文件中，默认是off</div><div class="line">logging_collector = on/off</div><div class="line"># 日志文件目录，默认是PGDATA的相对路径</div><div class="line"># 默认为$&#123;PGDATA&#125;/log，即集群目录下，但是日志文件可能会非常多，建议将日志重定向到其他目录或分区。</div><div class="line"># 将此配置修改为/var/log/pg_log下，必须先创建此目录，并修改权限</div><div class="line">log_directory = &apos;log&apos;</div><div class="line"># 日志文件命名形式，使用默认即可</div><div class="line">log_filename = &apos;postgresql-%Y-%m-%d_%H%M%S.log&apos; </div><div class="line"># 单个日志文件的生存期，默认1天，在日志文件大小没有达到log_rotation_size时，一天只生成一个日志文件</div><div class="line">log_rotation_age = 1d</div><div class="line"># 单个日志文件的大小，如果时间没有超过log_rotation_age，一个日志文件最大只能到10M，否则将新生成一个日志文件</div><div class="line">log_rotation_size = 10MB</div><div class="line"># 当日志文件已存在时，该配置如果为off，新生成的日志将在文件尾部追加，如果为on，则会覆盖原来的日志</div><div class="line">log_truncate_on_rotation = off</div><div class="line">记录每条SQL语句执行完成消耗的时间，将此配置设置为on,用于统计哪些SQL语句耗时较长。</div><div class="line">log_duration = off</div></pre></td></tr></table></figure>
 <h3 id="修改postgresql-conf"><a href="#修改postgresql-conf" class="headerlink" title="修改postgresql.conf"></a>修改postgresql.conf</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">listen_addresses = &apos;*&apos;</div><div class="line">host  all  all 0.0.0.0/0 md5</div></pre></td></tr></table></figure>
+<h2 id="可能出现问题"><a href="#可能出现问题" class="headerlink" title="可能出现问题"></a>可能出现问题</h2><h3 id="Navicat出现5432无法链接错误"><a href="#Navicat出现5432无法链接错误" class="headerlink" title="Navicat出现5432无法链接错误"></a>Navicat出现5432无法链接错误</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Could not connect to server：Connection refused(0x00002740/10061) </div><div class="line">         Is the server running on host “xxx.xxx.xx.xx” and accepting </div><div class="line">         TCP/IP connetions on port 5432?</div></pre></td></tr></table></figure>
+<blockquote>
+<p>解决办法：<br>修改配置文件pg_hba.conf<br>修改配置文件postgresql.conf</p>
+</blockquote>
+<h3 id="Navicat密码不对情况"><a href="#Navicat密码不对情况" class="headerlink" title="Navicat密码不对情况"></a>Navicat密码不对情况</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FATAL : password authentication failed for user “postgres”</div></pre></td></tr></table></figure>
+<blockquote>
+<p>解决方法<br>```<br>$ sudo -u postgres psql -c “ALTER USER postgres PASSWORD ‘postgres’;”</p>
+</blockquote>
+<h3 id="无密码登录PostgreSQL"><a href="#无密码登录PostgreSQL" class="headerlink" title="无密码登录PostgreSQL"></a>无密码登录PostgreSQL</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">oderp@oderp:~$ su postgres</div><div class="line">Password:</div><div class="line">postgres@oderp:/home/oderp$ psql</div><div class="line">psql (10.10 (Ubuntu 10.10-0ubuntu0.18.04.1))</div><div class="line">Type &quot;help&quot; for help.</div></pre></td></tr></table></figure>
+<h3 id="指定ip、端口号、数据库等登录PostgreSQL"><a href="#指定ip、端口号、数据库等登录PostgreSQL" class="headerlink" title="指定ip、端口号、数据库等登录PostgreSQL"></a>指定ip、端口号、数据库等登录PostgreSQL</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">oderp@oderp:~$ sudo psql -h 127.0.0.1 -p 5432 -d database -U postgres</div></pre></td></tr></table></figure>
+<h3 id="修改PostgreSQL中用户方法"><a href="#修改PostgreSQL中用户方法" class="headerlink" title="修改PostgreSQL中用户方法"></a>修改PostgreSQL中用户方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo -u postgres psql -c &quot;Alter user postgres password &apos;test123&apos;&quot;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -436,9 +447,9 @@ CentOS  1234567891011# Install the repository RPM:yum install https://download.p
       
         <div class="post-tags">
           
-            <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
-          
             <a href="/tags/PostgreSQL/" rel="tag"># PostgreSQL</a>
+          
+            <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
           
         </div>
       
@@ -579,7 +590,7 @@ CentOS  1234567891011# Install the repository RPM:yum install https://download.p
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装PostgreSQL"><span class="nav-number">1.1.</span> <span class="nav-text">安装PostgreSQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卸载PostgreSQL"><span class="nav-number">1.2.</span> <span class="nav-text">卸载PostgreSQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动PostgreSQL"><span class="nav-number">1.3.</span> <span class="nav-text">启动PostgreSQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看pg-hba-conf-postgresql-conf位置"><span class="nav-number">1.4.</span> <span class="nav-text">查看pg_hba.conf, postgresql.conf位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改postgresql-conf文件"><span class="nav-number">1.5.</span> <span class="nav-text">修改postgresql.conf文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改postgresql-conf"><span class="nav-number">1.6.</span> <span class="nav-text">修改postgresql.conf</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装PostgreSQL"><span class="nav-number">1.1.</span> <span class="nav-text">安装PostgreSQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卸载PostgreSQL"><span class="nav-number">1.2.</span> <span class="nav-text">卸载PostgreSQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动PostgreSQL"><span class="nav-number">1.3.</span> <span class="nav-text">启动PostgreSQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看pg-hba-conf-postgresql-conf位置"><span class="nav-number">1.4.</span> <span class="nav-text">查看pg_hba.conf, postgresql.conf位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改postgresql-conf文件"><span class="nav-number">1.5.</span> <span class="nav-text">修改postgresql.conf文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改postgresql-conf"><span class="nav-number">1.6.</span> <span class="nav-text">修改postgresql.conf</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可能出现问题"><span class="nav-number">2.</span> <span class="nav-text">可能出现问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Navicat出现5432无法链接错误"><span class="nav-number">2.1.</span> <span class="nav-text">Navicat出现5432无法链接错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Navicat密码不对情况"><span class="nav-number">2.2.</span> <span class="nav-text">Navicat密码不对情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无密码登录PostgreSQL"><span class="nav-number">2.3.</span> <span class="nav-text">无密码登录PostgreSQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定ip、端口号、数据库等登录PostgreSQL"><span class="nav-number">2.4.</span> <span class="nav-text">指定ip、端口号、数据库等登录PostgreSQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改PostgreSQL中用户方法"><span class="nav-number">2.5.</span> <span class="nav-text">修改PostgreSQL中用户方法</span></a></li></ol></li></ol></div>
             
 
           </div>
